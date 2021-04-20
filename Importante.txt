@@ -1,0 +1,18 @@
+Para mantener el coigo bien limpio cuando vayamos a crear cualquier clase lo que haremos sera desde el explorador de soluciones agregar un nuevo elemento (.h) y la ubicacion la pondremos en "Archivoscabecera(.h)". 
+
+De la misma forma el archivo fuente de la clase (.cpp) lo crearemos desde el explorador y su ubicacion sera en la carpeta "ArchivosFuente(.cpp)"
+
+Para que os funciones el "freglut" obligatoriamente teneis que poner el debugger en x64. 
+
+Comandos para (GITHUB): 
+-git init  //Inicializa el git.
+-git remote add origin [LINK] //Conecta tu carpeta con el servidor online de nuestro repositorio.
+-git remote -v //Nos da la informacion de a que repositorio estamos conectados.
+-git clone [LINK]  //Clona el proyecto de GitHub correspondiente al link.
+-git status //Saber si hemos cargado los archivos para poder enviarlos. 
+-git add * //Carga los datos para subirlos.
+-git commit -m "[MENSAJE]" //Crea una etiqueta, que sera el texto que escribamos entre las comillas.
+-git push origin master //Sube los cambios que efectuemos. 
+
+ÚLTIMA MODIFICACIÓN:
+Guillermo, 19 abril 19:20 - Continuación de lo de ayer

@@ -1,14 +1,6 @@
-# BrickBreaker
+# BOXHEAD
 Trabajo de grupo para la asignatura de Informática Industrial.
 
-1. Se descarga todo. SOLO se suben los .h y los .cpp
+Videojuego shooter en plano cenital y estará basado en el formato "Lego". El jugador debe eliminar a los zombies que se dirigen hacia él. Habrá diferentes armas y varios niveles, que irán aumentando su complejidad tanto en el terreno, en el número de zombis y la velocidad a la que se mueven los mismos.
 
-2. Se trabaja desde el ordenador de cada uno.
-
-3. Todo lo añadido debe ser aclarado con comentarios, para que los que sigan vean los cambios
-
-4. Si se comprueba que TODO lo añadido o cambiado funciona, se borra lo anterior y se suben todos los archivos (ya veremos si eso se hace)
-
-5. Conveniente antes de subir algo guardar un zip con el proyecto por si se pierde todo.
-
-
+El juego terminará cuando se agoten las vidas del jugador o cuando elimine a todos los zombis de todos los niveles.
