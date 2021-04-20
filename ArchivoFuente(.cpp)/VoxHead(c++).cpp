@@ -2,14 +2,16 @@
 #include <freeglut.h>
 #include <CamaraDeVision.h>
 #include <Jugador.h>
+//#include <Zombie.h>
+
+//Mundo WORLD
+
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
 CamaraDeVision CAMARA;
-Jugador SANTIAGO;
-
+Jugador HEROE;
 //Fin zona de declaracion de Variables y Clases.
-
 
 //Los CallBack se las funciones se llaman automaticamente cuado suceden los eventos (no hay que llamarlos).
 void OnDraw(void); //Funcion de dibujado.
@@ -19,7 +21,6 @@ void OnKeyboardDown(unsigned char key, int x, int y); //Se llama automaticamente
 
 int main(int argc, char* argv[])
 {
-
 	//Inicializacion de la ventana.
 	glutInit(&argc, argv);
 	glutInitWindowSize(800, 600);
@@ -39,6 +40,8 @@ int main(int argc, char* argv[])
 	glutTimerFunc(25, OnTimer, 0);//Llama periodicamente a la funcion, el primer argumento es el tiempo en "ms" del periodo.
 	glutKeyboardFunc(OnKeyboardDown);
 
+	//WORLD.Inicializa();
+
 	//Pasa el control del programa a la API GLUT.
 	glutMainLoop();
 
@@ -50,7 +53,8 @@ void OnDraw(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	//Acciones repetitivas cada ciclo de dibujo.
-	CAMARA.SeguimientoPersonaje(SANTIAGO.ValorEspacial_x(), SANTIAGO.ValorEspacial_y(), SANTIAGO.ValorEspacial_z());
+	//WORLD.Dibuja()
+	CAMARA.SeguimientoPersonaje(HEROE.ValorEspacial_x(), HEROE.ValorEspacial_y(), HEROE.ValorEspacial_z()); //Sigue al personaje en cada ciclo
 	//Fin de accciones repetitivas.
 
 	//Define el punto de vista.
@@ -63,18 +67,21 @@ void OnDraw(void)
 	//Inicio del codigo de dibujo.
 	
 	//Eje cartesiano para aclararnos: X = Rojo; Y = Verde; Z = Azul.
+		//Eje X
 		glBegin(GL_LINES);
-		glColor3f(1, 0, 0);
+		glColor3f(1, 0, 0); 
 		glVertex3f(0, 0, 0);
 		glVertex3f(1, 0, 0);
 		glEnd();
 
+		//Eje Y 
 		glBegin(GL_LINES);
 		glColor3f(0, 1, 0);
 		glVertex3f(0, 0, 0);
 		glVertex3f(0, 1, 0);
 		glEnd();
 
+		//Eje Z
 		glBegin(GL_LINES);
 		glColor3f(0, 0, 1);
 		glVertex3f(0, 0, 0);
@@ -82,8 +89,8 @@ void OnDraw(void)
 		glEnd();
     //Fin eje cartesiano.
 
-
-		SANTIAGO.Dibuja();
+	//Inicio código dibujo.
+		HEROE.Dibuja();
 	
 	//Final de codigo de dibujo.
 
@@ -92,9 +99,8 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//Inicio codigo vinculado al teclado.
-	SANTIAGO.Mueve(key);
-	
-
+	//WORLD.Tecla(key);
+	HEROE.Mueve(key);
 	//Final codigo vinculado al teclado.
 
 
@@ -105,7 +111,7 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 void OnTimer(int value)
 {
 	//Inicio codigo vinculado al bucle temporal.
-
+	//WORLD.Mueve();
     //Final codigo vinculado al bucle temporal.
 
 	//No borrar estos comandos.

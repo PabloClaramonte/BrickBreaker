@@ -1,12 +1,12 @@
 #include "PuntosCartesianos.h"
 #include "freeglut.h"
 
-class Zombie
+class Zombie : public PuntosCartesianos
 {
 public:
 
 	Zombie();
-	virtual ~Zombie();
+	~Zombie();
 
 	void Dibuja();
 	void Mueve(float t);

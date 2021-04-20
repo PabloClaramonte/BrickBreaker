@@ -15,4 +15,4 @@ Comandos para (GITHUB):
 -git push origin master //Sube los cambios que efectuemos. 
 
 ÚLTIMA MODIFICACIÓN:
-Guillermo, 19 abril 19:20 - Continuación de lo de ayer
+Pablo, 20 Abril - Creación de Mundo.h y Mundo.cpp para incluir todos los métodos y solo instanciar Mundo en el main().

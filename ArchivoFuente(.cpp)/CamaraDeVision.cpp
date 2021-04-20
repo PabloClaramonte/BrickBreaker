@@ -33,9 +33,9 @@ CamaraDeVision::~CamaraDeVision() //Cuerpo del Destrcutorpor defecto.
 	 LookAt_y = y;
 	 LookAt_z = z;
 
-	 //La camar siempre se situa a la misma distancia del personaje, para mantener la misma perspectiva.
+	 //La camara siempre se situa a la misma distancia del personaje, para mantener la misma perspectiva.
 	 Position_x = x;
-	 Position_y = (y + 20);
+	 Position_y = (y + 40);
 	 Position_z = (z + 40);
 
 	 /* Los arguementos de la funcion son las coordenadas x,y,z del personaje que vamos a crear. Por lo que cuando 

@@ -17,7 +17,7 @@ public:
 	//Metodo para mover la camara con el personaje.
 	void SeguimientoPersonaje(float x, float y, float z);
 
-	//Meotodos para coger los valores donde apunta la camara.
+	//Metodos para coger los valores donde apunta la camara.
 	float A_x(void) { return LookAt_x; }
 	float A_y(void) { return LookAt_y; }
 	float A_z(void) { return LookAt_z; }

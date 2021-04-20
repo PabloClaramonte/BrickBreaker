@@ -55,7 +55,7 @@ void Jugador::Mueve( unsigned char t)
         break;
     }
 
-    /* Como los atrivutos heredados son privados solo podemos modificarlos con los metodos disponibles en la clase 
+    /* Como los atributos heredados son privados solo podemos modificarlos con los metodos disponibles en la clase 
        PuntosCartesianos.
     */
 }

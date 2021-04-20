@@ -30,9 +30,6 @@
     <ClInclude Include="ArchivoCabecera(.h)\Caja.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\CCaja.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="ArchivoCabecera(.h)\Disparo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -43,6 +40,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ArchivoCabecera(.h)\Zombie.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Mundo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,9 +62,6 @@
     <ClCompile Include="ArchivoFuente(.cpp)\Caja.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\CCaja.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="ArchivoFuente(.cpp)\Disparo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -75,6 +72,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ArchivoFuente(.cpp)\Zombie.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Mundo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
