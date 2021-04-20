@@ -25,10 +25,10 @@
     <ClInclude Include="ArchivoCabecera(.h)\Disparo.h" />
     <ClInclude Include="ArchivoCabecera(.h)\freeglut.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Jugador.h" />
+    <ClInclude Include="ArchivoCabecera(.h)\Mundo.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Pared.h" />
     <ClInclude Include="ArchivoCabecera(.h)\PuntosCartesianos.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Zombie.h" />
-    <ClInclude Include="Mundo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArchivoFuente(.cpp)\Bonus.cpp" />
@@ -36,11 +36,11 @@
     <ClCompile Include="ArchivoFuente(.cpp)\CamaraDeVision.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Disparo.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Jugador.cpp" />
+    <ClCompile Include="ArchivoFuente(.cpp)\Mundo.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Pared.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\PuntosCartesianos.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Zombie.cpp" />
-    <ClCompile Include="Mundo.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

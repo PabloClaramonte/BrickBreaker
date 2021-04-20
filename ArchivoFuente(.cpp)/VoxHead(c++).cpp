@@ -2,15 +2,14 @@
 #include <freeglut.h>
 #include <CamaraDeVision.h>
 #include <Jugador.h>
-//#include <Zombie.h>
-
-//Mundo WORLD
-
+#include <Zombie.h>
+//#include <Pared.h>
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
 CamaraDeVision CAMARA;
 Jugador HEROE;
+//Mundo WORLD
 //Fin zona de declaracion de Variables y Clases.
 
 //Los CallBack se las funciones se llaman automaticamente cuado suceden los eventos (no hay que llamarlos).

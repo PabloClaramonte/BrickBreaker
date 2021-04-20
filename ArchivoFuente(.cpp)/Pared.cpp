@@ -6,12 +6,12 @@ Pared::Pared()
 	rojo = 255;
 	verde = 255;
 	azul = 255;
-	/*
+	
 	limite1.x = -10.0f;
 	limite2.x = 10.0f;
 	limite1.y = 0.0f;
 	limite2.y = 15.0f;
-	*/
+	
 }
 
 Pared::~Pared()
