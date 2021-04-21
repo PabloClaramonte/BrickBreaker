@@ -15,4 +15,4 @@ Comandos para (GITHUB):
 -git push origin master //Sube los cambios que efectuemos. 
 
 ÚLTIMA MODIFICACIÓN:
-Pablo, 20 Abril - Creación de Mundo.h y Mundo.cpp para incluir todos los métodos y solo instanciar Mundo en el main().
+Pablo, 21 Abril - Dibujo en el mapa de paredes, zombie y bonus. (Próximo paso, programar interacción)
