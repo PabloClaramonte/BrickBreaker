@@ -2,6 +2,9 @@
 
 Bonus::Bonus()
 {
+    posicion.x = 5.0;
+    posicion.y = 5.0;
+    lado = 1.0;
 }
 
 Bonus::~Bonus()

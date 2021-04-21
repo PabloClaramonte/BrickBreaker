@@ -12,7 +12,7 @@ public:
 	//Paredes que delimitan la caja 
 	Pared Norte; 
 	Pared Sur;
-	Pared Derecha;
 	Pared Izquierda;
+	Pared Derecha;
 };
 

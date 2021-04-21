@@ -3,12 +3,16 @@
 #include <CamaraDeVision.h>
 #include <Jugador.h>
 #include <Zombie.h>
-//#include <Pared.h>
+#include <Caja.h>
+#include <Bonus.h>
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
 CamaraDeVision CAMARA;
 Jugador HEROE;
+Zombie MALO;
+Bonus BONUS;
+Caja CAJA;
 //Mundo WORLD
 //Fin zona de declaracion de Variables y Clases.
 
@@ -70,25 +74,28 @@ void OnDraw(void)
 		glBegin(GL_LINES);
 		glColor3f(1, 0, 0); 
 		glVertex3f(0, 0, 0);
-		glVertex3f(1, 0, 0);
+		glVertex3f(5, 0, 0);
 		glEnd();
 
 		//Eje Y 
 		glBegin(GL_LINES);
 		glColor3f(0, 1, 0);
 		glVertex3f(0, 0, 0);
-		glVertex3f(0, 1, 0);
+		glVertex3f(0, 5, 0);
 		glEnd();
 
 		//Eje Z
 		glBegin(GL_LINES);
 		glColor3f(0, 0, 1);
 		glVertex3f(0, 0, 0);
-		glVertex3f(0, 0, 1);
+		glVertex3f(0, 0, 5);
 		glEnd();
     //Fin eje cartesiano.
 
 	//Inicio código dibujo.
+		BONUS.Dibuja(); 
+		MALO.Dibuja();
+		CAJA.Dibuja();
 		HEROE.Dibuja();
 	
 	//Final de codigo de dibujo.

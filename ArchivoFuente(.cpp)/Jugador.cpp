@@ -16,8 +16,8 @@ Jugador::~Jugador()
 void Jugador::Dibuja()
 {
     glTranslatef(ValorEspacial_x(), ValorEspacial_y(), ValorEspacial_z());
-    glColor3f(1.0f, 1.0f, 1.0f);
-    glutSolidSphere(0.5, 20, 20);
+    glColor3f(1.0f, 0.0f, 1.0f);
+    glutSolidSphere(2, 20, 20);
     glTranslatef(0, 0, 0);
 }
 
