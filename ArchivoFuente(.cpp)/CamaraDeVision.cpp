@@ -2,47 +2,85 @@
 #include"CamaraDeVision.h"
 //Fin zona #includes.
 
-CamaraDeVision::CamaraDeVision() //Cuerpo del Constructor por defecto.
+CamaraDeVision::CamaraDeVision()
 {
-	//Vlores iniciales donde mira la camara.
-	LookAt_x = 0.0;
-	LookAt_y = 0.0;
-	LookAt_z = 0.0;
-
-	//Valores iniciales donde esta situada la camara.
-	Position_x = 0.0;
-	Position_y = 0.0; 
-	Position_z = 0.0;
 	
-	//Los valores del autogiro una vez se contruya el objeto nunca se modificaran.
-	Swap_x = 0.0,
-	Swap_y = 1.0;
-    Swap_z = 0.0;
+	velocidad.x =0.0f;
+	velocidad.y =0.0f;
+	velocidad.z = 0.0f;
+	vista.x = heroe.posicion.x;
+	vista.y = heroe.posicion.y;
+	vista.z = heroe.posicion.z;
 
+	posicion.x = heroe.posicion.x - 40;
+	posicion.y = heroe.posicion.y + 40;
+	posicion.z = heroe.posicion.z;
+	giro.x = 0.0f;
+	giro.y = 1.0f;
+	giro.z = 0.0f;
 }
 
 CamaraDeVision::~CamaraDeVision() //Cuerpo del Destrcutorpor defecto.
 {
 
 }
-
- void CamaraDeVision::SeguimientoPersonaje(float x,float y,float z)
+void CamaraDeVision::SetVel(float vx, float vy)
 {
-	 //La camara apunta siempre al personaje.
-	 LookAt_x = x; 
-	 LookAt_y = y;
-	 LookAt_z = z;
-
-	 //La camara siempre se situa a la misma distancia del personaje, para mantener la misma perspectiva.
-	 Position_x = x;
-	 Position_y = (y + 40);
-	 Position_z = (z + 40);
-
-	 /* Los arguementos de la funcion son las coordenadas x,y,z del personaje que vamos a crear. Por lo que cuando 
-	    llamemos al metodo en el codigo principal debemos asegurarnos que utilizamos los metodos de la clase Jugador.h
-		correspondientes para que devuelvan los valores antes especificados.
-
-		La distancia de la camara al personaje ( es decir el +20 y el +40 se puede cambiar como queramos para que la 
-		camara tenga la perspectivas que deseemos.
-	 */
+	velocidad.x = vx;
+	velocidad.z = vy;
 }
+void CamaraDeVision::Pos(Jugador j)
+{
+	posicion = j.getPos();	
+	vista = j.getPos();
+
+}
+ void CamaraDeVision::Inicializa()
+{ 
+	 /*vista.x = heroe.posicion.x;
+	 vista.y = heroe.posicion.y;
+	 vista.z = heroe.posicion.z;*/
+
+	 posicion.x = heroe.posicion.x-40;
+	 posicion.y= heroe.posicion.y +40;
+	 posicion.z= heroe.posicion.z;
+}
+ void CamaraDeVision::Mueve(float t)
+ {
+	posicion.x = posicion.x + velocidad.x * t;
+	posicion.z = posicion.z + velocidad.z * t;
+	vista.x = vista.x + velocidad.x*t;
+	vista.z =vista.z + velocidad.z*t;
+ }
+ void CamaraDeVision::tecla(unsigned char key,float t)
+ {
+	 switch (key)
+	 {
+		case 'w':
+		 {
+			 SetVel(5.0, 0.0);
+			break;
+		 }
+		 case 's':
+		 {
+			 SetVel(-5.0, 0.0);	 
+
+			 break;
+		 }
+		 case 'a':
+		{
+			 SetVel(0.0, -5.0);
+			 break;
+		}
+		 case 'd':
+		 {
+			 SetVel(0.0, 5.0);
+
+			 break;
+		 }
+		 case 'NULL':
+			 SetVel(0.0, 0.0);
+			 break;
+	 }
+ }
+

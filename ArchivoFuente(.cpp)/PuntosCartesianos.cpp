@@ -1,16 +1,22 @@
 //Zona de #includes.
 #include "PuntosCartesianos.h"
 
-//Cuerpo del Constructor por defecto.
-PuntosCartesianos::PuntosCartesianos()
+PuntosCartesianos::PuntosCartesianos()//Cuerpo del Constructor por defecto.
 {
-	x = 0;
-	y = 0;
-	z = 0;
+	x = 0.0f;
+	y = 0.0f;
+	z = 0.0f;
 }
 
-//Cuerpo del Destrcutor por defecto.
-PuntosCartesianos::~PuntosCartesianos()
+PuntosCartesianos::PuntosCartesianos(float xi, float yi, float zi)//contructor simple
+{
+	x = xi;
+	y = yi;
+	z = zi;
+}
+
+
+PuntosCartesianos::~PuntosCartesianos()//Cuerpo del Destrcutor por defecto.
 {
 
 }

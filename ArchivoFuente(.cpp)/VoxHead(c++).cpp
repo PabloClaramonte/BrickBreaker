@@ -46,6 +46,7 @@ int main(int argc, char* argv[])
 	glutKeyboardFunc(OnKeyboardDown);
 
 	//WORLD.Inicializa();
+	CAMARA.Inicializa();
 
 	//Pasa el control del programa a la API GLUT.
 	glutMainLoop();
@@ -59,15 +60,20 @@ void OnDraw(void)
 
 	//Acciones repetitivas cada ciclo de dibujo.
 	//WORLD.Dibuja()
-	CAMARA.SeguimientoPersonaje(HEROE.ValorEspacial_x(), HEROE.ValorEspacial_y(), HEROE.ValorEspacial_z()); //Sigue al personaje en cada ciclo
+	//CAMARA.SeguimientoPersonaje(HEROE.ValorEspacial_x(), HEROE.ValorEspacial_y(), HEROE.ValorEspacial_z()); //Sigue al personaje en cada ciclo
+	
 	//Fin de accciones repetitivas.
 
 	//Define el punto de vista.
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(CAMARA.P_x(), CAMARA.P_y(),CAMARA.P_z(), // Posicion de la camara.
-		CAMARA.A_x(),CAMARA.A_y(),CAMARA.A_z(), // Punto hacia el que mira la camara.
-		CAMARA.S_x(),CAMARA.S_y(),CAMARA.S_z()); // Vector de autogiro de la camara (No Tocar).   
+	gluLookAt(CAMARA.posicion.x, CAMARA.posicion.y,CAMARA.posicion.z, // Posicion de la camara.
+		CAMARA.vista.x,CAMARA.vista.y,CAMARA.vista.z, // Punto hacia el que mira la camara.
+		CAMARA.giro.x,CAMARA.giro.y,CAMARA.giro.z); // Vector de autogiro de la camara (No Tocar).   
+
+	/*gluLookAt(50, 50, 50, // Posicion de la camara.
+		0, 0, 0, // Punto hacia el que mira la camara.
+		0, 1, 0); // Vector de autogiro de la camara (No Tocar).*/
 
 	//Inicio del codigo de dibujo.
 	
@@ -108,7 +114,8 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//Inicio codigo vinculado al teclado.
 	//WORLD.Tecla(key);
-	HEROE.Mueve(key);
+	HEROE.tecla(key);
+	CAMARA.tecla(key, 0.025f);
 	//Final codigo vinculado al teclado.
 
 
@@ -120,9 +127,11 @@ void OnTimer(int value)
 {
 	//Inicio codigo vinculado al bucle temporal.// 
 	disparo.Mueve(0.025f);
+	HEROE.Mueve(0.025f);
+	CAMARA.Mueve(0.025f);
 	//WORLD.Mueve();
     //Final codigo vinculado al bucle temporal.
-
+	
 	//No borrar estos comandos.
 	glutTimerFunc(25, OnTimer, 0); //Necesario para generar interupciones cada "x" ms.
 	glutPostRedisplay(); //Redibuja la imagen una vez finaliza la funcion.

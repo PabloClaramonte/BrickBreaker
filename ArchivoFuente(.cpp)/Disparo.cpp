@@ -55,7 +55,8 @@ void Disparo::getDir(unsigned char key)
 
 void Disparo::Mueve(float t)
 {
-	posicion = posicion +  velocidad * t;
+	posicion.x = posicion.x + velocidad.x * t;
+	posicion.z = posicion.z + velocidad.z * t;
 }
 void Disparo::SetPos(float ix, float iy)
 {
