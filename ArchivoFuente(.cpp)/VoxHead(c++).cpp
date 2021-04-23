@@ -5,6 +5,7 @@
 #include <Zombie.h>
 #include <Caja.h>
 #include <Bonus.h>
+#include <Disparo.h>
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
@@ -13,6 +14,7 @@ Jugador HEROE;
 Zombie MALO;
 Bonus BONUS;
 Caja CAJA;
+Disparo disparo;
 //Mundo WORLD
 //Fin zona de declaracion de Variables y Clases.
 
@@ -116,7 +118,8 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 
 void OnTimer(int value)
 {
-	//Inicio codigo vinculado al bucle temporal.
+	//Inicio codigo vinculado al bucle temporal.// 
+	disparo.Mueve(0.025f);
 	//WORLD.Mueve();
     //Final codigo vinculado al bucle temporal.
 

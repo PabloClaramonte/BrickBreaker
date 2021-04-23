@@ -7,8 +7,11 @@ public:
 	Disparo();
 	virtual ~Disparo();
 
+	float radio;
+
 	void Mueve(float t);
 	void Dibuja();
+	void SetPos(float ix, float iy);
 
 	/*Habrá disparos de diferentes colores en función del arma:
 	Pistola: Disparo único. Balas Negras
@@ -23,6 +26,9 @@ public:
 	//Velocidad, posición, aceleración del disparo 
 	PuntosCartesianos posicion;
 	PuntosCartesianos velocidad;
-	//PuntosCartesianos aceleracion; si queremos que el disparo varíe su velocidad.
+
+	//PuntosCartesianos aceleracion; //si queremos que el disparo varíe su velocidad??
+
+	void getDir(unsigned char key);
 };
 
