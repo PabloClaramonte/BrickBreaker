@@ -131,7 +131,8 @@ void OnTimer(int value)
 	HEROE.Mueve(0.025f);
 	CAMARA.Mueve(0.025f);
 	MALO.Mueve(0.025f);
-	BALA.Mueve(0.025f);
+	//BALA.Mueve(0.025f);
+	BALA.direccion(0.025f);
 	//WORLD.Mueve();
     //Final codigo vinculado al bucle temporal.
 	

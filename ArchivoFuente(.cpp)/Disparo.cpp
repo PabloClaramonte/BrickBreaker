@@ -17,6 +17,10 @@ Disparo::Disparo()
 	velocidad.x = 0.0;
 	velocidad.y = 0.0;
 	velocidad.z = 0.0;
+
+	v_ang = 0.0;
+	angulo = 0.0;
+	dist = 5.0;
 }
 
 Disparo::~Disparo()
@@ -38,11 +42,16 @@ void Disparo::SetVel(float vx, float vz)
 	velocidad.z = vz;
 }
 
+void Disparo::SetVelAng(float w)
+{
+	v_ang = w;
+}
+
 //tendremos obligatoriamente que saber en que direccion mira para ponerle direccion y sentido
 //al disparo y despues añadimos las mierda de funciones que tiene guille en puntoscartesianos.h
 void Disparo::tecla(unsigned char key)
 {
-    switch (key)
+   /* switch (key)
     {
         //DUDA: Queremos que se detenga al pulsar dos veces la misma tecla
     case 'w':
@@ -67,14 +76,30 @@ void Disparo::tecla(unsigned char key)
     }
     case ' ':
         SetVel(0.0, 0.0);
-        break;
-    }
+        break;*/
+	switch (key)
+	{
+		case 'j':
+			SetVelAng(-5.0);
+			break;
+		case 'l':
+			SetVelAng(5.0f);
+			break;
+		case 'k':
+			SetVelAng(0.0f);
+			break;
+	}
 }
 
-void Disparo::Mueve(float t)
+
+void Disparo::direccion(float t)
 {
-	posicion.x = posicion.x + velocidad.x * t;
-	posicion.z = posicion.z + velocidad.z * t;
+	float dist = sqrt((posicion.x - j.posicion.x) * (posicion.x - j.posicion.x) + (posicion.z - j.posicion.z) * (posicion.z - j.posicion.z));
+	angulo= atan2(posicion.z-j.posicion.z, posicion.x-j.posicion.x);
+
+	angulo = angulo + v_ang * t;
+	posicion.x = dist * cos(angulo);
+	posicion.z = dist * sin(angulo);
 }
 void Disparo::SetPos(float ix, float iz)
 {
