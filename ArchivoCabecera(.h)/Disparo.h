@@ -11,24 +11,22 @@ public:
 
 	void Mueve(float t);
 	void Dibuja();
-	void SetPos(float ix, float iy);
+	void SetPos(float ix, float iz);
+	void SetVel(float vx, float vz);
 
-	/*Habrá disparos de diferentes colores en función del arma:
-	Pistola: Disparo único. Balas Negras
-	Escopeta: Disparo 3 balas en 3 direcciones. Balas Rojas.
-	Subfusil: Disparo en ráfaga. Balas Amarillas. */
+	/*Habrá disparos de diferentes SPRITES en función del arma:
+	Pistola: Disparo único. 
+	Escopeta: Disparo 3 balas en 3 direcciones.
+	Subfusil (UZI): Disparo en ráfaga. */
 	unsigned char rojo;
 	unsigned char verde;
 	unsigned char azul;
-	//Posteriormente podemos usar sprites para los disparos, que es mejor opción.
 
-
-	//Velocidad, posición, aceleración del disparo 
+	//Velocidad y posición del disparo 
 	PuntosCartesianos posicion;
 	PuntosCartesianos velocidad;
 
-	//PuntosCartesianos aceleracion; //si queremos que el disparo varíe su velocidad??
-
-	void getDir(unsigned char key);
+	//Función que asigna una velocidad y dirección al disparo.
+	void tecla(unsigned char key);
 };
 

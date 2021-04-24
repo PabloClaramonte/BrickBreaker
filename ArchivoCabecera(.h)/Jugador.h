@@ -17,13 +17,14 @@ public:
 	PuntosCartesianos posicion;
 	PuntosCartesianos velocidad;
 
+	//no hará falta cuando metamos sprites
 	unsigned char rojo;
 	unsigned char verde;
 	unsigned char azul;
 
 	void Dibuja(); //Metodo encargado del dibujado del personaje.
-	void Mueve( float t); //Metodo encargado de mover el personaje mediante las teclas a,d,w,s.
-	void SetVel(float vx, float vz);
+	void Mueve( float t); //Metodo encargado de mover el personaje mediante las teclas WASD.
+	void SetVel(float vx, float vz); //Asigna una velocidad al personaje.
 	PuntosCartesianos getPos();
 
 	void tecla(unsigned char key);

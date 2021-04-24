@@ -4,12 +4,10 @@
 //Fin zona de #includes.
 
 //Cuerpo del constructor por defecto mas el cosntructor heredado de la clase PuntosCartesianos.
-Jugador::Jugador()//:PuntosCartesianos()
+Jugador::Jugador()
 {
-    rojo = verde = azul = 0;
     posicion.x = posicion.y = posicion.z = 0.0f;
     velocidad.x = velocidad.y = velocidad.z = 0.0f;
-    
 }
 
 //Cuerpo del destructor por defecto.
@@ -27,10 +25,10 @@ void Jugador::Dibuja()
     glTranslatef(0, 0, 0);
 }
 
-void Jugador::SetVel(float vx, float vy)
+void Jugador::SetVel(float vx, float vz)
 {
     velocidad.x = vx;
-    velocidad.z = vy;
+    velocidad.z = vz;
 }
 void Jugador::Mueve(float t)
 {
@@ -51,30 +49,29 @@ void Jugador::tecla(unsigned char key)
 {
     switch (key)
     {
+        //DUDA: Queremos que se detenga al pulsar dos veces la misma tecla
     case 'w':
     {
-        SetVel(5.0,0.0);
+        SetVel(10.0, 0.0);
         break;
     }
     case 's':
     {
-        SetVel(-5.0, 0.0);
+        SetVel(-10.0, 0.0);
         break;
     }
     case 'a':
     {
-        SetVel(0.0, -5.0);
+        SetVel(0.0, -10.0);
         break;
     }
     case 'd': 
     {
-        SetVel(0.0, 5.0);;
+        SetVel(0.0, 10.0);;
         break;
     }
-    case 'NULL':
+    case ' ':
         SetVel(0.0, 0.0);
         break;
     }
-
-   
 }

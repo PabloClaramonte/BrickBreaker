@@ -14,7 +14,7 @@ Jugador HEROE;
 Zombie MALO;
 Bonus BONUS;
 Caja CAJA;
-Disparo disparo;
+Disparo BALA;
 //Mundo WORLD
 //Fin zona de declaracion de Variables y Clases.
 
@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 
 	//WORLD.Inicializa();
 	CAMARA.Inicializa();
-
+	MALO.SetVel(2.5, 2.5);
 	//Pasa el control del programa a la API GLUT.
 	glutMainLoop();
 
@@ -102,9 +102,10 @@ void OnDraw(void)
 
 	//Inicio código dibujo.
 		BONUS.Dibuja(); 
-		MALO.Dibuja();
+		MALO.Dibuja(); 
 		CAJA.Dibuja();
 		HEROE.Dibuja();
+		BALA.Dibuja();
 	
 	//Final de codigo de dibujo.
 
@@ -116,6 +117,7 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 	//WORLD.Tecla(key);
 	HEROE.tecla(key);
 	CAMARA.tecla(key, 0.025f);
+	BALA.tecla(key);
 	//Final codigo vinculado al teclado.
 
 
@@ -125,10 +127,11 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 
 void OnTimer(int value)
 {
-	//Inicio codigo vinculado al bucle temporal.// 
-	disparo.Mueve(0.025f);
+	//Inicio codigo vinculado al bucle temporal.
 	HEROE.Mueve(0.025f);
 	CAMARA.Mueve(0.025f);
+	MALO.Mueve(0.025f);
+	BALA.Mueve(0.025f);
 	//WORLD.Mueve();
     //Final codigo vinculado al bucle temporal.
 	
