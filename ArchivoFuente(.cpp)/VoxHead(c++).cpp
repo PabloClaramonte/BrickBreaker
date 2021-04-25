@@ -44,10 +44,10 @@ int main(int argc, char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//Llama periodicamente a la funcion, el primer argumento es el tiempo en "ms" del periodo.
 	glutKeyboardFunc(OnKeyboardDown);
-
+	
 	//WORLD.Inicializa();
 	CAMARA.Inicializa();
-	MALO.SetVel(2.5, 2.5);
+	MALO.SetVel(1.5, 0.5);
 	//Pasa el control del programa a la API GLUT.
 	glutMainLoop();
 

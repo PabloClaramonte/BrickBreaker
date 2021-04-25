@@ -10,10 +10,10 @@ public:
 	void Dibuja();
 
 	//Paredes que delimitan la caja 
-	Pared Norte; 
-	Pared Sur;
-	Pared Izquierda;
+	Pared Izquierda; 
 	Pared Derecha;
+	Pared Sur;
+	Pared Norte;
 	Pared Suelo;
 };
 

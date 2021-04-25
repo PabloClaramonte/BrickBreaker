@@ -51,32 +51,6 @@ void Disparo::SetVelAng(float w)
 //al disparo y despues añadimos las mierda de funciones que tiene guille en puntoscartesianos.h
 void Disparo::tecla(unsigned char key)
 {
-   /* switch (key)
-    {
-        //DUDA: Queremos que se detenga al pulsar dos veces la misma tecla
-    case 'w':
-    {
-        SetVel(20.0, 0.0);
-        break;
-    }
-    case 's':
-    {
-        SetVel(-20.0, 0.0);
-        break;
-    }
-    case 'a':
-    {
-        SetVel(0.0, -20.0);
-        break;
-    }
-    case 'd':
-    {
-        SetVel(0.0, 20.0);;
-        break;
-    }
-    case ' ':
-        SetVel(0.0, 0.0);
-        break;*/
 	switch (key)
 	{
 		case 'j':
