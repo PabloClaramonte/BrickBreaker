@@ -5,12 +5,17 @@ class PuntosCartesianos
 
 public: 
 
-	//Son las tres variables sobre las cuales dependera todo el resto de los elementos, para poderlos situar en el mundo.
-	float x, y, z;
+	//Puntos Cartesianos X,Y,Z.
+	float X, Y, Z;
 
-	PuntosCartesianos();
-	PuntosCartesianos(float xi, float yi,float zi); // Declaracion del Constructor.
-	~PuntosCartesianos(); //Declaracion del Destructor.
+	//Constructor por defecto.
+	PuntosCartesianos() {};
+
+	//Constructor por valor.
+	PuntosCartesianos(float xi, float yi, float zi) { X = xi; Y = yi; Z = zi; }; 
+
+	//Destructor
+	~PuntosCartesianos() {}; 
 
 };
 

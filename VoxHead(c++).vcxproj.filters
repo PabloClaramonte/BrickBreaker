@@ -21,9 +21,6 @@
     <ClInclude Include="ArchivoCabecera(.h)\PuntosCartesianos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\CamaraDeVision.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="ArchivoCabecera(.h)\Bonus.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -48,12 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\PuntosCartesianos.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\CamaraDeVision.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ArchivoFuente(.cpp)\Bonus.cpp">

@@ -1,77 +1,99 @@
 //Zona de #includes.
 #include "Jugador.h"
-
 //Fin zona de #includes.
 
-//Cuerpo del constructor por defecto mas el cosntructor heredado de la clase PuntosCartesianos.
 Jugador::Jugador()
 {
-    posicion.x = posicion.y = posicion.z = 0.0f;
-    velocidad.x = velocidad.y = velocidad.z = 0.0f;
+    POSICION.X = POSICION.Y = POSICION.Z = 0.0f;
+   
 }
 
-//Cuerpo del destructor por defecto.
 Jugador::~Jugador()
 {
 }
 
-//Cuerpo del metodo Dibuja. !!!!Falta meter un ESPRITE que de momento el jugador es una esfera¡¡¡¡¡
 void Jugador::Dibuja()
 {
    // glTranslatef(ValorEspacial_x(), ValorEspacial_y(), ValorEspacial_z());
-    glTranslatef(posicion.x, posicion.y, posicion.z);
+    glTranslatef(POSICION.X, POSICION.Y, POSICION.Z);
     glColor3f(1.0f, 0.0f, 1.0f);
     glutSolidSphere(2, 20, 20);
     glTranslatef(0, 0, 0);
 }
 
-void Jugador::SetVel(float vx, float vz)
+void Jugador::SetVel(float vel)
 {
-    velocidad.x = vx;
-    velocidad.z = vz;
-}
-void Jugador::Mueve(float t)
-{
-    posicion.x = posicion.x + velocidad.x *t;
-    posicion.z = posicion.z + velocidad.z * t;
-}
-PuntosCartesianos Jugador::getPos()
-{
-    PuntosCartesianos p;
-    p.x = posicion.x;
-    p.y = posicion.y;
-    p.z = posicion.z;
-    return p;
+    VELOCIDAD = vel;
 }
 
-//Cuerpo del metodo que asigna nuevos valores a las coordenadas x,y,z heredadas de la clase PuntosCartesianos.
-void Jugador::tecla(unsigned char key)
+void Jugador::SetWSDA(unsigned char tecla)
 {
-    switch (key)
+    if (tecla == 'w' || tecla == 's' || tecla == 'd' || tecla == 'a')
+    {
+        WSDA = tecla;
+        PREWSDA = tecla;
+    }
+
+    else if (tecla == ' ')
+    {
+        if (DISPARANDO == false)
+        {
+            DISPARANDO = true;
+        }
+
+        else
+        {
+            NULL;
+        }
+
+        WSDA = NULL;
+    }
+
+    else
+    {
+        WSDA = NULL;
+    }
+
+}
+
+void Jugador::Mueve(void)
+{
+    switch (WSDA)
     {
         //DUDA: Queremos que se detenga al pulsar dos veces la misma tecla
     case 'w':
     {
-        SetVel(10.0, 0.0);
+        POSICION.Z = POSICION.Z - VELOCIDAD;
         break;
     }
+
     case 's':
     {
-        SetVel(-10.0, 0.0);
+        POSICION.Z = POSICION.Z + VELOCIDAD;
         break;
     }
+
     case 'a':
     {
-        SetVel(0.0, -10.0);
+        POSICION.X = POSICION.X - VELOCIDAD;
         break;
     }
+
     case 'd': 
     {
-        SetVel(0.0, 10.0);;
+        POSICION.X = POSICION.X + VELOCIDAD;
         break;
     }
-    case ' ':
-        SetVel(0.0, 0.0);
+
+    default:
+    {
         break;
     }
+
+    }
+}
+
+char Jugador::DarPREWSDA(void)
+{
+    return PREWSDA;
 }

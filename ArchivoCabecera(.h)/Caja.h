@@ -14,6 +14,5 @@ public:
 	Pared Derecha;
 	Pared Sur;
 	Pared Norte;
-	Pared Suelo;
 };
 

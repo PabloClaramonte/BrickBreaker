@@ -14,19 +14,27 @@ public:
 	Jugador(); //Declaracion del constructor por defecto.
 	~Jugador(); //Declaracion del destructor por defecto.
 
-	PuntosCartesianos posicion;
-	PuntosCartesianos velocidad;
+	PuntosCartesianos POSICION;
 
-	//no hará falta cuando metamos sprites
+	float VELOCIDAD;
+
+	char WSDA, PREWSDA;
+
+	bool DISPARANDO = false;
+
+	
 	unsigned char rojo;
 	unsigned char verde;
 	unsigned char azul;
 
-	void Dibuja(); //Metodo encargado del dibujado del personaje.
-	void Mueve( float t); //Metodo encargado de mover el personaje mediante las teclas WASD.
-	void SetVel(float vx, float vz); //Asigna una velocidad al personaje.
-	PuntosCartesianos getPos();
+	void Dibuja(); 
 
-	void tecla(unsigned char key);
+	void SetVel(float vel); 
+
+	void SetWSDA(unsigned char tecla);
+
+	void Mueve(void);
+
+	char DarPREWSDA(void);
 };
 

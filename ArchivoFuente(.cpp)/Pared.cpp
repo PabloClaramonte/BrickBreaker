@@ -3,14 +3,14 @@
 
 Pared::Pared()
 {
-	rojo = 255;
+	ROJO = 255;
 	verde = 255;
 	azul = 255;
 	
-	limite1.x = -10.0f;
-	limite2.x = 10.0f;
-	limite1.y = 0.0f;
-	limite2.y = 15.0f;
+	LIMITE1.X = -10.0f;
+	LIMITE2.X = 10.0f;
+	LIMITE1.Y = 0.0f;
+	LIMITE2.Y = 15.0f;
 	
 }
 
@@ -20,42 +20,37 @@ Pared::~Pared()
 
 void Pared::SetColor(unsigned char r, unsigned char v, unsigned char a)
 {
-	rojo = r;
+	ROJO = r;
 	verde = v;
 	azul = a;
 }
 
 void Pared::setPos(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4)
 {
-	limite1.x = x1;
-	limite1.y = y1;
-	limite1.z = z1;
-	limite2.x = x2;
-	limite2.y = y2;
-	limite2.z = z2;
-	limite3.x = x3;
-	limite3.y = y3;
-	limite3.z = z3;
-	limite4.x = x4;
-	limite4.y = y4;
-	limite4.z = z4;
+	LIMITE1.X = x1;
+	LIMITE1.Y = y1;
+	LIMITE1.Z = z1;
+	LIMITE2.X = x2;
+	LIMITE2.Y = y2;
+	LIMITE2.Z = z2;
+	LIMITE3.X = x3;
+	LIMITE3.Y = y3;
+	LIMITE3.Z = z3;
+	LIMITE4.X = x4;
+	LIMITE4.Y = y4;
+	LIMITE4.Z = z4;
 
-	/*limitev1.vx = limite1.x;
-	limitev1.vz = limite1.z;
-	limitev2.vx = limite2.x;
-	limitev2.vz = limite1.z;
-	Suelo.setPos(-25.0f, 0, -10.0f, -25.0f, 0, 10.0f, 25.0f, 0, 10.0f, 25.0f, 0, -10.0f);*/
 }
+
 void Pared::Dibuja()
 {
 	glDisable(GL_LIGHTING);
-	glColor3ub(rojo, verde, azul);
+	glColor3ub(ROJO, verde, azul);
 	glBegin(GL_POLYGON);
-	glVertex3f(limite1.x, limite1.y, limite1.z);
-	glVertex3f(limite2.x, limite2.y, limite2.z);
-	glVertex3f(limite3.x, limite3.y, limite3.z);
-	glVertex3f(limite4.x, limite4.y, limite4.z);
-
+	glVertex3f(LIMITE1.X, LIMITE1.Y, LIMITE1.Z);
+	glVertex3f(LIMITE2.X, LIMITE2.Y, LIMITE2.Z);
+	glVertex3f(LIMITE3.X, LIMITE3.Y, LIMITE3.Z);
+	glVertex3f(LIMITE4.X, LIMITE4.Y, LIMITE4.Z);
 	glEnd();
 	glEnable(GL_LIGHTING);
 }

@@ -1,6 +1,5 @@
 //Zona de declaracion de los #include.
 #include <freeglut.h>
-#include <CamaraDeVision.h>
 #include <Jugador.h>
 #include <Zombie.h>
 #include <Caja.h>
@@ -9,9 +8,8 @@
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
-CamaraDeVision CAMARA;
+
 Jugador HEROE;
-Zombie MALO;
 Bonus BONUS;
 Caja CAJA;
 Disparo BALA;
@@ -46,8 +44,7 @@ int main(int argc, char* argv[])
 	glutKeyboardFunc(OnKeyboardDown);
 	
 	//WORLD.Inicializa();
-	CAMARA.Inicializa();
-	MALO.SetVel(1.5, 0.5);
+	HEROE.SetVel(0.25);
 	//Pasa el control del programa a la API GLUT.
 	glutMainLoop();
 
@@ -67,13 +64,10 @@ void OnDraw(void)
 	//Define el punto de vista.
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(CAMARA.posicion.x, CAMARA.posicion.y,CAMARA.posicion.z, // Posicion de la camara.
-		CAMARA.vista.x,CAMARA.vista.y,CAMARA.vista.z, // Punto hacia el que mira la camara.
-		CAMARA.giro.x,CAMARA.giro.y,CAMARA.giro.z); // Vector de autogiro de la camara (No Tocar).   
+	gluLookAt(HEROE.POSICION.X, HEROE.POSICION.Y+40,HEROE.POSICION.Z+40, // Posicion de la camara.
+		HEROE.POSICION.X,HEROE.POSICION.Y,HEROE.POSICION.Z, // Punto hacia el que mira la camara.
+		0,1,0); // Vector de autogiro de la camara (No Tocar).   
 
-	/*gluLookAt(50, 50, 50, // Posicion de la camara.
-		0, 0, 0, // Punto hacia el que mira la camara.
-		0, 1, 0); // Vector de autogiro de la camara (No Tocar).*/
 
 	//Inicio del codigo de dibujo.
 	
@@ -102,7 +96,6 @@ void OnDraw(void)
 
 	//Inicio código dibujo.
 		BONUS.Dibuja(); 
-		MALO.Dibuja(); 
 		CAJA.Dibuja();
 		HEROE.Dibuja();
 		BALA.Dibuja();
@@ -111,15 +104,12 @@ void OnDraw(void)
 
 	glutSwapBuffers(); //No borrar este comando ni incluir ninguno mas despues.
 }
-void OnKeyboardDown(unsigned char key, int x_t, int y_t)
+void OnKeyboardDown(unsigned char key, int x, int y)
 {
 	//Inicio codigo vinculado al teclado.
-	//WORLD.Tecla(key);
-	HEROE.tecla(key);
-	CAMARA.tecla(key, 0.025f);
-	BALA.tecla(key);
+	
+	HEROE.SetWSDA(key);
 	//Final codigo vinculado al teclado.
-
 
 	//No borrar esta linea.
 	glutPostRedisplay(); //Redibuja la imagen una vez finaliza la funcion.
@@ -128,12 +118,10 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 void OnTimer(int value)
 {
 	//Inicio codigo vinculado al bucle temporal.
-	HEROE.Mueve(0.025f);
-	CAMARA.Mueve(0.025f);
-	MALO.Mueve(0.025f);
-	//BALA.Mueve(0.025f);
-	BALA.direccion(0.025f);
-	//WORLD.Mueve();
+	HEROE.Mueve();
+	BALA.ComprobacionDisparo(HEROE);
+	BALA.Mueve(HEROE);
+
     //Final codigo vinculado al bucle temporal.
 	
 	//No borrar estos comandos.

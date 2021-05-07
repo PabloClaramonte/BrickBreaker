@@ -6,35 +6,57 @@
 class Disparo
 {
 public:
-	Disparo();
-	virtual ~Disparo();
 
-	float radio;
-	float angulo;
-	float v_ang; //velocidad angular de giro de la direccion de tiro
-	float dist;
-	void Mueve(float t);
-	void direccion(float t);
-	void Dibuja();
-	void SetPos(float ix, float iz);
-	void SetVel(float vx, float vz);
-	void SetVelAng(float w);
+	PuntosCartesianos POSICION;
 
-	/*Habrá disparos de diferentes SPRITES en función del arma:
-	Pistola: Disparo único. 
-	Escopeta: Disparo 3 balas en 3 direcciones.
-	Subfusil (UZI): Disparo en ráfaga. */
-	unsigned char rojo;
-	unsigned char verde;
-	unsigned char azul;
+	int TIEMPO;
 
-	//Velocidad y posición del disparo 
-	PuntosCartesianos posicion;
-	PuntosCartesianos velocidad;
-	Jugador j;
+	char DIRECCION;
+
+	Disparo()
+	{
+		POSICION.X = 0.0; POSICION.Y = 0.0; POSICION.Z = 0.0;
+	};
+	~Disparo() {};
+
+	void Mueve(Jugador HEROE);
 
 
-	//Función que asigna una velocidad y dirección al disparo.
-	void tecla(unsigned char key);
+
+	
+	void Dibuja(void);
+
+	void ComprobacionDisparo(Jugador& HEROE)
+	{
+		if (HEROE.DISPARANDO == false)
+		{
+			POSICION.X = HEROE.POSICION.X;
+			POSICION.Y = HEROE.POSICION.Y;
+			POSICION.Z = HEROE.POSICION.Z;
+
+		    DIRECCION = HEROE.PREWSDA;
+
+			TIEMPO = 0;
+		}
+
+		else
+		{
+			if (TIEMPO == 10)
+			{
+				HEROE.DISPARANDO = false;
+			}
+
+			else
+			{
+				NULL;
+			}
+
+		}
+	
+	}
+
+	
+	
+	
 };
 
