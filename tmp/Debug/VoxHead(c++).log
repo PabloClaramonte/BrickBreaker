@@ -1,8 +1,16 @@
-﻿  Disparo.cpp
-C:\Users\pablo\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Disparo.cpp(71,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pablo\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Disparo.cpp(72,15): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pablo\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Disparo.cpp(75,20): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pablo\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Disparo.cpp(76,20): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+﻿  Bonus.cpp
+  Caja.cpp
+  CamaraDeVision.cpp
+  Disparo.cpp
+C:\Users\Usuario\Desktop\VOXHEAD1\ArchivoFuente(.cpp)\Disparo.cpp(71,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\VOXHEAD1\ArchivoFuente(.cpp)\Disparo.cpp(72,15): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\VOXHEAD1\ArchivoFuente(.cpp)\Disparo.cpp(75,20): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\VOXHEAD1\ArchivoFuente(.cpp)\Disparo.cpp(76,20): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  Jugador.cpp
+  Mundo.cpp
+  Pared.cpp
+  PuntosCartesianos.cpp
   VoxHead(c++).cpp
+  Zombie.cpp
   Generando código...
-  VoxHead(c++).vcxproj -> C:\Users\pablo\Desktop\VOXHEAD\bin\VoxHead(c++).exe
+  VoxHead(c++).vcxproj -> C:\Users\Usuario\Desktop\VOXHEAD1\bin\VoxHead(c++).exe
