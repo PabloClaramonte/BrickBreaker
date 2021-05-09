@@ -23,6 +23,7 @@
     <ClInclude Include="ArchivoCabecera(.h)\Caja.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Disparo.h" />
     <ClInclude Include="ArchivoCabecera(.h)\freeglut.h" />
+    <ClInclude Include="ArchivoCabecera(.h)\Interaccion.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Jugador.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Mundo.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Pared.h" />
@@ -33,6 +34,7 @@
     <ClCompile Include="ArchivoFuente(.cpp)\Bonus.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Caja.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Disparo.cpp" />
+    <ClCompile Include="ArchivoFuente(.cpp)\Interaccion.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Jugador.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Mundo.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Pared.cpp" />

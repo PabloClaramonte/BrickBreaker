@@ -3,14 +3,9 @@
 
 Pared::Pared()
 {
-	ROJO = 255;
-	verde = 255;
-	azul = 255;
-	
-	LIMITE1.X = -10.0f;
-	LIMITE2.X = 10.0f;
-	LIMITE1.Y = 0.0f;
-	LIMITE2.Y = 15.0f;
+	ROJO = 0;
+	verde = 0;
+	azul = 0;
 	
 }
 

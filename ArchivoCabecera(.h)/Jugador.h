@@ -1,7 +1,8 @@
-#pragma once
 //Zona de #includes.
+#pragma once
 #include "PuntosCartesianos.h"
 #include "freeglut.h"
+
 //Fin zona #includes.
 
 /*Esta clase es heredada de la clase PuntosCartesianos, de esta forma tenemos los atributos x,y,z heredados y privados
@@ -15,26 +16,22 @@ public:
 	~Jugador(); //Declaracion del destructor por defecto.
 
 	PuntosCartesianos POSICION;
+	PuntosCartesianos VELOCIDAD;
 
-	float VELOCIDAD;
 
-	char WSDA, PREWSDA;
-
-	bool DISPARANDO = false;
-
-	
 	unsigned char rojo;
 	unsigned char verde;
 	unsigned char azul;
 
-	void Dibuja(); 
+	bool DISPARANDO;
+	char DIRECCION;
+	char PARADA;
 
-	void SetVel(float vel); 
+	void Dibuja();
 
-	void SetWSDA(unsigned char tecla);
+	void SetVel(float vx, float vz);
 
-	void Mueve(void);
+	void SetPos(float px, float py, float pz);
 
-	char DarPREWSDA(void);
+	void Mueve(float t);
 };
-

@@ -1,3 +1,4 @@
+#pragma once
 #include "PuntosCartesianos.h"
 #include "freeglut.h"
 

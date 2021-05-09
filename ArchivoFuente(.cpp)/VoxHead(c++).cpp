@@ -1,19 +1,12 @@
 //Zona de declaracion de los #include.
+
 #include <freeglut.h>
-#include <Jugador.h>
-#include <Zombie.h>
-#include <Caja.h>
-#include <Bonus.h>
-#include <Disparo.h>
+#include <Mundo.h>
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
 
-Jugador HEROE;
-Bonus BONUS;
-Caja CAJA;
-Disparo BALA;
-//Mundo WORLD
+Mundo MUNDO;
 //Fin zona de declaracion de Variables y Clases.
 
 //Los CallBack se las funciones se llaman automaticamente cuado suceden los eventos (no hay que llamarlos).
@@ -43,8 +36,8 @@ int main(int argc, char* argv[])
 	glutTimerFunc(25, OnTimer, 0);//Llama periodicamente a la funcion, el primer argumento es el tiempo en "ms" del periodo.
 	glutKeyboardFunc(OnKeyboardDown);
 	
-	//WORLD.Inicializa();
-	HEROE.SetVel(0.25);
+	MUNDO.Inicializa();
+	
 	//Pasa el control del programa a la API GLUT.
 	glutMainLoop();
 
@@ -64,41 +57,11 @@ void OnDraw(void)
 	//Define el punto de vista.
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(HEROE.POSICION.X, HEROE.POSICION.Y+40,HEROE.POSICION.Z+40, // Posicion de la camara.
-		HEROE.POSICION.X,HEROE.POSICION.Y,HEROE.POSICION.Z, // Punto hacia el que mira la camara.
-		0,1,0); // Vector de autogiro de la camara (No Tocar).   
-
-
-	//Inicio del codigo de dibujo.
-	
-	//Eje cartesiano para aclararnos: X = Rojo; Y = Verde; Z = Azul.
-		//Eje X
-		glBegin(GL_LINES);
-		glColor3f(1, 0, 0); 
-		glVertex3f(0, 0, 0);
-		glVertex3f(5, 0, 0);
-		glEnd();
-
-		//Eje Y 
-		glBegin(GL_LINES);
-		glColor3f(0, 1, 0);
-		glVertex3f(0, 0, 0);
-		glVertex3f(0, 5, 0);
-		glEnd();
-
-		//Eje Z
-		glBegin(GL_LINES);
-		glColor3f(0, 0, 1);
-		glVertex3f(0, 0, 0);
-		glVertex3f(0, 0, 5);
-		glEnd();
-    //Fin eje cartesiano.
 
 	//Inicio código dibujo.
-		BONUS.Dibuja(); 
-		CAJA.Dibuja();
-		HEROE.Dibuja();
-		BALA.Dibuja();
+		MUNDO.DibujaEjes();
+		MUNDO.Dibuja();
+		
 	
 	//Final de codigo de dibujo.
 
@@ -107,8 +70,7 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x, int y)
 {
 	//Inicio codigo vinculado al teclado.
-	
-	HEROE.SetWSDA(key);
+	MUNDO.tecla(key);
 	//Final codigo vinculado al teclado.
 
 	//No borrar esta linea.
@@ -118,10 +80,8 @@ void OnKeyboardDown(unsigned char key, int x, int y)
 void OnTimer(int value)
 {
 	//Inicio codigo vinculado al bucle temporal.
-	HEROE.Mueve();
-	BALA.ComprobacionDisparo(HEROE);
-	BALA.Mueve(HEROE);
 
+	MUNDO.Mueve();
     //Final codigo vinculado al bucle temporal.
 	
 	//No borrar estos comandos.
