@@ -18,12 +18,6 @@ public:
 	PuntosCartesianos POSICION;
 	PuntosCartesianos VELOCIDAD;
 
-
-	unsigned char rojo;
-	unsigned char verde;
-	unsigned char azul;
-
-	bool DISPARANDO;
 	char DIRECCION;
 	char PARADA;
 

@@ -15,4 +15,4 @@ Comandos para (GITHUB):
 -git push origin master //Sube los cambios que efectuemos. 
 
 ÚLTIMA MODIFICACIÓN:
-Pablo, 21 Abril - Dibujo en el mapa de paredes, zombie y bonus. (Próximo paso, programar interacción)
+Pablo, 10 Mayo - Interaccion Hombre_Caja

@@ -4,7 +4,7 @@
 
 Jugador::Jugador()
 {
-    DISPARANDO = false;
+    
 }
 
 Jugador::~Jugador()

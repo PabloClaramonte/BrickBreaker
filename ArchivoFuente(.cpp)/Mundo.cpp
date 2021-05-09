@@ -1,4 +1,6 @@
 #include <Mundo.h>
+#define VB 5.0
+#define VJ 30.0
 
 void Mundo::tecla(unsigned char key)
 {
@@ -6,28 +8,28 @@ void Mundo::tecla(unsigned char key)
 	{
 	case 'a':
 	{
-		HEROE.SetVel(-10.0, 0.0);
+		HEROE.SetVel(-VJ, 0.0);
 		HEROE.DIRECCION = key;
 		HEROE.PARADA = key;
 		break;
 	}
 	case 'd':
 	{
-		HEROE.SetVel(10.0, 0.0);
+		HEROE.SetVel(VJ, 0.0);
 		HEROE.DIRECCION = key;
 		HEROE.PARADA = key;
 		break;
 	}
 	case 'w':
 	{
-		HEROE.SetVel(0.0, -10.0);
+		HEROE.SetVel(0.0, -VJ);
 		HEROE.DIRECCION = key;
 		HEROE.PARADA = key;
 		break;
 	}
 	case 's':
 	{
-		HEROE.SetVel(0.0, 10.0);
+		HEROE.SetVel(0.0, VJ);
 		HEROE.DIRECCION = key;
 		HEROE.PARADA = key;
 		break;
@@ -35,7 +37,6 @@ void Mundo::tecla(unsigned char key)
 	case ' ':
 	{
 		HEROE.SetVel(0.0, 0.0);
-		HEROE.DISPARANDO = true;
 		HEROE.PARADA = key;
 		break;
 	}
@@ -77,6 +78,8 @@ void Mundo::DibujaEjes()
 	glEnd();
 	//Fin eje cartesiano.
 }
+
+
 void Mundo::Dibuja()
 {
 
@@ -84,49 +87,52 @@ void Mundo::Dibuja()
 	BONUS.Dibuja();
 	HEROE.Dibuja();
 	
-	
-	if (HEROE.DISPARANDO == true && HEROE.PARADA==' ')
+	/*
+	if (HEROE.PARADA == ' ')
 	{
-		BALA.DIRECCION = HEROE.DIRECCION;		
+		BALA.DIRECCION = HEROE.DIRECCION;
 	}
+
 	switch (BALA.DIRECCION)
 		{
-		case 'a':
-		{
-		BALA.SetVel(-2.0, 0.0);
-		break;
+			case 'a':
+			{
+				BALA.SetVel(-VB, 0.0);
+				break;
+			}
+			case 'd':
+			{
+				BALA.SetVel(VB, 0.0);
+				break;
+			}
+			case 'w':
+			{
+				BALA.SetVel(0.0, -VB);
+				break;
+			}
+			case 's':
+			{
+				BALA.SetVel(0.0, VB);
+				break;
+			}
+			default:
+				break;
 		}
-		case 'd':
-		{
-		BALA.SetVel(2.0, 0.0);
-		break;
-		}
-		case 'w':
-		{
-		BALA.SetVel(0.0, -2.0);
-		break;
-		}
-		case 's':
-		{
-		BALA.SetVel(0.0, 2.0);
-		break;
-		}
-		default:
-		break;
-		}
+		
 		BALA.Dibuja();
+
+		*/
 }
 
 void Mundo::Inicializa()
 {
-
-	HEROE.SetPos(0.0, 0.0, 0.0);
+	HEROE.SetPos(10.0, 0.0, 10.0);
 	BALA.TIEMPO = 0;
-
 }
 
 void Mundo::Mueve()
 {
 	HEROE.Mueve(0.025f);
 	BALA.Mueve(0.025f);
+	Interaccion::Rebote(HEROE, CAJA);
 }

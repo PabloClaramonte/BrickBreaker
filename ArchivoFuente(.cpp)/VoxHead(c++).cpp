@@ -1,11 +1,9 @@
 //Zona de declaracion de los #include.
-
 #include <freeglut.h>
 #include <Mundo.h>
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
-
 Mundo MUNDO;
 //Fin zona de declaracion de Variables y Clases.
 
@@ -49,7 +47,7 @@ void OnDraw(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	//Acciones repetitivas cada ciclo de dibujo.
-	//WORLD.Dibuja()
+	
 	//CAMARA.SeguimientoPersonaje(HEROE.ValorEspacial_x(), HEROE.ValorEspacial_y(), HEROE.ValorEspacial_z()); //Sigue al personaje en cada ciclo
 	
 	//Fin de accciones repetitivas.
@@ -61,8 +59,6 @@ void OnDraw(void)
 	//Inicio código dibujo.
 		MUNDO.DibujaEjes();
 		MUNDO.Dibuja();
-		
-	
 	//Final de codigo de dibujo.
 
 	glutSwapBuffers(); //No borrar este comando ni incluir ninguno mas despues.
@@ -80,7 +76,6 @@ void OnKeyboardDown(unsigned char key, int x, int y)
 void OnTimer(int value)
 {
 	//Inicio codigo vinculado al bucle temporal.
-
 	MUNDO.Mueve();
     //Final codigo vinculado al bucle temporal.
 	

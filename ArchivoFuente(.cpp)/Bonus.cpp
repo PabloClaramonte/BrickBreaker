@@ -15,7 +15,7 @@ Bonus::~Bonus()
 void Bonus::Dibuja()
 {
     glPushMatrix();
-    glTranslatef(posicion.X, posicion.Y, 0);
+    glTranslatef(posicion.X, posicion.Y, posicion.Z);
     glRotatef(30, 1, 1, 1);
     glColor3f(rand() / (float)RAND_MAX, rand() / (float)RAND_MAX,
         rand() / (float)RAND_MAX);//color aleatorio

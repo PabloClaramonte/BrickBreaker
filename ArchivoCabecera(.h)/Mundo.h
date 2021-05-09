@@ -1,7 +1,6 @@
 #pragma once
-#include "Disparo.h"
-#include "Jugador.h"
-#include "Caja.h"
+//#include "Disparo.h"
+//#include "Jugador.h"
 #include "Pared.h"
 #include "Bonus.h"
 #include "PuntosCartesianos.h"

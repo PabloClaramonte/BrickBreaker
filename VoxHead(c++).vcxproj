@@ -29,6 +29,7 @@
     <ClInclude Include="ArchivoCabecera(.h)\Pared.h" />
     <ClInclude Include="ArchivoCabecera(.h)\PuntosCartesianos.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Zombie.h" />
+    <ClInclude Include="ListaDisparos.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArchivoFuente(.cpp)\Bonus.cpp" />
@@ -40,6 +41,7 @@
     <ClCompile Include="ArchivoFuente(.cpp)\Pared.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Zombie.cpp" />
+    <ClCompile Include="ListaDisparos.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
