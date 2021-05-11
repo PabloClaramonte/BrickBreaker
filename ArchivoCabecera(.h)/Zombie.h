@@ -1,21 +1,40 @@
-#include "PuntosCartesianos.h"
-#include "freeglut.h"
+#pragma once
 
-class Zombie : public PuntosCartesianos
+#include <PuntosCartesianos.h>
+
+class ZOMBIE
 {
+
+private:
+
+	bool VIVO;
+
+	float VELOCIDAD;
+	float ANGULO;
+
+	PUNTOSCARTESIANOS POSICION;
+
 public:
 
-	Zombie();
-	~Zombie();
+	ZOMBIE()
+	{
+		VIVO = true;
 
-	void Dibuja();
-	void Mueve(float t);
-	void SetVel(float vx, float vz); //Asigna una velocidad al zombie.
+		POSICION.X = 0.0;
+		POSICION.Y = 0.0;
+		POSICION.Z = 0.0;
+		VELOCIDAD = 0.0;
+	};
 
-	//Velocidad, posición y aceleración del zombie 
-	PuntosCartesianos posicion;
-	PuntosCartesianos velocidad; //(aumentará por cada nivel)
+	~ZOMBIE() {};
+
+	void DIBUJA (void);
+	void MUEVE(void);
 	
-	//PuntosCartesianos getPos();
+
+
+	friend class MUNDO;
+	friend class INTERACCIONES;
+
 };
 

@@ -21,31 +21,25 @@
     <ClInclude Include="ArchivoCabecera(.h)\PuntosCartesianos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\Bonus.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\Caja.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\Disparo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="ArchivoCabecera(.h)\Jugador.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\Pared.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\Zombie.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\Mundo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ArchivoCabecera(.h)\Interaccion.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ListaDisparos.h">
+    <ClInclude Include="ArchivoCabecera(.h)\Columna.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchivoCabecera%28.h%29\Tablero.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchivoCabecera(.h)\Mundo.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchivoCabecera(.h)\Disparo.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchivoCabecera(.h)\Zombie.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,31 +47,25 @@
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\Bonus.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\Caja.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\Disparo.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="ArchivoFuente(.cpp)\Jugador.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\Pared.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\Zombie.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\Mundo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ArchivoFuente(.cpp)\Interaccion.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ListaDisparos.cpp">
+    <ClCompile Include="ArchivoFuente(.cpp)\Columna.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivoFuente%28.cpp%29\Tablero.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivoCabecera(.h)\Mundo.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivoFuente(.cpp)\Disparo.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivoCabecera(.h)\Zombie.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

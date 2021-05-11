@@ -2,40 +2,64 @@
 #include "Jugador.h"
 //Fin zona de #includes.
 
-Jugador::Jugador()
-{
-    
-}
 
-Jugador::~Jugador()
+void JUGADOR::DIBUJA(void)
 {
-}
-
-void Jugador::Dibuja()
-{
-    // glTranslatef(ValorEspacial_x(), ValorEspacial_y(), ValorEspacial_z());
-    glTranslatef(POSICION.X, 0.0, POSICION.Z);
+    glPushMatrix();
+    glTranslatef(POSICION.X, POSICION.Y, POSICION.Z);
     glColor3f(1.0f, 0.0f, 1.0f);
     glutSolidSphere(2, 20, 20);
     glTranslatef(0, 0, 0);
+    glPopMatrix();
 }
 
-
-void Jugador::SetVel(float vx, float vz)
+void JUGADOR::MUEVE(void)
 {
-    VELOCIDAD.X = vx;
-    VELOCIDAD.Z = vz;
+    if (WSAD == 'w')
+    {
+        POSICION.Z -= VELOCIDAD;
+    }
+
+    else if (WSAD == 's')
+    {
+        POSICION.Z += VELOCIDAD;
+    }
+
+    else if (WSAD == 'a')
+    {
+        POSICION.X -= VELOCIDAD;
+    }
+
+    else if (WSAD == 'd')
+    {
+        POSICION.X += VELOCIDAD;
+    }
+
+    else
+    {
+        NULL;
+    }
 }
 
-void Jugador::Mueve(float t)
+
+/*
+void JUGADOR::MODIFICAR_WSDA(char tecla)
 {
-    POSICION.X = POSICION.X + VELOCIDAD.X * t;
-    POSICION.Z = POSICION.Z + VELOCIDAD.Z * t;
+    WSAD = tecla;
 }
 
-void Jugador::SetPos(float px, float py, float pz)
+void JUGADOR::MODIFICAR_PREWSDA(char tecla)
 {
-    POSICION.X = px;
-    POSICION.Y = py;
-    POSICION.Z = pz;
+    PREWSAD = tecla;
 }
+
+char JUGADOR::MOSTRAR_WSDA(void)
+{
+    return WSAD;
+}
+
+char JUGADOR::MOSTRAR_PREWSDA(void)
+{
+    return PREWSAD;
+}
+*/

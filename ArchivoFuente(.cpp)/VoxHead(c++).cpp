@@ -4,7 +4,7 @@
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
-Mundo MUNDO;
+MUNDO VOXHEAD;
 //Fin zona de declaracion de Variables y Clases.
 
 //Los CallBack se las funciones se llaman automaticamente cuado suceden los eventos (no hay que llamarlos).
@@ -29,12 +29,14 @@ int main(int argc, char* argv[])
 	glMatrixMode(GL_PROJECTION);
 	gluPerspective(40.0, 800 / 600.0f, 0.1, 150);
 
+	VOXHEAD.MAPAFACIL();
+
 	//Registro de los CallBack.
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//Llama periodicamente a la funcion, el primer argumento es el tiempo en "ms" del periodo.
 	glutKeyboardFunc(OnKeyboardDown);
 	
-	MUNDO.Inicializa();
+	
 	
 	//Pasa el control del programa a la API GLUT.
 	glutMainLoop();
@@ -48,17 +50,19 @@ void OnDraw(void)
 
 	//Acciones repetitivas cada ciclo de dibujo.
 	
-	//CAMARA.SeguimientoPersonaje(HEROE.ValorEspacial_x(), HEROE.ValorEspacial_y(), HEROE.ValorEspacial_z()); //Sigue al personaje en cada ciclo
+	
 	
 	//Fin de accciones repetitivas.
 
 	//Define el punto de vista.
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+	gluLookAt(20,70,50.0, // Posicion de la camara.
+		20, 0, 20, // Punto hacia el que mira la camara.
+		0, 1, 0); // Vector de autogiro de la camara (No Tocar).   
 
 	//Inicio código dibujo.
-		MUNDO.DibujaEjes();
-		MUNDO.Dibuja();
+	VOXHEAD.DIBUJA();
 	//Final de codigo de dibujo.
 
 	glutSwapBuffers(); //No borrar este comando ni incluir ninguno mas despues.
@@ -66,7 +70,7 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x, int y)
 {
 	//Inicio codigo vinculado al teclado.
-	MUNDO.tecla(key);
+	VOXHEAD.TECLADO(key);
 	//Final codigo vinculado al teclado.
 
 	//No borrar esta linea.
@@ -76,7 +80,7 @@ void OnKeyboardDown(unsigned char key, int x, int y)
 void OnTimer(int value)
 {
 	//Inicio codigo vinculado al bucle temporal.
-	MUNDO.Mueve();
+	VOXHEAD.MUEVE();
     //Final codigo vinculado al bucle temporal.
 	
 	//No borrar estos comandos.

@@ -1,31 +1,41 @@
 #pragma once
-#include "PuntosCartesianos.h"
 
-#include <math.h>
-#include "freeglut.h"
+#include <PuntosCartesianos.h>
+#include <freeglut.h>
 
-class Disparo
+class DISPARO
 {
-public:
 
-	PuntosCartesianos POSICION;
-	PuntosCartesianos VELOCIDAD;
+private: 
+
+	int TIEMPODISPARO;
+	int VELOCIDAD;
 
 	char DIRECCION;
-	int TIEMPO;
 
-	Disparo();
-	~Disparo() {};
+	PUNTOSCARTESIANOS POSICION;
 
-	void Dibuja(void);
+public:
 
-	void SetPos(float posx, float posy, float posz);
-	void SetVel(float vx, float vz);
+	DISPARO()
+	{
+		POSICION.X = 0.0;
+		POSICION.Y = 0.0;
+		POSICION.Z = 0.0;
 
-	//void TiempoDisparo(Jugador& HEROE);
+		TIEMPODISPARO = 0;
+	}
 
-	void Mueve(float t);
-	//int TiempoDisparo();
+	~DISPARO() {};
+
+	void DIBUJA(void);
+
+
+
+
+
+	friend class MUNDO;
+	friend class INTERACCIONES;
 
 };
 

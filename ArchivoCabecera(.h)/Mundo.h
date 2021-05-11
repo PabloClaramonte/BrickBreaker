@@ -1,22 +1,98 @@
 #pragma once
-//#include "Disparo.h"
-//#include "Jugador.h"
-#include "Pared.h"
-#include "Bonus.h"
-#include "PuntosCartesianos.h"
-#include "Interaccion.h"
 
-class Mundo {
+#include<Jugador.h>
+#include<Columna.h>
+#include<Tablero.h>
+#include <Disparo.h>
+#include <Interaccion.h>
+
+class MUNDO
+{
+
+private:
+
+	int NUMERODECOLUMNAS;
+
+	JUGADOR HEROE;
+	COLUMNA PCOLUMNAS[2];
+	TABLERO SUELO;
+	DISPARO BALA;
+	ZOMBIE MALO[2];
+
 public:
-	Caja CAJA;
-	Jugador HEROE;
-	Disparo BALA;
-	Bonus BONUS;
+	MUNDO() {};
+	~MUNDO() {};
 
-	void Inicializa();
-	void tecla(unsigned char key);
-	void Dibuja();
-	void DibujaEjes();
-	void Mueve();
+	void MAPAFACIL(void)
+	{
+		HEROE.POSICION.X = 10.0;
+		HEROE.POSICION.Y = 0.0;
+		HEROE.POSICION.Z = 10.0;
+		HEROE.VELOCIDAD = 0.25;
+
+		SUELO.XMAX = 40.0;
+		SUELO.ZMAX = 40.0;
+
+		PCOLUMNAS[0].TAMAÑOCOLUMNA = 4;
+		PCOLUMNAS[0].POSICION.X = 20.0;
+		PCOLUMNAS[0].POSICION.Z = 10.0;
+
+		PCOLUMNAS[0].TAMAÑOCOLUMNA = 4;
+		PCOLUMNAS[1].POSICION.X = 20.0;
+		PCOLUMNAS[1].POSICION.Z = 30.0;
+
+		BALA.POSICION.X = 10.0;
+		BALA.POSICION.Y = 0.0;
+		BALA.POSICION.Z = 10.0;
+		BALA.VELOCIDAD = 2;
+
+		MALO[0].POSICION.X = 25.0;
+		MALO[0].POSICION.Y = 0.0;
+		MALO[0].POSICION.Z = 30.0;
+		MALO[0].VELOCIDAD = 0.15;
+		MALO[0].VIVO = true;
+
+		MALO[1].POSICION.X = 35.0;
+		MALO[1].POSICION.Y = 0.0;
+		MALO[1].POSICION.Z = 10.0;
+		MALO[1].VELOCIDAD = 0.15;
+		MALO[1].VIVO = true;
+
+
+
+	}
+
+	void DIBUJA(void)
+	{
+		HEROE.DIBUJA();
+		SUELO.DIBUJA();
+		PCOLUMNAS[0].DIBUJAR();
+		PCOLUMNAS[1].DIBUJAR();
+		BALA.DIBUJA();
+		MALO[0].DIBUJA();
+		MALO[1].DIBUJA();
+	}
+
+	void TECLADO(unsigned char TECLA)
+	{
+		INTERACCIONES::INTERACCION_JUGADOR_TECLADO(HEROE, TECLA);
+	}
+
+	void MUEVE(void)
+	{
+		HEROE.MUEVE();
+		MALO[0].MUEVE();
+		MALO[1].MUEVE();
+
+		INTERACCIONES::ITERACCION_JUGADOR_TABLERO(HEROE, SUELO);
+		INTERACCIONES::ITERACCION_JUGADOR_COLUMNA(HEROE, PCOLUMNAS[0]);
+		INTERACCIONES::ITERACCION_JUGADOR_COLUMNA(HEROE, PCOLUMNAS[1]);
+		INTERACCIONES::INTERACCION_JUGADOR_DISPARO(HEROE, BALA);
+		INTERACCIONES::INTERACCION_BALA_ZOMBIE(BALA, MALO[0]);
+		INTERACCIONES::INTERACCION_BALA_ZOMBIE(BALA, MALO[1]);
+		INTERACCIONES::INTELIGENCIA_ARTIFICIAL_ZOMBIE(HEROE, MALO[0]);
+		INTERACCIONES::INTELIGENCIA_ARTIFICIAL_ZOMBIE(HEROE, MALO[1]);
+	}
 
 };
+

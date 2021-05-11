@@ -1,0 +1,8 @@
+﻿  Mundo.cpp
+C:\Users\guill\Desktop\TRABAJOINFOR\VOXHEAD\ArchivoCabecera(.h)\Mundo.h(52,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\guill\Desktop\TRABAJOINFOR\VOXHEAD\ArchivoCabecera(.h)\Mundo.h(58,1): warning C4305: '=': truncamiento de 'double' a 'float'
+  VoxHead(c++).cpp
+C:\Users\guill\Desktop\TRABAJOINFOR\VOXHEAD\ArchivoCabecera(.h)\Mundo.h(52,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\guill\Desktop\TRABAJOINFOR\VOXHEAD\ArchivoCabecera(.h)\Mundo.h(58,1): warning C4305: '=': truncamiento de 'double' a 'float'
+  Generando código...
+  VoxHead(c++).vcxproj -> C:\Users\guill\Desktop\TRABAJOINFOR\VOXHEAD\bin\VoxHead(c++).exe

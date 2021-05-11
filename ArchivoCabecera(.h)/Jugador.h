@@ -2,30 +2,56 @@
 #pragma once
 #include "PuntosCartesianos.h"
 #include "freeglut.h"
-
 //Fin zona #includes.
 
 /*Esta clase es heredada de la clase PuntosCartesianos, de esta forma tenemos los atributos x,y,z heredados y privados
   por lo que solo podemos acceder a ellos con los metodos publicos especificados en la clase antes mencionada.
 */
-
-class Jugador //: public PuntosCartesianos 
+class JUGADOR 
 {
+
+private:
+
+	float VELOCIDAD;//Atributo encargado de saber en cuantas unidades se incrementa la posicion del jugador cada ciclo de 25ms.
+	char WSAD;//Atributo encargado de conocer la direccion en la cual se mueve el JUGADOR o si comienza a disparar.
+	char PREWSAD;//Atributo encargado de conocer la ultima direccion del JUGADOR, antes de pararse para disparar.
+	PUNTOSCARTESIANOS POSICION;//Atributo encargado de conocer la posicion del jugador en el mapa.
+
 public:
-	Jugador(); //Declaracion del constructor por defecto.
-	~Jugador(); //Declaracion del destructor por defecto.
 
-	PuntosCartesianos POSICION;
-	PuntosCartesianos VELOCIDAD;
+	//Constructor por defecto.
+	JUGADOR()
+	{
+		POSICION.X = 0.0f;
+		POSICION.Y = 0.0f;
+		POSICION.Z = 0.0f;
+		WSAD = NULL;
+		PREWSAD = NULL;
+	}; 
 
-	char DIRECCION;
-	char PARADA;
+	//Destrcutor por defecto.
+	~JUGADOR() {}
+	
+	//Metodo encargado del dibujado del personaje.
+	void DIBUJA(void);
 
-	void Dibuja();
+	//Metodo encargado del movimiento el personaje. 
+	void MUEVE(void);
 
-	void SetVel(float vx, float vz);
+	//Metodo para poder modificar  el atributo WSDA.
+	void MODIFICAR_WSDA(char tecla); 
 
-	void SetPos(float px, float py, float pz);
+	//Metodo para poder modificar el atributo PREWSDA.
+	void MODIFICAR_PREWSDA(char tecla);
 
-	void Mueve(float t);
+	//Metodo encargado de devolver el atributo WSDA.
+	char MOSTRAR_WSDA(void); 
+
+	//Metodo encargado de devolver el atributo PREWSDA.
+	char MOSTRAR_PREWSDA(void); 
+
+
+	friend class INTERACCIONES;
+	friend class MUNDO;
+
 };

@@ -1,37 +1,205 @@
 #include "Interaccion.h"
 
-bool Interaccion::AlcanceDisparo(Disparo BALA, Jugador HEROE)
+ void INTERACCIONES::ITERACCION_JUGADOR_TABLERO(JUGADOR& HEROE, TABLERO SUELO)
 {
-	float distancia = sqrt((BALA.POSICION.X - HEROE.POSICION.X) * (BALA.POSICION.X - HEROE.POSICION.X)+(BALA.POSICION.Z - HEROE.POSICION.Z) * (BALA.POSICION.Z - HEROE.POSICION.Z));
+	 if (HEROE.POSICION.X < 0)
+	 {
+		 HEROE.POSICION.X = 0;
+	 }
 
-	if (distancia == 50)
-	{
-		return true;
-	}
-	else if (distancia == 0)
-	{
-		return false;
-	}
+	 else if (HEROE.POSICION.Z < 0)
+	 {
+		 HEROE.POSICION.Z = 0;
+	 }
+
+	 else if (HEROE.POSICION.X > SUELO.XMAX)
+	 {
+		 HEROE.POSICION.X = SUELO.XMAX;
+	 }
+
+	 else if (HEROE.POSICION.Z > SUELO.ZMAX)
+	 {
+		 HEROE.POSICION.Z = SUELO.ZMAX;
+	 }
+
+	 else
+	 {
+		 NULL;
+	 }
 }
 
-void Interaccion::Rebote(Jugador& HEROE, Caja CAJA)
-{
-	float xmax = CAJA.Derecha.LIMITE1.X;
-	float xmin = 0.0f;
-	float zmax = CAJA.Sur.LIMITE1.Z;
-	float zmin = 0.0f;
-	if (HEROE.POSICION.X > xmax) {
-		HEROE.POSICION.X = xmax;
-		HEROE.VELOCIDAD.X = 0.0;
-	}
-	if (HEROE.POSICION.X < xmin) {
-		HEROE.POSICION.X = xmin;
-		HEROE.VELOCIDAD.X = 0.0;
-	}
-	if (HEROE.POSICION.Z > zmax)
-		HEROE.POSICION.Z = zmax;
-	if (HEROE.POSICION.Z < zmin)
-		HEROE.POSICION.Z = zmin;
-}
+ void INTERACCIONES::ITERACCION_JUGADOR_COLUMNA(JUGADOR& HEROE, COLUMNA _COLUMNA)
+ {
+	 if (HEROE.POSICION.X > _COLUMNA.POSICION.X - (_COLUMNA.TAMAÑOCOLUMNA / 2) && HEROE.POSICION.X < _COLUMNA.POSICION.X + (_COLUMNA.TAMAÑOCOLUMNA / 2) && HEROE.POSICION.Z < _COLUMNA.POSICION.Z +_COLUMNA.TAMAÑOCOLUMNA  && HEROE.POSICION.Z > _COLUMNA.POSICION.Z+(_COLUMNA.TAMAÑOCOLUMNA/2))
+	 {
+		 HEROE.POSICION.Z = _COLUMNA.POSICION.Z+_COLUMNA.TAMAÑOCOLUMNA;
+	 }
+
+	 else if (HEROE.POSICION.X > _COLUMNA.POSICION.X - (_COLUMNA.TAMAÑOCOLUMNA / 2) && HEROE.POSICION.X < _COLUMNA.POSICION.X + (_COLUMNA.TAMAÑOCOLUMNA / 2) && HEROE.POSICION.Z > _COLUMNA.POSICION.Z - _COLUMNA.TAMAÑOCOLUMNA && HEROE.POSICION.Z < _COLUMNA.POSICION.Z + (_COLUMNA.TAMAÑOCOLUMNA/2))
+	 {
+		 HEROE.POSICION.Z = _COLUMNA.POSICION.Z - _COLUMNA.TAMAÑOCOLUMNA ;
+	 }
+
+	 else if (HEROE.POSICION.Z > _COLUMNA.POSICION.Z - (_COLUMNA.TAMAÑOCOLUMNA / 2) && HEROE.POSICION.Z < _COLUMNA.POSICION.Z + (_COLUMNA.TAMAÑOCOLUMNA / 2) && HEROE.POSICION.X > _COLUMNA.POSICION.X - _COLUMNA.TAMAÑOCOLUMNA  && HEROE.POSICION.X <  _COLUMNA.POSICION.X - (_COLUMNA.TAMAÑOCOLUMNA/2))
+	 {
+		 HEROE.POSICION.X = _COLUMNA.POSICION.X - _COLUMNA.TAMAÑOCOLUMNA ;
+	 }
+
+	 else if (HEROE.POSICION.Z > _COLUMNA.POSICION.Z - (_COLUMNA.TAMAÑOCOLUMNA / 2) && HEROE.POSICION.Z < _COLUMNA.POSICION.Z + (_COLUMNA.TAMAÑOCOLUMNA / 2) && HEROE.POSICION.X < _COLUMNA.POSICION.X + _COLUMNA.TAMAÑOCOLUMNA && HEROE.POSICION.X > _COLUMNA.POSICION.X + (_COLUMNA.TAMAÑOCOLUMNA/2))
+	 {
+		 HEROE.POSICION.X = _COLUMNA.POSICION.X + _COLUMNA.TAMAÑOCOLUMNA;
+	 }
+
+	 else
+	 {
+		 NULL;
+	 }
+ }
+
+ void INTERACCIONES::INTERACCION_JUGADOR_DISPARO(JUGADOR& HEROE, DISPARO& BALA)
+ {
+	 if (HEROE.WSAD == ' ')
+	 {
+
+		 if (BALA.TIEMPODISPARO <= 5)
+		 {
+			 switch (BALA.DIRECCION)
+			 {
+
+			 case 'w':
+			 {
+				 BALA.POSICION.Z -= BALA.VELOCIDAD;
+				 BALA.TIEMPODISPARO++;
+				 break;
+			 }
+
+			 case 's':
+			 {
+				 BALA.POSICION.Z += BALA.VELOCIDAD;
+				 BALA.TIEMPODISPARO++;
+				 break;
+			 }
+
+			 case 'a':
+			 {
+				 BALA.POSICION.X -= BALA.VELOCIDAD;
+				 BALA.TIEMPODISPARO++;
+				 break;
+			 }
+
+			 case 'd':
+			 {
+				 BALA.POSICION.X += BALA.VELOCIDAD;
+				 BALA.TIEMPODISPARO++;
+				 break;
+			 }
+
+			 default:
+			 {
+				 break;
+			 }
+
+			 }	
+		 }
+
+		 else
+		 {
+			 HEROE.WSAD = NULL;
+		 }
+	 }
+
+	 else
+	 {
+		 BALA.POSICION.X = HEROE.POSICION.X;
+		 BALA.POSICION.Y = HEROE.POSICION.Y;
+		 BALA.POSICION.Z = HEROE.POSICION.Z;
+
+		 BALA.DIRECCION = HEROE.PREWSAD;
+
+		 BALA.TIEMPODISPARO = 0;
+	 }
+ }
+
+ void INTERACCIONES::INTERACCION_BALA_ZOMBIE(DISPARO& BALA, ZOMBIE& MALO)
+ {
+	 if (BALA.POSICION.X > MALO.POSICION.X - 2 && BALA.POSICION.X < MALO.POSICION.X + 2 && BALA.POSICION.Z > MALO.POSICION.Z - 2 && BALA.POSICION.Z < MALO.POSICION.Z + 2 && MALO.VIVO)
+	 {
+		 BALA.TIEMPODISPARO = 5;
+		 MALO.VIVO = false;
+	 }
+
+	 else
+	 {
+		 NULL;
+	 }
+ }
+
+ void INTERACCIONES::INTELIGENCIA_ARTIFICIAL_ZOMBIE(JUGADOR HEROE, ZOMBIE& MALO)
+ {
+	 if (HEROE.POSICION.X >= MALO.POSICION.X)
+	 {
+		 MALO.ANGULO = atanf((HEROE.POSICION.Z - MALO.POSICION.Z) / (HEROE.POSICION.X - MALO.POSICION.X));
+	 }
+
+	 else
+	 {
+		 if (HEROE.POSICION.Z <= MALO.POSICION.Z)
+		 {
+			 MALO.ANGULO =-(3.1416 -atanf((HEROE.POSICION.Z - MALO.POSICION.Z) / (HEROE.POSICION.X - MALO.POSICION.X)));
+		 }
+
+		 else
+		 {
+			 MALO.ANGULO = (3.1416 + atanf((HEROE.POSICION.Z - MALO.POSICION.Z) / (HEROE.POSICION.X - MALO.POSICION.X)));
+		 }
+	 }
+ }
+
+ void INTERACCIONES::INTERACCION_JUGADOR_TECLADO(JUGADOR& HEROE, unsigned char TECLA)
+ {
+	 switch (TECLA)
+	 {
+	 case 'w':
+	 {
+		 HEROE.WSAD = 'w';
+		 HEROE.PREWSAD = 'w';
+		 break;
+	 }
+
+	 case 's':
+	 {
+		 HEROE.WSAD = 's';
+		 HEROE.PREWSAD = 's';
+		 break;
+	 }
+
+	 case 'a':
+	 {
+		 HEROE.WSAD = 'a';
+		 HEROE.PREWSAD = 'a';
+		 break;
+	 }
+
+	 case 'd':
+	 {
+		 HEROE.WSAD = 'd';
+		 HEROE.PREWSAD = 'd';
+		 break;
+	 }
+
+	 case ' ':
+	 {
+		 HEROE.WSAD = ' ';
+		 break;
+	 }
+	 default:
+	 {
+		 break;
+	 }
+
+	 }
+ }
+
+
 
 
