@@ -5,7 +5,7 @@ class TABLERO {
 
 private:
 	
-	/*Los limites del mapa, el cual sera rectandular o cuadrado, estan limitados por un poligono el cual partira de
+	/*Los limites del mapa, el cual sera rectangular o cuadrado, estan limitados por un poligono el cual partira de
 	  la coordenada (0,0,0) y estara siempre en el plano Y=0. Los limites tanto de las coordenadas X Y Z seran el 0 
 	  y sus correspondientes coordenadas maximas.
 	*/
@@ -16,7 +16,7 @@ private:
 
 public:
 
-	//Constrcutor por defecto.
+	//Constructor por defecto.
 	TABLERO() 
 	{
 		XMAX = 0.0f;

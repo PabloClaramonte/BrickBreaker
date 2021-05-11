@@ -2,10 +2,6 @@
 
 class PUNTOSCARTESIANOS
 {
-
-private:
-
-	
 public:
 
 	//Son las tres variables sobre las cuales dependera todo el resto de los elementos, para poderlos situar en el mundo.

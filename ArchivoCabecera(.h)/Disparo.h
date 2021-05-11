@@ -3,7 +3,7 @@
 #include <PuntosCartesianos.h>
 #include <freeglut.h>
 
-class DISPARO
+class DISPARO 
 {
 
 private: 
@@ -22,6 +22,8 @@ public:
 		POSICION.X = 0.0;
 		POSICION.Y = 0.0;
 		POSICION.Z = 0.0;
+
+		DIRECCION = NULL;
 
 		TIEMPODISPARO = 0;
 	}

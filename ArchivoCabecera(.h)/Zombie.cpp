@@ -1,5 +1,4 @@
 #include<math.h>
-
 #include <Zombie.h>
 #include <freeglut.h>
 
@@ -17,7 +16,7 @@ void ZOMBIE::MUEVE(void)
 {
     if (VIVO)
     {
-        POSICION.X += (VELOCIDAD *cosf(ANGULO));
+        POSICION.X += (VELOCIDAD * cosf(ANGULO));
         POSICION.Z += (VELOCIDAD *sinf(ANGULO));
     }
 

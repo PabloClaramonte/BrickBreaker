@@ -48,20 +48,16 @@ void OnDraw(void)
 	//Borra la pantalla y el buffer.
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//Acciones repetitivas cada ciclo de dibujo.
-	
-	
-	
-	//Fin de accciones repetitivas.
-
 	//Define el punto de vista.
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(20,70,50.0, // Posicion de la camara.
+	
+	/*gluLookAt(20,70,50.0, // Posicion de la camara.
 		20, 0, 20, // Punto hacia el que mira la camara.
-		0, 1, 0); // Vector de autogiro de la camara (No Tocar).   
-
+		0, 1, 0); // Vector de autogiro de la camara (No Tocar). 	
+*/
 	//Inicio código dibujo.
+	VOXHEAD.CAMARA();
 	VOXHEAD.DIBUJA();
 	//Final de codigo de dibujo.
 

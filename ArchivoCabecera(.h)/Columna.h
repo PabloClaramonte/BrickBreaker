@@ -4,14 +4,12 @@
 #include <freeglut.h>
 
 
-
-
 class COLUMNA 
 {
 
 private:
 
-	int TAMAÑOCOLUMNA;
+	int TAMANOCOLUMNA;
 
 	PUNTOSCARTESIANOS POSICION;
 
@@ -21,7 +19,7 @@ public:
 	//Constrcutor por defecto.
 	COLUMNA() 
 	{
-		TAMAÑOCOLUMNA = 4;
+		TAMANOCOLUMNA = 4;
 	};
 
 	//Destructor por defecto.
