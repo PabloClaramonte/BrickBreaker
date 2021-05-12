@@ -1,5 +1,20 @@
 #include<Disparo.h>
 
+DISPARO::DISPARO()
+{
+	POSICION.X = 0.0;
+	POSICION.Y = 0.0;
+	POSICION.Z = 0.0;
+
+	DIRECCION = NULL;
+	TIEMPODISPARO = 0;
+	VELOCIDAD = 0;
+}
+
+DISPARO::~DISPARO()
+{
+}
+
 void DISPARO::DIBUJA(void)
 {
 	glPushMatrix();

@@ -16,21 +16,11 @@ private:
 
 public:
 
-	ZOMBIE()
-	{
-		VIVO = true;
-
-		POSICION.X = 0.0;
-		POSICION.Y = 0.0;
-		POSICION.Z = 0.0;
-		VELOCIDAD = 0.0;
-	};
-
-	~ZOMBIE() {};
+	ZOMBIE();
+	~ZOMBIE();
 
 	void DIBUJA (void);
 	void MUEVE(void);
-	
 
 
 	friend class MUNDO;

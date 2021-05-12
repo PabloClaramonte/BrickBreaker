@@ -27,6 +27,7 @@ public:
 		POSICION.Z = 0.0f;
 		WSAD = NULL;
 		PREWSAD = NULL;
+		VELOCIDAD = 0;
 	}; 
 
 	//Destrcutor por defecto.

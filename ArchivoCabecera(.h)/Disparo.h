@@ -17,24 +17,10 @@ private:
 
 public:
 
-	DISPARO()
-	{
-		POSICION.X = 0.0;
-		POSICION.Y = 0.0;
-		POSICION.Z = 0.0;
-
-		DIRECCION = NULL;
-
-		TIEMPODISPARO = 0;
-	}
-
-	~DISPARO() {};
+	DISPARO();
+	~DISPARO();
 
 	void DIBUJA(void);
-
-
-
-
 
 	friend class MUNDO;
 	friend class INTERACCIONES;
