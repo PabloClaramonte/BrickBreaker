@@ -1,6 +1,15 @@
 #include <Columna.h>
 
 
+COLUMNA::COLUMNA()
+{
+	TAMANOCOLUMNA = 4;
+}
+
+COLUMNA::~COLUMNA()
+{
+}
+
 void COLUMNA::DIBUJAR(void)
 {
 	glPushMatrix();

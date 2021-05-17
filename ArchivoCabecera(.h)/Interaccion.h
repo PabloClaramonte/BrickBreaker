@@ -13,6 +13,7 @@ class INTERACCIONES
 private:
 
 public:
+	//Funciones static porque es una función que queremos utilizar independientemente de que haya o no un objeto
 	static void INTERACCION_JUGADOR_TABLERO(JUGADOR& HEROE, TABLERO SUELO);
 	static void INTERACCION_JUGADOR_COLUMNA(JUGADOR& HEROE, COLUMNA _COLUMNA);
 	static void INTERACCION_ZOMBIE_COLUMNA(ZOMBIE& MALO, COLUMNA _COLUMNA);

@@ -15,4 +15,4 @@ Comandos para (GITHUB):
 -git push origin master //Sube los cambios que efectuemos. 
 
 ÚLTIMA MODIFICACIÓN:
-Pablo, 12 Mayo - Interaccion Zombie-Columna
+Pablo, 18 Mayo - Sprites

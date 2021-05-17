@@ -12,7 +12,6 @@ void OnDraw(void); //Funcion de dibujado.
 void OnTimer(int value); //Se llama automticamente cuando transcurre un determinado tiempo, asignado por el programador.
 void OnKeyboardDown(unsigned char key, int x, int y); //Se llama automaticamente cuando se pulsa una tecla.
 
-
 int main(int argc, char* argv[])
 {
 	//Inicializacion de la ventana.

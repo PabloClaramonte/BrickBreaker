@@ -3,6 +3,23 @@
 //Fin zona de #includes.
 
 
+JUGADOR::JUGADOR()
+{
+    POSICION.X = 0.0f;
+    POSICION.Y = 0.0f;
+    POSICION.Z = 0.0f;
+    WSAD = NULL;
+    PREWSAD = NULL;
+    VELOCIDAD = 0;
+
+    sprite.setCenter(1, 0);
+    sprite.setSize(2, 2);
+}
+
+JUGADOR::~JUGADOR()
+{
+}
+
 void JUGADOR::DIBUJA(void)
 {
     glPushMatrix();
@@ -11,6 +28,14 @@ void JUGADOR::DIBUJA(void)
     glutSolidSphere(2, 20, 20);
     glTranslatef(0, 0, 0);
     glPopMatrix();
+
+    if (VELOCIDAD > 0.01)sprite.flip(false, false);
+    if (VELOCIDAD < -0.01)sprite.flip(true, false);
+    if ((VELOCIDAD < 0.01) && (VELOCIDAD > -0.01))
+        sprite.setState(0);
+    else if (sprite.getState() == 0)
+        sprite.setState(1, false);
+    sprite.draw();
 }
 
 void JUGADOR::MUEVE(void)
@@ -39,27 +64,6 @@ void JUGADOR::MUEVE(void)
     {
         NULL;
     }
-}
 
-
-/*
-void JUGADOR::MODIFICAR_WSDA(char tecla)
-{
-    WSAD = tecla;
+    sprite.loop();
 }
-
-void JUGADOR::MODIFICAR_PREWSDA(char tecla)
-{
-    PREWSAD = tecla;
-}
-
-char JUGADOR::MOSTRAR_WSDA(void)
-{
-    return WSAD;
-}
-
-char JUGADOR::MOSTRAR_PREWSDA(void)
-{
-    return PREWSAD;
-}
-*/

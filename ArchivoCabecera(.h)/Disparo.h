@@ -24,6 +24,5 @@ public:
 
 	friend class MUNDO;
 	friend class INTERACCIONES;
-
 };
 

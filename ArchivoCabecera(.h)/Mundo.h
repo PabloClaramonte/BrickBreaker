@@ -1,9 +1,4 @@
 #pragma once
-
-#include<Jugador.h>
-#include<Columna.h>
-#include<Tablero.h>
-#include <Disparo.h>
 #include <Interaccion.h>
 
 #define ZO 2 //Numero de zombis

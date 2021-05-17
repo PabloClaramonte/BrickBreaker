@@ -2,16 +2,20 @@
 #pragma once
 #include "PuntosCartesianos.h"
 #include "freeglut.h"
+
+#include "ETSIDI.h"
+using ETSIDI::SpriteSequence;
 //Fin zona #includes.
 
 /*Esta clase es heredada de la clase PuntosCartesianos, de esta forma tenemos los atributos x,y,z heredados y privados
   por lo que solo podemos acceder a ellos con los metodos publicos especificados en la clase antes mencionada.
 */
-class JUGADOR 
+class JUGADOR //: public PUNTOSCARTESIANOS
 {
 
 private:
 
+	SpriteSequence sprite{ "imagenes/pangPlayer.png", 5 };
 	float VELOCIDAD;//Atributo encargado de saber en cuantas unidades se incrementa la posicion del jugador cada ciclo de 25ms.
 	char WSAD;//Atributo encargado de conocer la direccion en la cual se mueve el JUGADOR o si comienza a disparar.
 	char PREWSAD;//Atributo encargado de conocer la ultima direccion del JUGADOR, antes de pararse para disparar.
@@ -20,18 +24,10 @@ private:
 public:
 
 	//Constructor por defecto.
-	JUGADOR()
-	{
-		POSICION.X = 0.0f;
-		POSICION.Y = 0.0f;
-		POSICION.Z = 0.0f;
-		WSAD = NULL;
-		PREWSAD = NULL;
-		VELOCIDAD = 0;
-	}; 
+	JUGADOR(); 
 
 	//Destrcutor por defecto.
-	~JUGADOR() {}
+	~JUGADOR();
 	
 	//Metodo encargado del dibujado del personaje.
 	void DIBUJA(void);
