@@ -1,5 +1,0 @@
-﻿  Zombie.cpp
-C:\Users\pablo\Desktop\VOXHEAD\ArchivoCabecera(.h)\Zombie.cpp(40,73): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\pablo\Desktop\VOXHEAD\ArchivoCabecera(.h)\Zombie.cpp(41,73): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\pablo\Desktop\VOXHEAD\ArchivoCabecera(.h)\Zombie.cpp(42,73): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-  VoxHead(c++).vcxproj -> C:\Users\pablo\Desktop\VOXHEAD\bin\VoxHead(c++).exe
