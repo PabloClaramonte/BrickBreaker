@@ -16,15 +16,13 @@ private:
 
 public:
 
-	ZOMBIE();
+	ZOMBIE(); //Constructor sin argumentos
 	~ZOMBIE();
 
 	void DIBUJA (void);
 	void MUEVE(void);
 
-
 	friend class MUNDO;
 	friend class INTERACCIONES;
-
 };
 

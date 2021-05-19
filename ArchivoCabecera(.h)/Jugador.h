@@ -10,11 +10,9 @@ using ETSIDI::SpriteSequence;
 /*Esta clase es heredada de la clase PuntosCartesianos, de esta forma tenemos los atributos x,y,z heredados y privados
   por lo que solo podemos acceder a ellos con los metodos publicos especificados en la clase antes mencionada.
 */
-class JUGADOR //: public PUNTOSCARTESIANOS
+class JUGADOR 
 {
-
 private:
-
 	SpriteSequence sprite{ "imagenes/pangPlayer.png", 5 };
 	float VELOCIDAD;//Atributo encargado de saber en cuantas unidades se incrementa la posicion del jugador cada ciclo de 25ms.
 	char WSAD;//Atributo encargado de conocer la direccion en la cual se mueve el JUGADOR o si comienza a disparar.
@@ -22,7 +20,6 @@ private:
 	PUNTOSCARTESIANOS POSICION;//Atributo encargado de conocer la posicion del jugador en el mapa.
 
 public:
-
 	//Constructor por defecto.
 	JUGADOR(); 
 

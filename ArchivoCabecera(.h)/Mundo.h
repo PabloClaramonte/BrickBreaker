@@ -1,5 +1,6 @@
 #pragma once
 #include <Interaccion.h>
+#include <ListaZombies.h>
 
 #define ZO 2 //Numero de zombis
 #define CO 2 //Numero de columnas
@@ -16,6 +17,7 @@ private:
 	TABLERO SUELO;
 	DISPARO BALA;
 	ZOMBIE MALO[ZO];
+	LISTAZOMBIES ZOMBIES;
 
 public:
 	MUNDO();

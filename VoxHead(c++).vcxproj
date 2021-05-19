@@ -25,6 +25,7 @@
     <ClInclude Include="ArchivoCabecera(.h)\Interaccion.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Jugador.h" />
     <ClInclude Include="ArchivoCabecera%28.h%29\Tablero.h" />
+    <ClInclude Include="ArchivoCabecera(.h)\ListaZombies.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Mundo.h" />
     <ClInclude Include="ArchivoCabecera(.h)\PuntosCartesianos.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Zombie.h" />
@@ -37,6 +38,7 @@
     <ClCompile Include="ArchivoFuente(.cpp)\Interaccion.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Jugador.cpp" />
     <ClCompile Include="ArchivoFuente%28.cpp%29\Tablero.cpp" />
+    <ClCompile Include="ArchivoFuente(.cpp)\ListaZombies.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

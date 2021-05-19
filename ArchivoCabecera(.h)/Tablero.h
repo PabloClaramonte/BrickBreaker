@@ -17,14 +17,14 @@ private:
 
 public:
 
-	//Constructor por defecto.
+	//Constructor sin argumentos.
 	TABLERO() 
 	{
 		XMAX = 0.0f;
 		ZMAX = 0.0f;
 	};
 
-	//Destructor por defecto.
+	//Destructor.
 	~TABLERO()
 	{
 	

@@ -13,7 +13,7 @@ COLUMNA::~COLUMNA()
 void COLUMNA::DIBUJAR(void)
 {
 	glPushMatrix();
-	glColor3f(1.0f, 0.0f, 0.0f);
+	glColor3f(0.0f, 1.0f, 1.0f);
 	glTranslatef(POSICION.X, POSICION.Y, POSICION.Z);
 	glutSolidCube(TAMANOCOLUMNA);
 	glTranslatef(0.0f, 0.0f, 0.0f);

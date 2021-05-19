@@ -27,5 +27,4 @@ public:
 	void INCREMENTAR_X(float valor) { X = X + valor; }
 	void INCREMENTAR_Y(float valor) { Y = Y + valor; }
 	void INCREMENTAR_Z(float valor) { Z = Z + valor; }
-
 };

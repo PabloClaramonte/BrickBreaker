@@ -13,7 +13,7 @@ JUGADOR::JUGADOR()
     VELOCIDAD = 0;
 
     sprite.setCenter(1, 0);
-    sprite.setSize(2, 2);
+    sprite.setSize(5, 5);
 }
 
 JUGADOR::~JUGADOR()
@@ -66,4 +66,9 @@ void JUGADOR::MUEVE(void)
     }
 
     sprite.loop();
+}
+
+char JUGADOR::MOSTRAR_WSDA(void)
+{
+    return 0;
 }
