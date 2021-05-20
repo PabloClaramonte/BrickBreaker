@@ -9,7 +9,7 @@ class DISPARO
 private: 
 
 	int TIEMPODISPARO;
-	int VELOCIDAD;
+	float VELOCIDAD;
 
 	char DIRECCION;
 

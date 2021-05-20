@@ -2,15 +2,16 @@
 #include "Jugador.h"
 //Fin zona de #includes.
 
-
-JUGADOR::JUGADOR()
+JUGADOR::JUGADOR(float X, float Y, float Z, float VEL)
 {
-    POSICION.X = 0.0f;
-    POSICION.Y = 0.0f;
-    POSICION.Z = 0.0f;
+    POSICION.X = X;
+    POSICION.Y = Y;
+    POSICION.Z = Z;
+
+    VELOCIDAD = VEL;
+
     WSAD = NULL;
     PREWSAD = NULL;
-    VELOCIDAD = 0;
 
     sprite.setCenter(1, 0);
     sprite.setSize(5, 5);

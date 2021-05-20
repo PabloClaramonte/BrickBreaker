@@ -1,5 +1,6 @@
 #include <Mundo.h>
 
+
 MUNDO::MUNDO()
 {
 	NUMERODECOLUMNAS = 0;
@@ -7,6 +8,7 @@ MUNDO::MUNDO()
 
 MUNDO::~MUNDO()
 {
+	ZOMBIES.DESTRUYECONTENIDO();
 }
 
 
@@ -20,7 +22,9 @@ void MUNDO::CAMARA(void)
 
 void MUNDO::MAPAFACIL(void)
 {
-	// Hay que implementar otro Constructor para heroe HEROE(X,Y,Z,VEL);
+	// Hay que implementar Constructores con argumentos para los objetos
+
+		//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
 		HEROE.POSICION.X = 10.0;
 		HEROE.POSICION.Y = 0.0;
 		HEROE.POSICION.Z = 10.0;
@@ -37,10 +41,10 @@ void MUNDO::MAPAFACIL(void)
 		PCOLUMNAS[1].POSICION.X = 20.0;
 		PCOLUMNAS[1].POSICION.Z = 30.0;
 
-		BALA.POSICION.X = 10.0;
-		BALA.POSICION.Y = 0.0;
-		BALA.POSICION.Z = 10.0;
-		BALA.VELOCIDAD = 2.5;
+		BALA.POSICION.X = 10.0f;
+		BALA.POSICION.Y = 0.0f;
+		BALA.POSICION.Z = 10.0f;
+		BALA.VELOCIDAD = 2.5f;
 
 
 		for (int i = 0; i < 15; i++)
@@ -55,7 +59,7 @@ void MUNDO::MAPAFACIL(void)
 			AUX->POSICION.Z = 15.0f + i*3;
 
 			//Velocidad a la que se mueven (Prueba):
-			AUX->VELOCIDAD = 0.05f + 0.005 * i;
+			AUX->VELOCIDAD = 0.05f;
 
 			ZOMBIES.AGREGAR(AUX); // agregar a la lista
 		}
@@ -88,6 +92,7 @@ void MUNDO::MUEVE(void)
 	ZOMBIES.MATA_DISPARO(BALA);
 	ZOMBIES.CHOQUE_ENTRE_ZOMBIES();
 
+	
 
 	INTERACCIONES::INTERACCION_JUGADOR_TABLERO(HEROE, SUELO);
 	INTERACCIONES::INTERACCION_JUGADOR_DISPARO(HEROE, BALA);

@@ -88,6 +88,7 @@ void INTERACCIONES::INTERACCION_JUGADOR_DISPARO(JUGADOR& HEROE, DISPARO& BALA)
 {
 	if (HEROE.WSAD == ' ')
 	{
+		//ETSIDI::play("sonidos/disparo.wav"); //Se raya mazo
 
 		if (BALA.TIEMPODISPARO <= 10)
 		{
@@ -150,17 +151,21 @@ void INTERACCIONES::INTERACCION_JUGADOR_DISPARO(JUGADOR& HEROE, DISPARO& BALA)
 
 //Función que cambia el estado del zombie al ser impactado por un disparo
 
-void INTERACCIONES::INTERACCION_BALA_ZOMBIE(DISPARO& BALA, ZOMBIE& MALO)
+bool INTERACCIONES::INTERACCION_BALA_ZOMBIE(DISPARO& BALA, ZOMBIE& MALO)
 {
 	if (BALA.POSICION.X > MALO.POSICION.X - 2 && BALA.POSICION.X < MALO.POSICION.X + 2 && BALA.POSICION.Z > MALO.POSICION.Z - 2 && BALA.POSICION.Z < MALO.POSICION.Z + 2 && MALO.VIVO)
 	{
-		MALO.VIVO = false;
+		MALO.VIVO = false; //El estado del zombie pasa a muerto.
+		
+		ETSIDI::play("sonidos/impacto.wav"); //Sonido jocoso
 	}
 
 	else
 	{
 		NULL;
 	}
+
+	return MALO.VIVO;
 }
 
 void INTERACCIONES::INTELIGENCIA_ARTIFICIAL_ZOMBIE(JUGADOR HEROE, ZOMBIE& MALO)

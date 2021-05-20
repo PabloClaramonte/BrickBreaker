@@ -34,6 +34,34 @@ void LISTAZOMBIES::DIBUJA()
         LISTA[i]->DIBUJA();
 }
 
+void LISTAZOMBIES::DESTRUYECONTENIDO()
+{
+    for (int i = 0; i < NUMERO; i++) // destrucción de zombies
+        delete LISTA[i];
+    NUMERO = 0; // inicializa lista 
+
+}
+
+void LISTAZOMBIES::ELIMINAR(int INDEX)
+{
+    if ((INDEX < 0) || (INDEX >= NUMERO))
+        return;
+    delete LISTA[INDEX];
+    NUMERO--;
+    for (int i = INDEX; i < INDEX; i++)
+        LISTA[i] = LISTA[i + 1];
+}
+
+void LISTAZOMBIES::ELIMINAR(ZOMBIE* Z)
+{
+    for (int i = 0; i < NUMERO; i++)
+        if (LISTA[i] == Z)
+        {
+            ELIMINAR(i);
+            return;
+        }
+}
+
 void LISTAZOMBIES::SIGUE_A_JUGADOR(JUGADOR HEROE)
 {
     for (int i = 0; i < NUMERO; i++)

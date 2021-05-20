@@ -20,8 +20,8 @@ private:
 	PUNTOSCARTESIANOS POSICION;//Atributo encargado de conocer la posicion del jugador en el mapa.
 
 public:
-	//Constructor por defecto.
-	JUGADOR(); 
+	//Constructor con argumentos (sustituye al costructor sin argumentos para poder inicializar en menos líneas):
+	JUGADOR(float X = 0.0f, float Y = 0.0f, float Z = 0.0f, float VEL = 0.0f);
 
 	//Destrcutor por defecto.
 	~JUGADOR();
