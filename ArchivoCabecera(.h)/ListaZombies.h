@@ -31,6 +31,7 @@ public:
 	void CHOCA_COLUMNA(COLUMNA COL); //Implementa INTERACCION_ZOMBIE_COLUMNA() para cada zombie de la lista.
 	void MATA_DISPARO(DISPARO BALA);//Implementa INTERACCION_BALA_ZOMBIE() para cada zombie de la lista.
 	void CHOQUE_ENTRE_ZOMBIES(); //Implementa CHOQUE_ENTRE_ZOMBIES() para cada zombie de la lista.
+	void COLISION(JUGADOR HEROE);
 
 };
 

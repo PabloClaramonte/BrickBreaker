@@ -2,7 +2,6 @@
 #include <Interaccion.h>
 #include <ListaZombies.h>
 
-#define ZO 2 //Numero de zombis
 #define CO 2 //Numero de columnas
 
 class MUNDO
@@ -11,12 +10,12 @@ class MUNDO
 private:
 
 	int NUMERODECOLUMNAS;
+	bool IMPACTO;
 
 	JUGADOR HEROE;
-	COLUMNA PCOLUMNAS[CO];
+	COLUMNA PCOLUMNAS[CO]; //Hacemos LISTACOLUMNAS?? 
 	TABLERO SUELO;
 	DISPARO BALA;
-	ZOMBIE MALO[ZO];
 	LISTAZOMBIES ZOMBIES;
 
 public:
@@ -24,7 +23,8 @@ public:
 	~MUNDO();
 
 	void CAMARA(void); //para que la camara siga al personaje
-	void MAPAFACIL(void);
+	void INICIALIZA();
+	void MAPAFACIL(void); //Esta funcion hay que cambiarla por un CargarNivel() como el del pang
 	void DIBUJA(void);
 	void TECLADO(unsigned char TECLA);
 	void MUEVE(void);

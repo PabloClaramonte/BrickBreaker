@@ -1,10 +1,12 @@
 //Zona de declaracion de los #include.
 #include <freeglut.h>
-#include <Mundo.h>
+#include "Coordinador.h"
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
 MUNDO VOXHEAD;
+//COORDINADOR VOXHEAD;
+//COORDINADOR VOXHEAD;
 //Fin zona de declaracion de Variables y Clases.
 
 //Los CallBack se las funciones se llaman automaticamente cuado suceden los eventos (no hay que llamarlos).

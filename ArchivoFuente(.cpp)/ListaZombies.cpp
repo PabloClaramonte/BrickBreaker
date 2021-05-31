@@ -86,3 +86,12 @@ void LISTAZOMBIES::CHOQUE_ENTRE_ZOMBIES()
         for (int j = i + 1; j < NUMERO; j++)
             INTERACCIONES::CHOQUE_ENTRE_ZOMBIES(*(LISTA[i]), *(LISTA[j]));
 }
+
+
+//Gestor del impacto zombie con jugador:
+void LISTAZOMBIES::COLISION(JUGADOR HEROE)
+{
+    for (int i = 0; i < NUMERO - 1; i++)
+        for (int j = i + 1; j < NUMERO; j++)
+            INTERACCIONES::INTERACCION_JUGADOR_ZOMBIE(HEROE, *(LISTA[i]));
+}

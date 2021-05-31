@@ -3,19 +3,17 @@
 #include <PuntosCartesianos.h>
 #include <freeglut.h>
 
-
-class COLUMNA 
+class COLUMNA
 {
-
 private:
 	int TAMANOCOLUMNA;
 	PUNTOSCARTESIANOS POSICION;
 public:
-	//Constrcutor por defecto.
+	//Constrcutor sin argumentos
 	COLUMNA();
-	//Destructor por defecto.
+	//Destructor 
 	~COLUMNA();
-	
+
 	//Metodo encargado de dibujar la COLUMNA.
 	void DIBUJAR(void);
 	//Metodo encargado de devolver el valor maximo del eje X de cualquier columna. 
@@ -26,7 +24,7 @@ public:
 	float MOSTRAR_LIMITE_MAXIMO_EJE_Z(int numerocolum);
 	//Metodo encargado de devolver el valor minimo del eje Z de cualquier columna. 
 	float MOSTRAR_LIMITE_MINIMO_EJE_Z(int numerocolum);
-	
+
 	friend class INTERACCIONES;
 	friend class MUNDO;
 };
