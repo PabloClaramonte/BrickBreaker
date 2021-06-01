@@ -15,4 +15,4 @@ Comandos para (GITHUB):
 -git push origin master //Sube los cambios que efectuemos. 
 
 ÚLTIMA MODIFICACIÓN:
-Pablo, 31 Mayo - Coordinador y ListaDisparos (A medias)
+Pablo, 1 Junio - Coordinador y ListaDisparos (A medias)

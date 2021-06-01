@@ -40,8 +40,9 @@ void COORDINADOR::TECLA(unsigned char key)
 
 void COORDINADOR::MUEVE()
 {
-    if (_ESTADO == JUEGO)
+    if (_ESTADO == JUEGO) {
         _MUNDO.MUEVE();
+    }
 }
 
 void COORDINADOR::DIBUJA()
@@ -64,8 +65,10 @@ void COORDINADOR::DIBUJA()
         ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6, 0);
         ETSIDI::printxy("LOS PIBARDOS", 2, 1, 0);
     }
-    else if (_ESTADO == JUEGO)
+    else if (_ESTADO == JUEGO) {
         _MUNDO.DIBUJA();
+       
+    }
 
     else if (_ESTADO == GAMEOVER)
     {
@@ -85,4 +88,11 @@ void COORDINADOR::DIBUJA()
         ETSIDI::printxy("Pulsa -C- para continuar", -5, 9, 0);
     }
 
+}
+
+void COORDINADOR::CAMARA()
+{
+    if (_ESTADO == JUEGO) {
+        _MUNDO.CAMARA();
+    }
 }

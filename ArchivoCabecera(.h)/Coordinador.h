@@ -9,6 +9,7 @@ public:
 	void TECLA(unsigned char key);
 	void MUEVE();
 	void DIBUJA();
+	void CAMARA();
 protected:
 	MUNDO _MUNDO;
 	enum ESTADO { INICIO, JUEGO, FIN, GAMEOVER, PAUSA }; //Diferentes estados del juego. Máquina de estados.

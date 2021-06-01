@@ -48,14 +48,14 @@ DISPARO* LISTADISPAROS::COLISION(ZOMBIE z)
 	return 0;
 }
 
-/*DISPARO* LISTADISPAROS::COLISION(/*variable de la pared del tablero*//*) //Hay que implementar una interaccion entre Disparo y mapa
+//DISPARO* LISTADISPAROS::COLISION(/*variable de la pared del tablero*//*) //Hay que implementar una interaccion entre Disparo y mapa
 //{
-	/*for (int i = 0; i < NUM; i++)
-	{
-		if (INTERACCION::colision(*(lista[i]), p))
-			return lista[i];
-	}
-	return 0;*/
+//	/*for (int i = 0; i < NUM; i++)
+//	{
+//		if (INTERACCION::colision(*(lista[i]), p))
+//			return lista[i];
+//	}
+//	return 0;
 //}
 
 void LISTADISPAROS::ELIMINAR(DISPARO* d)

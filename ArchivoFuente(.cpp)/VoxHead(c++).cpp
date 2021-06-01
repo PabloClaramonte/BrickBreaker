@@ -4,9 +4,9 @@
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
-MUNDO VOXHEAD;
-//COORDINADOR VOXHEAD;
-//COORDINADOR VOXHEAD;
+MUNDO WORLD;
+COORDINADOR VOXHEAD;
+
 //Fin zona de declaracion de Variables y Clases.
 
 //Los CallBack se las funciones se llaman automaticamente cuado suceden los eventos (no hay que llamarlos).
@@ -30,14 +30,11 @@ int main(int argc, char* argv[])
 	glMatrixMode(GL_PROJECTION);
 	gluPerspective(40.0, 800 / 600.0f, 0.1, 150);
 
-	VOXHEAD.MAPAFACIL();
 
 	//Registro de los CallBack.
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//Llama periodicamente a la funcion, el primer argumento es el tiempo en "ms" del periodo.
 	glutKeyboardFunc(OnKeyboardDown);
-	
-	
 	
 	//Pasa el control del programa a la API GLUT.
 	glutMainLoop();
@@ -53,10 +50,11 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	
-	/*gluLookAt(20,70,50.0, // Posicion de la camara.
-		20, 0, 20, // Punto hacia el que mira la camara.
-		0, 1, 0); // Vector de autogiro de la camara (No Tocar). 	
-*/
+	//CAMARA ESTÁTICA POR DEFECTO:
+	//gluLookAt(20,40,60, // Posicion de la camara.
+	//	20, 0, 20, // Punto hacia el que mira la camara.
+	//	0, 1, 0); // Vector de autogiro de la camara (No Tocar). 	
+
 	//Inicio código dibujo.
 	VOXHEAD.CAMARA();
 	VOXHEAD.DIBUJA();
@@ -67,7 +65,7 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x, int y)
 {
 	//Inicio codigo vinculado al teclado.
-	VOXHEAD.TECLADO(key);
+	VOXHEAD.TECLA(key);
 	//Final codigo vinculado al teclado.
 
 	//No borrar esta linea.
