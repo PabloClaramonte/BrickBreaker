@@ -151,8 +151,18 @@ void INTERACCIONES::INTERACCION_JUGADOR_DISPARO(JUGADOR& HEROE, DISPARO& BALA)
 
 bool INTERACCIONES::INTERACCION_JUGADOR_ZOMBIE(JUGADOR& HEROE, ZOMBIE& MALO)
 {
-	//ESTO HAY QUE IMPLEMENTARLO
-	return false;
+	if (HEROE.POSICION.X > MALO.POSICION.X - 2 && HEROE.POSICION.X < MALO.POSICION.X + 2 && HEROE.POSICION.Z > MALO.POSICION.Z - 2 && HEROE.POSICION.Z < MALO.POSICION.Z + 2 && MALO.VIVO)
+	{
+		MALO.VIVO = false; //El estado del zombie pasa a muerto.
+		ETSIDI::play("sonidos/disparo.wav"); //Sonido jocoso
+	}
+
+	else
+	{
+		NULL;
+	}
+
+	return MALO.VIVO;
 }
 
 //Función que cambia el estado del zombie al ser impactado por un disparo

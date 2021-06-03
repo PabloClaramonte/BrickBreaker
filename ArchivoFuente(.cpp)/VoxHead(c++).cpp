@@ -55,10 +55,10 @@ void OnDraw(void)
 	//	20, 0, 20, // Punto hacia el que mira la camara.
 	//	0, 1, 0); // Vector de autogiro de la camara (No Tocar). 	
 
-	//Inicio código dibujo.
+	//Inicio código dibujo y cámara.
 	VOXHEAD.CAMARA();
 	VOXHEAD.DIBUJA();
-	//Final de codigo de dibujo.
+	//Final de codigo de dibujo y cámara.
 
 	glutSwapBuffers(); //No borrar este comando ni incluir ninguno mas despues.
 }

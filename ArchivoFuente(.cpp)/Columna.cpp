@@ -10,7 +10,7 @@ COLUMNA::~COLUMNA()
 {
 }
 
-void COLUMNA::DIBUJAR(void)
+void COLUMNA::DIBUJA(void)
 {
 	glPushMatrix();
 	glColor3f(0.0f, 1.0f, 1.0f);

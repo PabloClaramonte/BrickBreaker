@@ -1,5 +1,5 @@
 #include "ListaZombies.h"
-#include "..\ArchivoCabecera(.h)\ListaZombies.h"
+//#include "..\ArchivoCabecera(.h)\ListaZombies.h"
 
 LISTAZOMBIES::LISTAZOMBIES()
 {

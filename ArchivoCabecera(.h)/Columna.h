@@ -15,7 +15,7 @@ public:
 	~COLUMNA();
 
 	//Metodo encargado de dibujar la COLUMNA.
-	void DIBUJAR(void);
+	void DIBUJA(void);
 	//Metodo encargado de devolver el valor maximo del eje X de cualquier columna. 
 	float MOSTRAR_LIMITE_MAXIMO_EJE_X(int numerocolum);
 	//Metodo encargado de devolver el valor minimo del eje X de cualquier columna.  
