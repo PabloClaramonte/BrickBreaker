@@ -95,3 +95,18 @@ void LISTAZOMBIES::COLISION(JUGADOR HEROE)
         for (int j = i + 1; j < NUMERO; j++)
             INTERACCIONES::INTERACCION_JUGADOR_ZOMBIE(HEROE, *(LISTA[i]));
 }
+
+int LISTAZOMBIES::getNumero()
+{
+    return NUMERO;
+}
+
+ZOMBIE* LISTAZOMBIES::operator [](int i)
+{
+    if (i >= NUMERO)//si me paso, devuelvo la ultima
+        i = NUMERO - 1;
+
+    if (i < 0) //si el indice es negativo, devuelvo la primera 
+        i = 0;
+    return LISTA[i];
+}

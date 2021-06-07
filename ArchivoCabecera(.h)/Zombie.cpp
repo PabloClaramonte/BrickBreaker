@@ -6,11 +6,7 @@
 ZOMBIE::ZOMBIE()
 {
     VIVO = true;
-
-    POSICION.X = 0.0;
-    POSICION.Y = 0.0;
-    POSICION.Z = 0.0;
-    VELOCIDAD = 0.0;
+    POSICION.Y = 0.0f;
     ANGULO = 0.0;
 }
 
@@ -61,4 +57,11 @@ void ZOMBIE::MUEVE(void)
     {
         NULL;
     }
+}
+
+ZOMBIE::ZOMBIE(float x, float z, float v)
+{
+    POSICION.X = x;
+    POSICION.Z = z;
+    VELOCIDAD = v;
 }

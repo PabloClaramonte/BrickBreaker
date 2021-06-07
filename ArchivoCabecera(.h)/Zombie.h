@@ -22,7 +22,10 @@ public:
 	void DIBUJA (void);
 	void MUEVE(void);
 
+	ZOMBIE(float x = 0.0f, float z = 0.0f, float v = 0.0f);
+
 	friend class MUNDO;
 	friend class INTERACCIONES;
+
 };
 

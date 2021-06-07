@@ -3,12 +3,13 @@
 
 MUNDO::MUNDO()
 {
-	
+
 }
 
 MUNDO::~MUNDO()
 {
 	ZOMBIES.DESTRUYECONTENIDO();
+	BALAS.DESTRUIRDISPAROS();
 }
 
 
@@ -34,7 +35,6 @@ void MUNDO::MAPAFACIL(void)
 		HEROE.POSICION.X = 10.0;
 		HEROE.POSICION.Y = 0.0;
 		HEROE.POSICION.Z = 10.0;
-		HEROE.VELOCIDAD = 0.25;
 
 		SUELO.XMAX = 60.0;
 		SUELO.ZMAX = 60.0;
@@ -47,25 +47,20 @@ void MUNDO::MAPAFACIL(void)
 		PCOLUMNAS[1].POSICION.X = 20.0;
 		PCOLUMNAS[1].POSICION.Z = 30.0;*/
 
-		BALA.POSICION.X = 10.0f;
-		BALA.POSICION.Y = 0.0f;
-		BALA.POSICION.Z = 10.0f;
-		BALA.VELOCIDAD = 2.5f;
-
 
 		for (int i = 0; i < 5; i++)
 		{
-			ZOMBIE* AUX = new ZOMBIE;
+			ZOMBIE* AUX = new ZOMBIE(15.0f + i * 2, 15.0f + i * 3, 0.05f);
 
 			//PROBLEMA: no sale la implementación del constructor nuevo de los guiones del lab
 
 			//Posiciones XYZ donde aparecen los zombies:
-			AUX->POSICION.X = 15.0f + i*2;
+			/*AUX->POSICION.X = 15.0f + i*2;
 			AUX->POSICION.Y = 0.0f;
 			AUX->POSICION.Z = 15.0f + i*3;
 
 			//Velocidad a la que se mueven (Prueba):
-			AUX->VELOCIDAD = 0.05f;
+			AUX->VELOCIDAD = 0.05f;*/
 
 			ZOMBIES.AGREGAR(AUX); // agregar a la lista
 			COLUMNAS.CHOQUE_ZOMBIE(*AUX);
@@ -93,7 +88,7 @@ void MUNDO::DIBUJA(void)
 	COLUMNAS.DIBUJA();
 	HEROE.DIBUJA();
 	SUELO.DIBUJA();
-	BALA.DIBUJA();
+	BALAS.DIBUJA();
 	
 	//Habrá que implementar LISTACOLUMNAS
 	/*for (int i = 0; i < CO; i++)
@@ -104,24 +99,100 @@ void MUNDO::DIBUJA(void)
 
 void MUNDO::TECLADO(unsigned char TECLA)
 {
-	INTERACCIONES::INTERACCION_JUGADOR_TECLADO(HEROE, TECLA);
+	
+	if (TECLA == 'w')
+	{
+		HEROE.setvel(0.0, -5.0);
+		direccion_bala = 'w';
+
+	}
+
+	else if (TECLA == 's')
+	{
+		HEROE.setvel(0.0, 5.0);
+		direccion_bala = 's';
+	}
+
+	else if (TECLA== 'a')
+	{
+		HEROE.setvel(-5.0, 0.0);
+		direccion_bala = 'a';
+	}
+
+	else if (TECLA == 'd')
+	{
+		HEROE.setvel(5.0, 0.0);
+		direccion_bala = 'd';
+	}
+	if( TECLA == ' ')
+	{
+		if (direccion_bala == 'w')
+		{
+			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 0.0, -10.0f);
+			BALAS.AGREGAR(d);
+		}
+		else if (direccion_bala == 's')
+		{
+			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 0.0, 10.0f);
+			BALAS.AGREGAR(d);
+		}
+		else if (direccion_bala == 'a')
+		{
+			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, -10.0, 0.0);
+			BALAS.AGREGAR(d);
+		}
+		else if (direccion_bala == 'd')
+		{
+			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 10.0, 0.0);
+			BALAS.AGREGAR(d);
+		}	
+		HEROE.setvel(0.0, 0.0);
+	}
+	else
+	{
+		NULL;
+	}
+
 }
 
-void MUNDO::MUEVE(void)
+void MUNDO::MUEVE(float t)
 {
-	HEROE.MUEVE();
-	COLUMNAS.CHOQUE_DISPARO(BALA); //No funciona
+	//COLUMNAS.CHOQUE_DISPARO(BALA); //No funciona
 	COLUMNAS.CHOQUE_JUGADOR(HEROE); //No funciona
 	//COLUMNAS.CHOQUE_ZOMBIE(MALO); //No funciona
 	ZOMBIES.MUEVE();
 	ZOMBIES.SIGUE_A_JUGADOR(HEROE);
-	ZOMBIES.MATA_DISPARO(BALA);
+	//ZOMBIES.MATA_DISPARO(BALA);
 	ZOMBIES.CHOQUE_ENTRE_ZOMBIES();
 	ZOMBIES.COLISION(HEROE);
-	
-	INTERACCIONES::INTERACCION_JUGADOR_TABLERO(HEROE, SUELO);
-	INTERACCIONES::INTERACCION_JUGADOR_DISPARO(HEROE, BALA);
-	INTERACCIONES::INTERACCION_BALA_TABLERO(BALA, SUELO);
+
+
+	HEROE.Mueve(t);
+
+
+	BALAS.MUEVE(t);
+	DISPARO* auxp = BALAS.COLISION_MAPA(SUELO);
+	if (auxp != 0)
+		BALAS.ELIMINAR(auxp);
+
+	////////////////////////////
+	//AQUI SOBRECARGAAAA///////
+	//////////////////////////
+
+	/*for (int i = 0; i < BALAS.getNumero(); i++)
+	{
+		for (int u = 0; u < ZOMBIES.getNumero(); u++)
+		{
+			if (INTERACCIONES::INTERACCION_BALA_ZOMBIE(*BALAS[i], *ZOMBIES[u]))
+			{
+				
+				ZOMBIES.ELIMINAR(ZOMBIES[u]);
+				BALAS.ELIMINAR(BALAS[i]);
+				//ETSIDI::play("sonidos/impacto.wav");
+				break;
+			}
+		}
+	}*/
 
 	//for (int i = 0; i < CO; i++)
 	//{

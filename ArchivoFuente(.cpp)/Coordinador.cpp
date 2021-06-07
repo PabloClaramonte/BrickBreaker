@@ -41,7 +41,7 @@ void COORDINADOR::TECLA(unsigned char key)
 void COORDINADOR::MUEVE()
 {
     if (_ESTADO == JUEGO) {
-        _MUNDO.MUEVE();
+        _MUNDO.MUEVE(0.025);
     }
 }
 

@@ -2,13 +2,14 @@
 #include "Jugador.h"
 //Fin zona de #includes.
 
-JUGADOR::JUGADOR(float X, float Y, float Z, float VEL)
+JUGADOR::JUGADOR()
 {
-    POSICION.X = X;
-    POSICION.Y = Y;
-    POSICION.Z = Z;
+    POSICION.X = 0.0;
+    POSICION.Y = 0.0;
+    POSICION.Z = 0.0;
 
-    VELOCIDAD = VEL;
+    VELOCIDAD.X = 0.0;
+    VELOCIDAD.Y = 0.0;
 
     WSAD = NULL;
     PREWSAD = NULL;
@@ -30,46 +31,22 @@ void JUGADOR::DIBUJA(void)
     glTranslatef(0, 0, 0);
     glPopMatrix();
 
-    if (VELOCIDAD > 0.01)sprite.flip(false, false);
+    /*if (VELOCIDAD > 0.01)sprite.flip(false, false);
     if (VELOCIDAD < -0.01)sprite.flip(true, false);
     if ((VELOCIDAD < 0.01) && (VELOCIDAD > -0.01))
         sprite.setState(0);
     else if (sprite.getState() == 0)
         sprite.setState(1, false);
-    sprite.draw();
+    sprite.draw();*/
+}
+void JUGADOR::Mueve(float t)
+{
+    POSICION.X = POSICION.X + VELOCIDAD.X * t;
+    POSICION.Z = POSICION.Z + VELOCIDAD.Z * t;
 }
 
-void JUGADOR::MUEVE(void)
+void JUGADOR::setvel(float vx, float vz)
 {
-    if (WSAD == 'w')
-    {
-        POSICION.Z -= VELOCIDAD;
-    }
-
-    else if (WSAD == 's')
-    {
-        POSICION.Z += VELOCIDAD;
-    }
-
-    else if (WSAD == 'a')
-    {
-        POSICION.X -= VELOCIDAD;
-    }
-
-    else if (WSAD == 'd')
-    {
-        POSICION.X += VELOCIDAD;
-    }
-
-    else
-    {
-        NULL;
-    }
-
-    sprite.loop();
-}
-
-char JUGADOR::MOSTRAR_WSDA(void)
-{
-    return 0;
+    VELOCIDAD.X = vx;
+    VELOCIDAD.Z = vz;
 }

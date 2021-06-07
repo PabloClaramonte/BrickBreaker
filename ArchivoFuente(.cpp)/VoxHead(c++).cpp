@@ -1,11 +1,13 @@
 //Zona de declaracion de los #include.
 #include <freeglut.h>
 #include "Coordinador.h"
+#include "ListaDisparos.h"
 //Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
 MUNDO WORLD;
 COORDINADOR VOXHEAD;
+LISTADISPAROS BALAS;
 
 //Fin zona de declaracion de Variables y Clases.
 
@@ -76,6 +78,7 @@ void OnTimer(int value)
 {
 	//Inicio codigo vinculado al bucle temporal.
 	VOXHEAD.MUEVE();
+	BALAS.MUEVE(0.025f);
     //Final codigo vinculado al bucle temporal.
 	
 	//No borrar estos comandos.

@@ -33,5 +33,9 @@ public:
 	void CHOQUE_ENTRE_ZOMBIES(); //Implementa CHOQUE_ENTRE_ZOMBIES() para cada zombie de la lista.
 	void COLISION(JUGADOR HEROE);
 
+	int getNumero();
+
+	ZOMBIE* operator[](int i);
+
 };
 

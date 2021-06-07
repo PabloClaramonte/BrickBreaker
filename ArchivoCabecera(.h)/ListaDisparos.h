@@ -1,6 +1,7 @@
 #pragma once
 #include"Disparo.h"
 #include"Tablero.h"
+#include "ListaZombies.h"
 #include"Interaccion.h"
 
 #define MAX_DISPAROS 20
@@ -19,9 +20,17 @@ public:
     void DESTRUIRDISPAROS();
     void MUEVE(float t);
     void DIBUJA();
-    DISPARO* COLISION(ZOMBIE z);
-   /* DISPARO* COLISION();*/ //Necesario la interaccion entre mapa y disparo
+
+    //DISPARO* COLISION_ZOMBIE(ZOMBIE z);
+    DISPARO* COLISION_MAPA(TABLERO t);
+
     void ELIMINAR(DISPARO* d);
     void ELIMINAR(int index);
+
+    int getNumero();
+
+    DISPARO* operator[](int i);
+
+    friend class INTERACCIONES;
 };
 

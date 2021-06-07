@@ -2,13 +2,10 @@
 
 DISPARO::DISPARO()
 {
-	POSICION.X = 0.0;
-	POSICION.Y = 0.0;
-	POSICION.Z = 0.0;
 
-	DIRECCION = NULL;
-	TIEMPODISPARO = 0;
-	VELOCIDAD = 0;
+	POSICION.Y = 0.0;
+
+	VELOCIDAD.Y = 0.0;
 }
 
 DISPARO::~DISPARO()
@@ -23,4 +20,24 @@ void DISPARO::DIBUJA(void)
 	glutSolidSphere(0.5, 20, 20);
 	glTranslatef(0, 0, 0);
 	glPopMatrix();
+}
+
+
+void DISPARO::SetVel(float vx, float vz)
+{
+	VELOCIDAD.X = vx;
+	VELOCIDAD.Z = vz;
+}
+void DISPARO::Mueve(float t)
+{
+	POSICION.X = POSICION.X + VELOCIDAD.X * t;
+	POSICION.Z = POSICION.Z + VELOCIDAD.Z * t;
+}
+
+DISPARO::DISPARO(float x , float z, float vx, float vz)
+{
+	POSICION.X = x;
+	POSICION.Z = z;
+	VELOCIDAD.X = vx;
+	VELOCIDAD.Z = vz;
 }

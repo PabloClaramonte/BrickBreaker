@@ -1,34 +1,5 @@
 #include "Interaccion.h"
 #include "math.h"
-//Función que limita el movimiento dentro del mapa, dado por las componentes X y Z del plano SUELO:
-
-void INTERACCIONES::INTERACCION_JUGADOR_TABLERO(JUGADOR& HEROE, TABLERO SUELO)
-{
-	if (HEROE.POSICION.X < 0)
-	{
-		HEROE.POSICION.X = 0;
-	}
-
-	else if (HEROE.POSICION.Z < 0)
-	{
-		HEROE.POSICION.Z = 0;
-	}
-
-	else if (HEROE.POSICION.X > SUELO.XMAX)
-	{
-		HEROE.POSICION.X = SUELO.XMAX;
-	}
-
-	else if (HEROE.POSICION.Z > SUELO.ZMAX)
-	{
-		HEROE.POSICION.Z = SUELO.ZMAX;
-	}
-
-	else
-	{
-		NULL;
-	}
-}
 
 //Función que evita que el jugador atraviese las columnas:
 
@@ -82,73 +53,6 @@ void INTERACCIONES::INTERACCION_ZOMBIE_COLUMNA(ZOMBIE& MALO, COLUMNA _COLUMNA)
 	}
 }
 
-//Función que hace que el jugador emita un disparo al pulsar la tecla espacio (" "):
-
-void INTERACCIONES::INTERACCION_JUGADOR_DISPARO(JUGADOR& HEROE, DISPARO& BALA)
-{
-	if (HEROE.WSAD == ' ')
-	{
-		//ETSIDI::play("sonidos/disparo.wav"); //Se raya mazo
-
-		if (BALA.TIEMPODISPARO <= 10)
-		{
-			switch (BALA.DIRECCION)
-			{
-
-			case 'w':
-			{
-				BALA.POSICION.Z -= BALA.VELOCIDAD;
-				BALA.TIEMPODISPARO++;
-				break;
-			}
-
-			case 's':
-			{
-				BALA.POSICION.Z += BALA.VELOCIDAD;
-				BALA.TIEMPODISPARO++;
-				break;
-			}
-
-			case 'a':
-			{
-				BALA.POSICION.X -= BALA.VELOCIDAD;
-				BALA.TIEMPODISPARO++;
-				break;
-			}
-
-			case 'd':
-			{
-				BALA.POSICION.X += BALA.VELOCIDAD;
-				BALA.TIEMPODISPARO++;
-				break;
-			}
-
-			default:
-			{
-				break;
-			}
-
-			}
-		}
-
-		else
-		{
-			HEROE.WSAD = NULL;
-		}
-	}
-
-	else
-	{
-		BALA.POSICION.X = HEROE.POSICION.X;
-		BALA.POSICION.Y = HEROE.POSICION.Y;
-		BALA.POSICION.Z = HEROE.POSICION.Z;
-
-		BALA.DIRECCION = HEROE.PREWSAD;
-
-		BALA.TIEMPODISPARO = 0;
-	}
-}
-
 bool INTERACCIONES::INTERACCION_JUGADOR_ZOMBIE(JUGADOR& HEROE, ZOMBIE& MALO)
 {
 	if (HEROE.POSICION.X > MALO.POSICION.X - 2 && HEROE.POSICION.X < MALO.POSICION.X + 2 && HEROE.POSICION.Z > MALO.POSICION.Z - 2 && HEROE.POSICION.Z < MALO.POSICION.Z + 2 && MALO.VIVO)
@@ -171,9 +75,9 @@ bool INTERACCIONES::INTERACCION_BALA_ZOMBIE(DISPARO& BALA, ZOMBIE& MALO)
 {
 	if (BALA.POSICION.X > MALO.POSICION.X - 2 && BALA.POSICION.X < MALO.POSICION.X + 2 && BALA.POSICION.Z > MALO.POSICION.Z - 2 && BALA.POSICION.Z < MALO.POSICION.Z + 2 && MALO.VIVO)
 	{
-		MALO.VIVO = false; //El estado del zombie pasa a muerto.
-		
-		ETSIDI::play("sonidos/impacto.wav"); //Sonido jocoso
+		return true; //El estado del zombie pasa a muerto.
+		//MALO.VIVO = FALSE;
+		//ETSIDI::play("sonidos/impacto.wav"); //Sonido jocoso
 	}
 
 	else
@@ -223,26 +127,22 @@ bool INTERACCIONES::INTERACCION_BALA_TABLERO(DISPARO& BALA, TABLERO& _TABLERO)
 {
 	if (BALA.POSICION.X > _TABLERO.XMAX)
 	{
-		BALA.POSICION.X = _TABLERO.XMAX;
-		//BALA.VELOCIDAD = 0.0;
+		//BALA.POSICION.X = _TABLERO.XMAX;
 		return true;
 	}
 	else if (BALA.POSICION.X < 0.0)
 	{
-		BALA.POSICION.X = 0.0;
-		//BALA.VELOCIDAD = 0.0;
+		//BALA.POSICION.X = 0.0;
 		return true;
 	}
 	else if (BALA.POSICION.Z > _TABLERO.ZMAX)
 	{
-		BALA.POSICION.Z = _TABLERO.ZMAX;
-		//BALA.VELOCIDAD = 0.0;
+		//BALA.POSICION.Z = _TABLERO.ZMAX;
 		return true;
 	}
 	else if (BALA.POSICION.Z < 0.0)
 	{
-		BALA.POSICION.Z = 0.0;
-		//BALA.VELOCIDAD = 0.0;
+		//BALA.POSICION.Z = 0.0;
 		return true;
 	}
 	else
@@ -269,51 +169,6 @@ void INTERACCIONES::INTELIGENCIA_ARTIFICIAL_ZOMBIE(JUGADOR HEROE, ZOMBIE& MALO)
 		{
 			MALO.ANGULO = (3.1416 + atanf((HEROE.POSICION.Z - MALO.POSICION.Z) / (HEROE.POSICION.X - MALO.POSICION.X)));
 		}
-	}
-}
-
-void INTERACCIONES::INTERACCION_JUGADOR_TECLADO(JUGADOR& HEROE, unsigned char TECLA)
-{
-	switch (TECLA)
-	{
-	case 'w':
-	{
-		HEROE.WSAD = 'w';
-		HEROE.PREWSAD = 'w';
-		break;
-	}
-
-	case 's':
-	{
-		HEROE.WSAD = 's';
-		HEROE.PREWSAD = 's';
-		break;
-	}
-
-	case 'a':
-	{
-		HEROE.WSAD = 'a';
-		HEROE.PREWSAD = 'a';
-		break;
-	}
-
-	case 'd':
-	{
-		HEROE.WSAD = 'd';
-		HEROE.PREWSAD = 'd';
-		break;
-	}
-
-	case ' ':
-	{
-		HEROE.WSAD = ' ';
-		break;
-	}
-	default:
-	{
-		break;
-	}
-
 	}
 }
 
