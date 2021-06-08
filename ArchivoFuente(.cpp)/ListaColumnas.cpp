@@ -54,7 +54,7 @@ void LISTACOLUMNAS::ELIMINAR(COLUMNA* c)
         }
 }
 
-void LISTACOLUMNAS::CHOQUE_JUGADOR(JUGADOR HEROE)
+/*void LISTACOLUMNAS::CHOQUE_JUGADOR(JUGADOR HEROE)
 {
     for (int i = 0; i < NUMERO; i++)
         INTERACCIONES::INTERACCION_JUGADOR_COLUMNA(HEROE, *(LISTA[i]));
@@ -70,4 +70,19 @@ void LISTACOLUMNAS::CHOQUE_ZOMBIE(ZOMBIE MALO)
 {
     for (int i = 0; i < NUMERO; i++)
         INTERACCIONES::INTERACCION_ZOMBIE_COLUMNA(MALO, *(LISTA[i]));
+}*/
+
+int LISTACOLUMNAS::getNumero()
+{
+    return NUMERO;
+}
+
+COLUMNA* LISTACOLUMNAS::operator [](int i)
+{
+    if (i >= NUMERO)//si me paso, devuelvo la ultima
+        i = NUMERO - 1;
+
+    if (i < 0) //si el indice es negativo, devuelvo la primera 
+        i = 0;
+    return LISTA[i];
 }

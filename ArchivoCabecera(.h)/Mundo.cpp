@@ -63,7 +63,7 @@ void MUNDO::MAPAFACIL(void)
 			AUX->VELOCIDAD = 0.05f;*/
 
 			ZOMBIES.AGREGAR(AUX); // agregar a la lista
-			COLUMNAS.CHOQUE_ZOMBIE(*AUX);
+			//COLUMNAS.CHOQUE_ZOMBIE(*AUX);
 		}
 
 		for (int i = 0; i < 6; i++)
@@ -158,7 +158,7 @@ void MUNDO::TECLADO(unsigned char TECLA)
 void MUNDO::MUEVE(float t)
 {
 	//COLUMNAS.CHOQUE_DISPARO(BALA); //No funciona
-	COLUMNAS.CHOQUE_JUGADOR(HEROE); //No funciona
+	//COLUMNAS.CHOQUE_JUGADOR(HEROE); //No funciona
 	//COLUMNAS.CHOQUE_ZOMBIE(MALO); //No funciona
 	ZOMBIES.MUEVE();
 	ZOMBIES.SIGUE_A_JUGADOR(HEROE);
@@ -193,6 +193,33 @@ void MUNDO::MUEVE(float t)
 			}
 		}
 	}*/
+	for (int i = 0; i < BALAS.getNumero(); i++)
+	{
+		for (int u = 0; u < COLUMNAS.getNumero(); u++)
+		{
+			if (INTERACCIONES::INTERACCION_BALA_COLUMNA(*BALAS[i], *COLUMNAS[u]))
+			{
+				BALAS.ELIMINAR(BALAS[i]);
+				//ETSIDI::play("sonidos/impacto.wav");
+				break;
+			}
+		}
+	}
+	for (int i = 0; i < ZOMBIES.getNumero(); i++)
+	{
+		for (int u = 0; u < COLUMNAS.getNumero(); u++)
+		{
+			INTERACCIONES::INTERACCION_ZOMBIE_COLUMNA(*ZOMBIES[i], *COLUMNAS[u]);
+		}
+	}
+	/*for (int i = 0; i < ZOMBIES.getNumero(); i++)
+	{
+		for (int u = 0; u < ZOMBIES.getNumero(); u++)
+		{
+			INTERACCIONES::CHOQUE_ENTRE_ZOMBIES(*ZOMBIES[i], *ZOMBIES[u]);
+		}
+	}
+	*/
 
 	//for (int i = 0; i < CO; i++)
 	//{
