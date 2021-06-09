@@ -3,11 +3,8 @@
 #include <ListaZombies.h>
 #include <ListaColumnas.h>
 #include <ListaDisparos.h>
-//#include <Disparo.h>
 #include <Jugador.h>
 #include <Tablero.h>
-
-//#define CO 2 //Numero de columnas
 
 class MUNDO
 {
@@ -16,13 +13,11 @@ private:
 
 	int NUMERODECOLUMNAS;
 	bool IMPACTO;
-
+	int NIVEL;
 	char direccion_bala;
 
-	JUGADOR HEROE;
-	//COLUMNA PCOLUMNAS[CO]; 
+	JUGADOR HEROE; 
 	TABLERO SUELO;
-	//DISPARO BALA;
 	LISTAZOMBIES ZOMBIES;
 	LISTACOLUMNAS COLUMNAS;
 	LISTADISPAROS BALAS;
@@ -37,5 +32,6 @@ public:
 	void DIBUJA(void);
 	void TECLADO(unsigned char TECLA);
 	void MUEVE(float t);
+	bool CARGARNIVEL(); //Función que gestiona los niveles del juego (FACIL, MEDIO Y DIFICIL)
 };
 

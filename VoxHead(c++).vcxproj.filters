@@ -54,6 +54,9 @@
     <ClInclude Include="ArchivoCabecera(.h)\ListaColumnas.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="ArchivoCabecera(.h)\ObjetoMovil.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp">

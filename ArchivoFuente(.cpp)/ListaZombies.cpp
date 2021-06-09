@@ -25,7 +25,7 @@ bool LISTAZOMBIES::AGREGAR(ZOMBIE* z)
 void LISTAZOMBIES::MUEVE()
 {
     for (int i = 0; i < NUMERO; i++)
-        LISTA[i]->MUEVE();    //Se usa el operador -> porque se accede a direcciones
+        LISTA[i]->MUEVE(0.0f);    //Se usa el operador -> porque se accede a direcciones
 }
 
 void LISTAZOMBIES::DIBUJA()

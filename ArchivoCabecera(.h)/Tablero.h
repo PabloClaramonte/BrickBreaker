@@ -7,7 +7,7 @@ class TABLERO {
 private:
 	
 	/*Los limites del mapa, el cual sera rectangular o cuadrado, estan limitados por un poligono el cual partira de
-	  la coordenada (0,0,0) y estara siempre en el plano Y=0. Los limites tanto de las coordenadas X Y Z seran el 0 
+	  la coordenada (0,0,0) y estara siempre en el plano Y=0. Los limites tanto de las coordenadas X y Z seran el 0 
 	  y sus correspondientes coordenadas maximas.
 	*/
 
@@ -17,34 +17,14 @@ private:
 
 public:
 
-	//Constructor sin argumentos.
-	TABLERO() 
-	{
-		XMAX = 0.0f;
-		ZMAX = 0.0f;
-	};
+	//Constructores
+	TABLERO(float x = 0.0f, float z = 0.0f);
 
 	//Destructor.
-	~TABLERO()
-	{
-	
-	};
+	~TABLERO() {};
 
 	//Metodo encargado de dibujar el TABLERO.
 	void DIBUJA(void);
-
-	//Metodo encargado de dar valor al atributo XMAX. 
-	void DAR_VALOR_XMAX(float valor);
-
-	//Metodo encargado de dar valor al atributo ZMAX. 
-	void DAR_VALOR_ZMAX(float valor);
-
-	//Metodo encargado de devolver el atributo XMAX.
-	float MOSTRAR_XMAX(void);
-
-	//Metodo encargado de devolver el atributo ZMAX. 
-	float MOSTRAR_ZMAX(void);
-
 
 	friend class INTERACCIONES;
 	friend class MUNDO;

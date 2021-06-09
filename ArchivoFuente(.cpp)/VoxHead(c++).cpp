@@ -2,14 +2,9 @@
 #include <freeglut.h>
 #include "Coordinador.h"
 #include "ListaDisparos.h"
-//Fin zona de declaracion de los #include
 
 //Zona de declaracion de Variables y Clases.
-MUNDO WORLD;
 COORDINADOR VOXHEAD;
-LISTADISPAROS BALAS;
-
-//Fin zona de declaracion de Variables y Clases.
 
 //Los CallBack se las funciones se llaman automaticamente cuado suceden los eventos (no hay que llamarlos).
 void OnDraw(void); //Funcion de dibujado.
@@ -60,7 +55,6 @@ void OnDraw(void)
 	//Inicio código dibujo y cámara.
 	VOXHEAD.CAMARA();
 	VOXHEAD.DIBUJA();
-	//Final de codigo de dibujo y cámara.
 
 	glutSwapBuffers(); //No borrar este comando ni incluir ninguno mas despues.
 }
@@ -68,7 +62,6 @@ void OnKeyboardDown(unsigned char key, int x, int y)
 {
 	//Inicio codigo vinculado al teclado.
 	VOXHEAD.TECLA(key);
-	//Final codigo vinculado al teclado.
 
 	//No borrar esta linea.
 	glutPostRedisplay(); //Redibuja la imagen una vez finaliza la funcion.
@@ -78,8 +71,6 @@ void OnTimer(int value)
 {
 	//Inicio codigo vinculado al bucle temporal.
 	VOXHEAD.MUEVE();
-	BALAS.MUEVE(0.025f);
-    //Final codigo vinculado al bucle temporal.
 	
 	//No borrar estos comandos.
 	glutTimerFunc(25, OnTimer, 0); //Necesario para generar interupciones cada "x" ms.

@@ -2,9 +2,7 @@
 
 DISPARO::DISPARO()
 {
-
 	POSICION.Y = 0.0;
-
 	VELOCIDAD.Y = 0.0;
 }
 
@@ -28,7 +26,7 @@ void DISPARO::SetVel(float vx, float vz)
 	VELOCIDAD.X = vx;
 	VELOCIDAD.Z = vz;
 }
-void DISPARO::Mueve(float t)
+void DISPARO::MUEVE(float t)
 {
 	POSICION.X = POSICION.X + VELOCIDAD.X * t;
 	POSICION.Z = POSICION.Z + VELOCIDAD.Z * t;

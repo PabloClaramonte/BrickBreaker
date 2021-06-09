@@ -30,6 +30,7 @@
     <ClInclude Include="ArchivoCabecera(.h)\ListaDisparos.h" />
     <ClInclude Include="ArchivoCabecera(.h)\ListaZombies.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Mundo.h" />
+    <ClInclude Include="ArchivoCabecera(.h)\ObjetoMovil.h" />
     <ClInclude Include="ArchivoCabecera(.h)\PuntosCartesianos.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Zombie.h" />
   </ItemGroup>

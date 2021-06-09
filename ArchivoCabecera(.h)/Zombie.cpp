@@ -7,7 +7,18 @@ ZOMBIE::ZOMBIE()
 {
     VIVO = true;
     POSICION.Y = 0.0f;
-    ANGULO = 0.0;
+    ANGULO = 0.0f;
+    VELOCIDAD = 0.0f;
+}
+
+ZOMBIE::ZOMBIE(float x, float z, float v)
+{
+    POSICION.X = x;
+    POSICION.Z = z;
+    VELOCIDAD = v;
+
+    VIVO = true;
+    ANGULO = 0.0f;
 }
 
 ZOMBIE::~ZOMBIE()
@@ -45,7 +56,7 @@ void ZOMBIE::DIBUJA(void)
     }
 }
 
-void ZOMBIE::MUEVE(void)
+void ZOMBIE::MUEVE(float t)
 {
     if (VIVO)
     {
@@ -59,9 +70,3 @@ void ZOMBIE::MUEVE(void)
     }
 }
 
-ZOMBIE::ZOMBIE(float x, float z, float v)
-{
-    POSICION.X = x;
-    POSICION.Z = z;
-    VELOCIDAD = v;
-}

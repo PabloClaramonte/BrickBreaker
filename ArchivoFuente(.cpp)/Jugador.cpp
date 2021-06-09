@@ -13,9 +13,6 @@ JUGADOR::JUGADOR()
 
     WSAD = NULL;
     PREWSAD = NULL;
-
-    sprite.setCenter(1, 0);
-    sprite.setSize(5, 5);
 }
 
 JUGADOR::~JUGADOR()
@@ -39,7 +36,7 @@ void JUGADOR::DIBUJA(void)
         sprite.setState(1, false);
     sprite.draw();*/
 }
-void JUGADOR::Mueve(float t)
+void JUGADOR::MUEVE(float t)
 {
     POSICION.X = POSICION.X + VELOCIDAD.X * t;
     POSICION.Z = POSICION.Z + VELOCIDAD.Z * t;

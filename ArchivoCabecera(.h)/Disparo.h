@@ -2,8 +2,9 @@
 
 #include <PuntosCartesianos.h>
 #include <freeglut.h>
+#include <ObjetoMovil.h>
 
-class DISPARO 
+class DISPARO : public OBJETOMOVIL
 {
 
 private: 
@@ -12,13 +13,14 @@ private:
 public:
 
 	DISPARO();
+	DISPARO(float x = 0.0f, float z = 0.0f, float vx = 0.0f, float vz = 0.0f);
 	~DISPARO();
 
 	void DIBUJA(void);
-	void Mueve(float t);
+	void MUEVE(float t);
 	void SetVel(float vx, float vz);
 
-	DISPARO(float x = 0.0f, float z = 0.0f, float vx = 0.0f, float vz = 0.0f);
+	
 
 	friend class MUNDO;
 	friend class INTERACCIONES;

@@ -1,10 +1,10 @@
 #pragma once
 
 #include <PuntosCartesianos.h>
+#include <ObjetoMovil.h>
 
-class ZOMBIE
+class ZOMBIE : public OBJETOMOVIL
 {
-
 private:
 
 	bool VIVO;
@@ -17,12 +17,13 @@ private:
 public:
 
 	ZOMBIE(); //Constructor sin argumentos
+	ZOMBIE(float x = 0.0f, float z = 0.0f, float v = 0.0f);
 	~ZOMBIE();
 
 	void DIBUJA (void);
-	void MUEVE(void);
+	void MUEVE(float t);
 
-	ZOMBIE(float x = 0.0f, float z = 0.0f, float v = 0.0f);
+	
 
 	friend class MUNDO;
 	friend class INTERACCIONES;

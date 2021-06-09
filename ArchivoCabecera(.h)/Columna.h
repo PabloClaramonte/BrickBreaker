@@ -9,21 +9,12 @@ private:
 	int TAMANOCOLUMNA;
 	PUNTOSCARTESIANOS POSICION;
 public:
-	//Constrcutor sin argumentos
-	COLUMNA();
-	//Destructor 
+	COLUMNA(); 
+	COLUMNA(float x = 0.0f, float z = 0.0f, int t = 0);
 	~COLUMNA();
 
 	//Metodo encargado de dibujar la COLUMNA.
 	void DIBUJA(void);
-	//Metodo encargado de devolver el valor maximo del eje X de cualquier columna. 
-	float MOSTRAR_LIMITE_MAXIMO_EJE_X(int numerocolum);
-	//Metodo encargado de devolver el valor minimo del eje X de cualquier columna.  
-	float MOSTRAR_LIMITE_MINIMO_EJE_X(int numerocolum);
-	//Metodo encargado de devolver el valor maximo del eje Z de cualquier columna. 
-	float MOSTRAR_LIMITE_MAXIMO_EJE_Z(int numerocolum);
-	//Metodo encargado de devolver el valor minimo del eje Z de cualquier columna. 
-	float MOSTRAR_LIMITE_MINIMO_EJE_Z(int numerocolum);
 
 	friend class INTERACCIONES;
 	friend class MUNDO;

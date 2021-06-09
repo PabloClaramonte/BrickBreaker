@@ -26,9 +26,9 @@ public:
 	void ELIMINAR(COLUMNA* c); //Elimina columna según su dirección de memoria.
 
 	//Funciones que gestionan las interacciones de las columnas con los objetos del juego:
-	/*void CHOQUE_JUGADOR(JUGADOR HEROE);
+	COLUMNA* CHOQUE_JUGADOR(JUGADOR HEROE);
 	void CHOQUE_DISPARO(DISPARO BALA);
-	void CHOQUE_ZOMBIE(ZOMBIE MALO);*/
+	void CHOQUE_ZOMBIE(ZOMBIE MALO);
 
 	int getNumero();
 	COLUMNA* operator [](int i);

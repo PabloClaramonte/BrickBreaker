@@ -30,7 +30,7 @@ void LISTADISPAROS::DESTRUIRDISPAROS()
 void LISTADISPAROS::MUEVE(float t)
 {
 	for (int i = 0; i < NUM; i++)  //Hace falta implementar la posocion en tiempo real para poder mover
-		LISTA[i]->Mueve(t);
+		LISTA[i]->MUEVE(t);
 }
 
 void LISTADISPAROS::DIBUJA() 

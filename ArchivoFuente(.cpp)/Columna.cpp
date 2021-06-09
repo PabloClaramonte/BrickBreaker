@@ -6,6 +6,13 @@ COLUMNA::COLUMNA()
 	TAMANOCOLUMNA = 4;
 }
 
+COLUMNA::COLUMNA(float x, float z, int t)
+{
+	POSICION.X = x;
+	POSICION.Z = z;
+	TAMANOCOLUMNA = t;
+}
+
 COLUMNA::~COLUMNA()
 {
 }
@@ -19,25 +26,3 @@ void COLUMNA::DIBUJA(void)
 	glTranslatef(0.0f, 0.0f, 0.0f);
 	glPopMatrix();
 }
-
-/*
-float COLUMNA::MOSTRAR_LIMITE_MAXIMO_EJE_X(int numerocolum)
-{
-	return (OBTENERVALOR_X() + (TAMAÑOCOLUMNA / 2));
-}
-
-float COLUMNA::MOSTRAR_LIMITE_MINIMO_EJE_X(int numerocolum)
-{
-	return (OBTENERVALOR_X() - (TAMAÑOCOLUMNA / 2));
-}
-
-float COLUMNA::MOSTRAR_LIMITE_MAXIMO_EJE_Z(int numerocolum)
-{
-	return (OBTENERVALOR_Z() + (TAMAÑOCOLUMNA / 2));
-}
-
-float COLUMNA::MOSTRAR_LIMITE_MINIMO_EJE_Z(int numerocolum)
-{
-	return (OBTENERVALOR_Z() - (TAMAÑOCOLUMNA / 2));
-}
-*/

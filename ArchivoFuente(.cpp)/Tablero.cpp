@@ -1,5 +1,11 @@
 #include <Tablero.h>
 
+TABLERO::TABLERO(float x, float z)
+{
+	XMAX = x;
+	ZMAX = z;
+}
+
 void TABLERO::DIBUJA(void)
 {
 	glEnable(GL_TEXTURE_2D);
