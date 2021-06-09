@@ -28,14 +28,16 @@ public:
 
 	//Funciones que gestionan las interacciones de los zombies con los objetos del juego:
 	void SIGUE_A_JUGADOR(JUGADOR HEROE); //Implementa INTELIGENCIA_ARTIFICIAL_ZOMBIE() para cada zombie de la lista.
-	void CHOCA_COLUMNA(COLUMNA COL); //Implementa INTERACCION_ZOMBIE_COLUMNA() para cada zombie de la lista.
-	void MATA_DISPARO(DISPARO BALA);//Implementa INTERACCION_BALA_ZOMBIE() para cada zombie de la lista.
+	//void CHOCA_COLUMNA(COLUMNA COL); //Implementa INTERACCION_ZOMBIE_COLUMNA() para cada zombie de la lista.
+	//void MATA_DISPARO(DISPARO BALA);//Implementa INTERACCION_BALA_ZOMBIE() para cada zombie de la lista.
 	void CHOQUE_ENTRE_ZOMBIES(); //Implementa CHOQUE_ENTRE_ZOMBIES() para cada zombie de la lista.
 	void COLISION(JUGADOR HEROE);
 
 	int getNumero();
 
 	ZOMBIE* operator[](int i);
+
+	friend class INTERACCIONES;
 
 };
 

@@ -150,7 +150,7 @@ void MUNDO::MUEVE(float t)
 	//AQUI SOBRECARGAAAA///////
 	//////////////////////////
 
-	/*for (int i = 0; i < BALAS.getNumero(); i++)
+	for (int i = 0; i < BALAS.getNumero(); i++)
 	{
 		for (int u = 0; u < ZOMBIES.getNumero(); u++)
 		{
@@ -159,11 +159,11 @@ void MUNDO::MUEVE(float t)
 				
 				ZOMBIES.ELIMINAR(ZOMBIES[u]);
 				BALAS.ELIMINAR(BALAS[i]);
-				//ETSIDI::play("sonidos/impacto.wav");
+				ETSIDI::play("sonidos/impacto.wav");
 				break;
 			}
 		}
-	}*/
+	}
 
 	//INTERACCIÓN BALAS CON LAS COLUMNAS
 	for (int i = 0; i < BALAS.getNumero(); i++)
@@ -187,16 +187,6 @@ void MUNDO::MUEVE(float t)
 			INTERACCIONES::INTERACCION_ZOMBIE_COLUMNA(*ZOMBIES[i], *COLUMNAS[u]);
 		}
 	}
-
-
-	/*for (int i = 0; i < ZOMBIES.getNumero(); i++)
-	{
-		for (int u = 0; u < ZOMBIES.getNumero(); u++)
-		{
-			INTERACCIONES::CHOQUE_ENTRE_ZOMBIES(*ZOMBIES[i], *ZOMBIES[u]);
-		}
-	}
-	*/
 }
 
 

@@ -1,2 +1,4 @@
-﻿  Mundo.cpp
-  VoxHead(c++).vcxproj -> C:\Users\pablo\Desktop\VOXHEAD\bin\VoxHead(c++).exe
+﻿  Interaccion.cpp
+C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoFuente(.cpp)\Interaccion.cpp(192,18): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoFuente(.cpp)\Interaccion.cpp(197,26): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  VoxHead(c++).vcxproj -> C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\bin\VoxHead(c++).exe
