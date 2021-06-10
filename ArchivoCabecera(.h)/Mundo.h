@@ -29,9 +29,13 @@ public:
 	void CAMARA(void); //para que la camara siga al personaje
 	void INICIALIZA();
 	void MAPAFACIL(void); //Esta funcion hay que cambiarla por un CargarNivel() como el del pang
+	void MAPAMEDIO(void);
+	void MAPADIFICIL(void);
 	void DIBUJA(void);
 	void TECLADO(unsigned char TECLA);
 	void MUEVE(float t);
 	bool CARGARNIVEL(); //Función que gestiona los niveles del juego (FACIL, MEDIO Y DIFICIL)
+	int GETZOMBIES(); //Obtiene el número de zombies vivos que hay en el mapa 
+	bool GETIMPACTO();
 };
 

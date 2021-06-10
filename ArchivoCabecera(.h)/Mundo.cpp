@@ -18,41 +18,20 @@ MUNDO::~MUNDO()
 
 void MUNDO::CAMARA(void)
 {
-	gluLookAt(HEROE.POSICION.X, 40.0f, HEROE.POSICION.Z + (float) 40.0, // Posicion de la camara.
+	gluLookAt(HEROE.POSICION.X, 40.0f, (float)HEROE.POSICION.Z + 40.0, // Posicion de la camara.
 		HEROE.POSICION.X, 0, HEROE.POSICION.Z, // Punto hacia el que mira la camara.
 		0, 1, 0);
 }
 
 void MUNDO::INICIALIZA()
 {
+	IMPACTO = false;
+	NIVEL = 0;
+
 	CARGARNIVEL();
 }
 
 
-void MUNDO::MAPAFACIL(void)
-{
-	//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
-	HEROE.POSICION.X = 10.0;
-	HEROE.POSICION.Z = 10.0;
-
-	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
-	SUELO.XMAX = 60.0;
-	SUELO.ZMAX = 60.0;
-
-	for (int i = 0; i < 5; i++)
-	{
-		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 2, 15.0f + i * 3, 0.05f); //Construye e inicializa los objetos zombies
-
-		ZOMBIES.AGREGAR(AUX); // agregar a la lista
-	}
-
-	for (int i = 0; i < 6; i++)
-	{
-		COLUMNA* AUX = new COLUMNA(15.0f + i * 7, 5.0f + i * 7, 4); //COnstruye e inicializa los objetos columna
-
-		COLUMNAS.AGREGAR(AUX); // agregar a la lista
-	}
-}
 
 void MUNDO::DIBUJA(void)
 {
@@ -125,10 +104,8 @@ void MUNDO::MUEVE(float t)
 {
 	ZOMBIES.MUEVE();
 	ZOMBIES.SIGUE_A_JUGADOR(HEROE);
-	//ZOMBIES.MATA_DISPARO(BALA);
 	ZOMBIES.CHOQUE_ENTRE_ZOMBIES();
-	//ZOMBIES.COLISION(HEROE);
-
+	BALAS.MUEVE(t);
 	HEROE.MUEVE(t);
 	INTERACCIONES::INTERACCION_JUGADOR_TABLERO(HEROE, SUELO);
 
@@ -139,16 +116,18 @@ void MUNDO::MUEVE(float t)
 		INTERACCIONES::INTERACCION_JUGADOR_COLUMNA(HEROE, *AUX);
 	}
 
-
-	BALAS.MUEVE(t);
-
+	//Interacción zombies con el jugador
+	ZOMBIE* AUXZ = ZOMBIES.COLISION(HEROE);
+	if (AUXZ != 0) {
+		IMPACTO = true;
+		ETSIDI::play("sonidos/impacto.wav");
+	}
+	
+	//Interaccción de las balas con el final del mapa
 	DISPARO* auxp = BALAS.COLISION_MAPA(SUELO);
 	if (auxp != 0)
 		BALAS.ELIMINAR(auxp);
 
-	////////////////////////////
-	//AQUI SOBRECARGAAAA///////
-	//////////////////////////
 
 	for (int i = 0; i < BALAS.getNumero(); i++)
 	{
@@ -204,14 +183,103 @@ bool MUNDO::CARGARNIVEL()
 	}
 	if (NIVEL == 2)
 	{
-		//MAPAINTERMEDIO();
+		MAPAMEDIO();
 	}
 	if (NIVEL == 3)
 	{
-		//MAPADIFICIL();
+		MAPADIFICIL();
 	}
 
 	if (NIVEL <= 3)
 		return true;
 	return false;
+}
+
+int MUNDO::GETZOMBIES()
+{
+	int N;
+	N = ZOMBIES.getNumero();
+	return N;
+}
+
+bool MUNDO::GETIMPACTO()
+{
+	bool i;
+	i = IMPACTO;
+	return i;
+}
+
+void MUNDO::MAPAFACIL(void)
+{
+	//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
+	HEROE.POSICION.X = 10.0;
+	HEROE.POSICION.Z = 10.0;
+
+	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
+	SUELO.XMAX = 60.0;
+	SUELO.ZMAX = 60.0;
+
+	for (int i = 0; i < 5; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 2, 15.0f + i * 3, 0.05f); //Construye e inicializa los objetos zombies
+
+		ZOMBIES.AGREGAR(AUX); // agregar a la lista
+	}
+
+	for (int i = 0; i < 6; i++)
+	{
+		COLUMNA* AUX = new COLUMNA(15.0f + i * 7, 5.0f + i * 7, 4); //COnstruye e inicializa los objetos columna
+
+		COLUMNAS.AGREGAR(AUX); // agregar a la lista
+	}
+}
+
+void MUNDO::MAPAMEDIO(void)
+{
+	//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
+	HEROE.POSICION.X = 10.0;
+	HEROE.POSICION.Z = 10.0;
+
+	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
+	SUELO.XMAX = 60.0;
+	SUELO.ZMAX = 60.0;
+
+	for (int i = 0; i < 5; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 2, 15.0f + i * 3, 0.05f); //Construye e inicializa los objetos zombies
+
+		ZOMBIES.AGREGAR(AUX); // agregar a la lista
+	}
+
+	for (int i = 0; i < 6; i++)
+	{
+		COLUMNA* AUX = new COLUMNA(15.0f + i * 7, 5.0f + i * 7, 4); //COnstruye e inicializa los objetos columna
+
+		COLUMNAS.AGREGAR(AUX); // agregar a la lista
+	}
+}
+
+void MUNDO::MAPADIFICIL(void)
+{
+	//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
+	HEROE.POSICION.X = 10.0;
+	HEROE.POSICION.Z = 10.0;
+
+	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
+	SUELO.XMAX = 60.0;
+	SUELO.ZMAX = 60.0;
+
+	for (int i = 0; i < 5; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 2, 15.0f + i * 3, 0.05f); //Construye e inicializa los objetos zombies
+
+		ZOMBIES.AGREGAR(AUX); // agregar a la lista
+	}
+
+	for (int i = 0; i < 6; i++)
+	{
+		COLUMNA* AUX = new COLUMNA(15.0f + i * 7, 5.0f + i * 7, 4); //COnstruye e inicializa los objetos columna
+
+		COLUMNAS.AGREGAR(AUX); // agregar a la lista
+	}
 }
