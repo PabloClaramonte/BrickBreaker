@@ -18,7 +18,7 @@ MUNDO::~MUNDO()
 
 void MUNDO::CAMARA(void)
 {
-	gluLookAt(HEROE.POSICION.X, 40.0f, HEROE.POSICION.Z + 40.0f, // Posicion de la camara.
+	gluLookAt(HEROE.POSICION.X, 40.0f, HEROE.POSICION.Z + (float) 40.0, // Posicion de la camara.
 		HEROE.POSICION.X, 0, HEROE.POSICION.Z, // Punto hacia el que mira la camara.
 		0, 1, 0);
 }
@@ -127,7 +127,7 @@ void MUNDO::MUEVE(float t)
 	ZOMBIES.SIGUE_A_JUGADOR(HEROE);
 	//ZOMBIES.MATA_DISPARO(BALA);
 	ZOMBIES.CHOQUE_ENTRE_ZOMBIES();
-	ZOMBIES.COLISION(HEROE);
+	//ZOMBIES.COLISION(HEROE);
 
 	HEROE.MUEVE(t);
 	INTERACCIONES::INTERACCION_JUGADOR_TABLERO(HEROE, SUELO);
@@ -156,7 +156,6 @@ void MUNDO::MUEVE(float t)
 		{
 			if (INTERACCIONES::INTERACCION_BALA_ZOMBIE(*BALAS[i], *ZOMBIES[u]))
 			{
-				
 				ZOMBIES.ELIMINAR(ZOMBIES[u]);
 				BALAS.ELIMINAR(BALAS[i]);
 				ETSIDI::play("sonidos/impacto.wav");
@@ -173,7 +172,7 @@ void MUNDO::MUEVE(float t)
 			if (INTERACCIONES::INTERACCION_BALA_COLUMNA(*BALAS[i], *COLUMNAS[u]))
 			{
 				BALAS.ELIMINAR(BALAS[i]);
-				//ETSIDI::play("sonidos/impacto.wav");
+				//SIDI::play("sonidos/impacto.wav");
 				break;
 			}
 		}
@@ -197,7 +196,7 @@ bool MUNDO::CARGARNIVEL()
 	HEROE.POSICION.Z = 0.0f;
 	ZOMBIES.DESTRUYECONTENIDO();
 	COLUMNAS.DESTRUYECONTENIDO();
-	//DISPAROS.DESTRUYECONTENIDO();
+	BALAS.DESTRUIRDISPAROS();
 
 	if (NIVEL == 1)
 	{

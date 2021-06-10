@@ -10,6 +10,7 @@ JUGADOR::JUGADOR()
 
     VELOCIDAD.X = 0.0;
     VELOCIDAD.Y = 0.0;
+    VELOCIDAD.Z = 0.0;
 
     WSAD = NULL;
     PREWSAD = NULL;

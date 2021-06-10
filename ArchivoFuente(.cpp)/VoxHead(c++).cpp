@@ -1,7 +1,6 @@
 //Zona de declaracion de los #include.
 #include <freeglut.h>
 #include "Coordinador.h"
-#include "ListaDisparos.h"
 
 //Zona de declaracion de Variables y Clases.
 COORDINADOR VOXHEAD;

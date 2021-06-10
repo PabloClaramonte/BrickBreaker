@@ -8,23 +8,16 @@ public:
 	float X, Y, Z;
 
 	//Constructor por defecto.
-	PUNTOSCARTESIANOS() { X = 0.0f; Y = 0.0f; Z = 0.0f; }
+	PUNTOSCARTESIANOS(float x = 0.0f, float  y = 0.0f, float z = 0.0f);
 
 	//Destructor por defecto.
-	~PUNTOSCARTESIANOS(){}
+	~PUNTOSCARTESIANOS();
 
-	//Getters (Se declaran en la cabecera para que sean Inline ya que se van a utilizar muchisimo).
-	float OBTENERVALOR_X(void) { return X; }
-	float OBTENERVALOR_Y(void) { return Y; }
-	float OBTENERVALOR_Z(void) { return Z; }
-
-	//Setters (Se delcaran en la cabecera para que sean Inline ya que se van a utilizar muchisimo).
-	void DARVALOR_X(float valor) { X = valor; }
-	void DARVALOR_Y(float valor) { Y = valor; }
-	void DARVALOR_Z(float valor) { Z = valor; }
-
-	//Incrementales y decrementales (Se delcaran en la cabecera para que sean Inline ya que se van a utilizar muchisimo).
-	void INCREMENTAR_X(float valor) { X = X + valor; }
-	void INCREMENTAR_Y(float valor) { Y = Y + valor; }
-	void INCREMENTAR_Z(float valor) { Z = Z + valor; }
+	float Modulo();
+	float argumento(); // (3) argumento del vector
+	PUNTOSCARTESIANOS Unitario(); // (4) devuelve un vector unitario
+	PUNTOSCARTESIANOS operator - (PUNTOSCARTESIANOS&); // (5) resta de vectores
+	PUNTOSCARTESIANOS operator + (PUNTOSCARTESIANOS&); // (6) suma de vectores
+	float operator *(PUNTOSCARTESIANOS&); // (7) producto escalar
+	PUNTOSCARTESIANOS operator *(float); // (8) producto por un escalar
 };

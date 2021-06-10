@@ -95,5 +95,8 @@
     <ClCompile Include="ArchivoFuente(.cpp)\ListaColumnas.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="ArchivoFuente(.cpp)\PuntosCartesianos.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -46,6 +46,7 @@
     <ClCompile Include="ArchivoFuente(.cpp)\ListaColumnas.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\ListaDisparos.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\ListaZombies.cpp" />
+    <ClCompile Include="ArchivoFuente(.cpp)\PuntosCartesianos.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

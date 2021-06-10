@@ -7,8 +7,6 @@ class ZOMBIE : public OBJETOMOVIL
 {
 private:
 
-	bool VIVO;
-
 	float VELOCIDAD;
 	float ANGULO;
 
