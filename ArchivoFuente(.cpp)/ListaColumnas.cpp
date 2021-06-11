@@ -54,11 +54,11 @@ void LISTACOLUMNAS::ELIMINAR(COLUMNA* c)
         }
 }
 
-COLUMNA* LISTACOLUMNAS::CHOQUE_JUGADOR(JUGADOR HEROE)
+bool LISTACOLUMNAS::CHOQUE_JUGADOR(JUGADOR HEROE)
 {
     for (int i = 0; i < NUMERO; i++)
         if (INTERACCIONES::INTERACCION_JUGADOR_COLUMNA(HEROE, *(LISTA[i])))
-            return LISTA[i];
+            return 1; // si hay choque
     return 0; //no hay choque
 }
 

@@ -72,7 +72,7 @@ void OnTimer(int value)
 	VOXHEAD.MUEVE();
 	
 	//No borrar estos comandos.
-	glutTimerFunc(25, OnTimer, 0); //Necesario para generar interupciones cada "x" ms.
+	glutTimerFunc(10, OnTimer, 0); //Necesario para generar interupciones cada "x" ms.
 	glutPostRedisplay(); //Redibuja la imagen una vez finaliza la funcion.
 }
 

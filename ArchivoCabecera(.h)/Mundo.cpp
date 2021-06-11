@@ -48,6 +48,7 @@ void MUNDO::TECLADO(unsigned char TECLA)
 	if (TECLA == 'w')
 	{
 		HEROE.setvel(0.0, -5.0);
+		HEROE.WSAD = 'w';
 		direccion_bala = 'w';
 
 	}
@@ -55,40 +56,43 @@ void MUNDO::TECLADO(unsigned char TECLA)
 	else if (TECLA == 's')
 	{
 		HEROE.setvel(0.0, 5.0);
+		HEROE.WSAD = 's';
 		direccion_bala = 's';
 	}
 
 	else if (TECLA== 'a')
 	{
 		HEROE.setvel(-5.0, 0.0);
+		HEROE.WSAD = 'a';
 		direccion_bala = 'a';
 	}
 
 	else if (TECLA == 'd')
 	{
 		HEROE.setvel(5.0, 0.0);
+		HEROE.WSAD = 'd';
 		direccion_bala = 'd';
 	}
 	if( TECLA == ' ')
 	{
 		if (direccion_bala == 'w')
 		{
-			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 0.0, -10.0f);
+			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 0.0, -40.0f);
 			BALAS.AGREGAR(d);
 		}
 		else if (direccion_bala == 's')
 		{
-			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 0.0, 10.0f);
+			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 0.0, 40.0f);
 			BALAS.AGREGAR(d);
 		}
 		else if (direccion_bala == 'a')
 		{
-			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, -10.0, 0.0);
+			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, -40.0, 0.0);
 			BALAS.AGREGAR(d);
 		}
 		else if (direccion_bala == 'd')
 		{
-			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 10.0, 0.0);
+			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 40.0, 0.0);
 			BALAS.AGREGAR(d);
 		}	
 		HEROE.setvel(0.0, 0.0);
@@ -106,14 +110,17 @@ void MUNDO::MUEVE(float t)
 	ZOMBIES.SIGUE_A_JUGADOR(HEROE);
 	ZOMBIES.CHOQUE_ENTRE_ZOMBIES();
 	BALAS.MUEVE(t);
-	HEROE.MUEVE(t);
 	INTERACCIONES::INTERACCION_JUGADOR_TABLERO(HEROE, SUELO);
 
 	//Interacción columnas con personaje:
-	COLUMNA* AUX = COLUMNAS.CHOQUE_JUGADOR(HEROE);
-	if (AUX != 0) {
-		ETSIDI::play("sonidos/impacto.wav");
-		INTERACCIONES::INTERACCION_JUGADOR_COLUMNA(HEROE, *AUX);
+	COLUMNAS.CHOQUE_JUGADOR(HEROE);
+	if (COLUMNAS.CHOQUE_JUGADOR(HEROE))
+	{
+		ETSIDI::play("sonidos/impacto.wav");	
+	}
+	else
+	{
+		HEROE.MUEVE(t);
 	}
 
 	//Interacción zombies con el jugador
@@ -221,17 +228,27 @@ void MUNDO::MAPAFACIL(void)
 
 	for (int i = 0; i < 5; i++)
 	{
-		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 2, 15.0f + i * 3, 0.05f); //Construye e inicializa los objetos zombies
-
-		ZOMBIES.AGREGAR(AUX); // agregar a la lista
+		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01);
+		ZOMBIES.AGREGAR(AUX);
 	}
 
-	for (int i = 0; i < 6; i++)
-	{
-		COLUMNA* AUX = new COLUMNA(15.0f + i * 7, 5.0f + i * 7, 4); //COnstruye e inicializa los objetos columna
 
-		COLUMNAS.AGREGAR(AUX); // agregar a la lista
-	}
+		COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+
+		COLUMNAS.AGREGAR(AUX1); // agregar a la lista
+
+		COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+
+		COLUMNAS.AGREGAR(AUX2); // agregar a la lista
+
+		COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+
+		COLUMNAS.AGREGAR(AUX3); // agregar a la lista
+
+		COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+
+		COLUMNAS.AGREGAR(AUX4); // agregar a la lista
+
 }
 
 void MUNDO::MAPAMEDIO(void)

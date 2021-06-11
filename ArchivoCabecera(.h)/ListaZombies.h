@@ -2,6 +2,7 @@
 #define MAX_ZOMBIES 100
 #include "Zombie.h"
 #include "Interaccion.h"
+#include "Jugador.h"
 
 class LISTAZOMBIES
 {
@@ -9,6 +10,7 @@ private:
 
 	ZOMBIE* LISTA[MAX_ZOMBIES]; //Para almacenar objetos de tipo zombie
 	int NUMERO; //para llevar la cuenta de los zombies que hay 
+
 	
 public:
 
@@ -32,6 +34,8 @@ public:
 	ZOMBIE* COLISION(JUGADOR HEROE);
 
 	int getNumero();
+
+	JUGADOR HEROE;
 
 	ZOMBIE* operator[](int i);
 
