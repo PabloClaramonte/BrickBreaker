@@ -4,9 +4,11 @@
 class OBJETOMOVIL
 {
 protected:
-	float VELOCIDAD; //Atributo encargado de saber en cuantas unidades se incrementa la posicion del objeto cada ciclo de 25ms.
+	PUNTOSCARTESIANOS POSICION;
+	PUNTOSCARTESIANOS VELOCIDAD;
+	float velocidad; //Atributo encargado de saber en cuantas unidades se incrementa la posicion del objeto cada ciclo de 25ms.
 public:
-	OBJETOMOVIL() { VELOCIDAD = 0; }
+	OBJETOMOVIL() { velocidad = 0.0f; }
 	virtual ~OBJETOMOVIL() {}; //Importante que el destructor sea virtual
 
 	//Funciones virtuales puras:

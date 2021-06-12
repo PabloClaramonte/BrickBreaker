@@ -39,3 +39,8 @@ DISPARO::DISPARO(float x , float z, float vx, float vz)
 	VELOCIDAD.X = vx;
 	VELOCIDAD.Z = vz;
 }
+void DISPARO::setPos(float x, float z)
+{
+	POSICION.X = x;
+	POSICION.Z = z;
+}

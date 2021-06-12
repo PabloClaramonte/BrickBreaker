@@ -5,6 +5,8 @@
 #include <ListaDisparos.h>
 #include <Jugador.h>
 #include <Tablero.h>
+#include <escopeta.h>
+#include <SuperZombie.h>
 
 class MUNDO
 {
@@ -15,6 +17,7 @@ private:
 	bool IMPACTO;
 	int NIVEL;
 	char direccion_bala;
+
 
 	JUGADOR HEROE; 
 	TABLERO SUELO;

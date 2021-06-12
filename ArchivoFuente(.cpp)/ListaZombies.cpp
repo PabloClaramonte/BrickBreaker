@@ -80,7 +80,7 @@ void LISTAZOMBIES::CHOQUE_ENTRE_ZOMBIES()
 
 ZOMBIE* LISTAZOMBIES::COLISION(JUGADOR HEROE)
 {
-    for (int i = 0; i < NUMERO - 1; i++)
+    for (int i = 0; i < NUMERO; i++)
     {
         if (INTERACCIONES::INTERACCION_JUGADOR_ZOMBIE(HEROE, *(LISTA[i])))
             return LISTA[i];

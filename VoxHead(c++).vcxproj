@@ -22,6 +22,7 @@
     <ClInclude Include="ArchivoCabecera(.h)\Columna.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Coordinador.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Disparo.h" />
+    <ClInclude Include="ArchivoCabecera(.h)\escopeta.h" />
     <ClInclude Include="ArchivoCabecera(.h)\freeglut.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Interaccion.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Jugador.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="ArchivoCabecera(.h)\Mundo.h" />
     <ClInclude Include="ArchivoCabecera(.h)\ObjetoMovil.h" />
     <ClInclude Include="ArchivoCabecera(.h)\PuntosCartesianos.h" />
+    <ClInclude Include="ArchivoCabecera(.h)\SuperZombie.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Zombie.h" />
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +42,7 @@
     <ClCompile Include="ArchivoFuente(.cpp)\Columna.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Coordinador.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Disparo.cpp" />
+    <ClCompile Include="ArchivoFuente(.cpp)\escopeta.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Interaccion.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Jugador.cpp" />
     <ClCompile Include="ArchivoFuente%28.cpp%29\Tablero.cpp" />
@@ -47,6 +50,7 @@
     <ClCompile Include="ArchivoFuente(.cpp)\ListaDisparos.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\ListaZombies.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\PuntosCartesianos.cpp" />
+    <ClCompile Include="ArchivoFuente(.cpp)\SuperZombie.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

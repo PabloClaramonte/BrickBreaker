@@ -6,20 +6,16 @@
 
 class DISPARO : public OBJETOMOVIL
 {
-
-private: 
-	PUNTOSCARTESIANOS POSICION;
-	PUNTOSCARTESIANOS VELOCIDAD;
 public:
 
 	DISPARO();
 	DISPARO(float x = 0.0f, float z = 0.0f, float vx = 0.0f, float vz = 0.0f);
-	~DISPARO();
+	virtual ~DISPARO();
 
-	void DIBUJA(void);
+	virtual void DIBUJA(void);
 	void MUEVE(float t);
 	void SetVel(float vx, float vz);
-
+	void setPos(float x, float z);
 	
 
 	friend class MUNDO;

@@ -204,23 +204,6 @@ bool INTERACCIONES::INTERACCION_BALA_ZOMBIE(DISPARO& BALA, ZOMBIE& MALO)
 	}
 	else
 		return false;
-
-	/*if (BALA.POSICION.X > MALO.POSICION.X - 2.0f && BALA.POSICION.X < MALO.POSICION.X + 2.0f && BALA.POSICION.Z > MALO.POSICION.Z - 2.0f && BALA.POSICION.Z < MALO.POSICION.Z + 2.0f)
-	{
-		return true; //El estado del zombie pasa a muerto.
-		//MALO.VIVO = FALSE;
-		//ETSIDI::play("sonidos/impacto.wav"); //Sonido jocoso
-	}
-	/*if (BALA.POSICION.X < MALO.POSICION.X + 2.0f && BALA.POSICION.X > MALO.POSICION.X - 2.0f && BALA.POSICION.Z < MALO.POSICION.Z + 2.0f && BALA.POSICION.Z > MALO.POSICION.Z - 2.0f)
-	{
-		return true; //El estado del zombie pasa a muerto.
-		//MALO.VIVO = FALSE;
-		//ETSIDI::play("sonidos/impacto.wav"); //Sonido jocoso
-	}
-	else
-	{
-		return false;
-	}*/
 }
 
 //Función que implementa el choque de los disparos con las columnas:

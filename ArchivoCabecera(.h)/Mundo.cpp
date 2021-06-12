@@ -97,6 +97,44 @@ void MUNDO::TECLADO(unsigned char TECLA)
 		}	
 		HEROE.setvel(0.0, 0.0);
 	}
+	//DISPARO CON ESCOPETA//
+	if (TECLA == 'b')
+	{
+		if (direccion_bala == 'w')
+		{
+			for (int i = -1; i <= 1; i++)
+			{
+				ESCOPETA* es = new ESCOPETA(HEROE.POSICION.X, HEROE.POSICION.Z, 10.0 * i, -40.0f, 1.0f, 0.75f);
+				BALAS.AGREGAR(es);
+			}
+		}
+		else if (direccion_bala == 's')
+		{
+			for (int i = -1; i <= 1; i++)
+			{
+				ESCOPETA* es = new ESCOPETA(HEROE.POSICION.X, HEROE.POSICION.Z, 10.0 * i, 40.0f, 1.0f, 0.75f);
+				BALAS.AGREGAR(es);
+			}
+		}
+		else if (direccion_bala == 'a')
+		{
+			for (int i = -1; i <= 1; i++)
+			{
+				ESCOPETA* es = new ESCOPETA(HEROE.POSICION.X, HEROE.POSICION.Z,  -40.0f, 10.0 * i, 1.0f, 0.75f);
+				BALAS.AGREGAR(es);
+			}
+		}
+		else if (direccion_bala == 'd')
+		{
+			for (int i = -1; i <= 1; i++)
+			{
+				ESCOPETA* es = new ESCOPETA(HEROE.POSICION.X, HEROE.POSICION.Z, 40.0f, 10.0 * i, 1.0f, 0.75f);
+				BALAS.AGREGAR(es);
+			}
+		}
+		HEROE.setvel(0.0, 0.0);
+
+	}
 	else
 	{
 		NULL;
@@ -125,6 +163,7 @@ void MUNDO::MUEVE(float t)
 
 	//Interacción zombies con el jugador
 	ZOMBIE* AUXZ = ZOMBIES.COLISION(HEROE);
+	//SUPERZOMBIE* AUXSZ = ZOMBIES.COLISION(HEROE);
 	if (AUXZ != 0) {
 		IMPACTO = true;
 		ETSIDI::play("sonidos/impacto.wav");
@@ -231,6 +270,8 @@ void MUNDO::MAPAFACIL(void)
 		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01);
 		ZOMBIES.AGREGAR(AUX);
 	}
+	SUPERZOMBIE* sz = new SUPERZOMBIE(40.0f, 40.0f, 0.05f, 1.0f, 2.5f);
+	ZOMBIES.AGREGAR(sz);
 
 
 		COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna

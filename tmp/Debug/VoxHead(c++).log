@@ -1,8 +1,9 @@
-﻿  Interaccion.cpp
-C:\Users\guill\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Interaccion.cpp(330,40): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Interaccion.cpp(331,40): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Interaccion.cpp(337,40): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Interaccion.cpp(338,40): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Interaccion.cpp(343,48): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Desktop\VOXHEAD\ArchivoFuente(.cpp)\Interaccion.cpp(344,48): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  VoxHead(c++).vcxproj -> C:\Users\guill\Desktop\VOXHEAD\bin\VoxHead(c++).exe
+﻿  Mundo.cpp
+C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(107,74): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(115,74): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(123,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(131,81): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(270,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  ListaZombies.cpp
+  Generando código...
+  VoxHead(c++).vcxproj -> C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\bin\VoxHead(c++).exe

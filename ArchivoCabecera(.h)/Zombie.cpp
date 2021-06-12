@@ -14,7 +14,7 @@ ZOMBIE::ZOMBIE(float x, float z, float v)
 {
     POSICION.X = x;
     POSICION.Z = z;
-    VELOCIDAD = v;
+    velocidad= v;
 
     ANGULO = 0.0f;
 }
@@ -35,7 +35,7 @@ void ZOMBIE::DIBUJA(void)
 
 void ZOMBIE::MUEVE(float t)
 {
-    POSICION.X += (VELOCIDAD * cosf(ANGULO));
-    POSICION.Z += (VELOCIDAD *sinf(ANGULO));
+    POSICION.X += (velocidad * cosf(ANGULO));
+    POSICION.Z += (velocidad * sinf(ANGULO));
 }
 
