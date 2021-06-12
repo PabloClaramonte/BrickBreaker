@@ -19,10 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArchivoCabecera(.h)\Bonus.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Columna.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Coordinador.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Disparo.h" />
-    <ClInclude Include="ArchivoCabecera(.h)\escopeta.h" />
+    <ClInclude Include="ArchivoCabecera%28.h%29\Escopeta.h" />
     <ClInclude Include="ArchivoCabecera(.h)\freeglut.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Interaccion.h" />
     <ClInclude Include="ArchivoCabecera(.h)\Jugador.h" />
@@ -39,10 +40,11 @@
   <ItemGroup>
     <ClCompile Include="ArchivoCabecera(.h)\Mundo.cpp" />
     <ClCompile Include="ArchivoCabecera(.h)\Zombie.cpp" />
+    <ClCompile Include="ArchivoFuente(.cpp)\Bonus.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Columna.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Coordinador.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Disparo.cpp" />
-    <ClCompile Include="ArchivoFuente(.cpp)\escopeta.cpp" />
+    <ClCompile Include="ArchivoFuente%28.cpp%29\Escopeta.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Interaccion.cpp" />
     <ClCompile Include="ArchivoFuente(.cpp)\Jugador.cpp" />
     <ClCompile Include="ArchivoFuente%28.cpp%29\Tablero.cpp" />

@@ -1,9 +1,9 @@
 ﻿  Mundo.cpp
-C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(107,74): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(115,74): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(123,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(131,81): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(270,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  ListaZombies.cpp
-  Generando código...
-  VoxHead(c++).vcxproj -> C:\Users\Usuario\Desktop\UNIVERSIDAD\SEGUNDO CUATRI\INFOR\TRABAJO\VOXHEAD\bin\VoxHead(c++).exe
+C:\Users\Usuario\Desktop\UNIVERSIDAD\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(110,74): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(118,74): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(126,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(134,81): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(278,89): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(320,89): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNIVERSIDAD\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(347,89): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  VoxHead(c++).vcxproj -> C:\Users\Usuario\Desktop\UNIVERSIDAD\VOXHEAD\bin\VoxHead(c++).exe

@@ -180,7 +180,7 @@ bool INTERACCIONES::INTERACCION_JUGADOR_ZOMBIE(JUGADOR& HEROE, ZOMBIE& MALO)
 {
 	PUNTOSCARTESIANOS dif = HEROE.POSICION - MALO.POSICION;
 	float d = dif.Modulo();
-	float dentro = d - (float)(2 + 2);
+	float dentro = d - (float)(2 + MALO.radio);
 
 	if (dentro < 0.0)
 	{
@@ -196,10 +196,11 @@ bool INTERACCIONES::INTERACCION_BALA_ZOMBIE(DISPARO& BALA, ZOMBIE& MALO)
 {
 	PUNTOSCARTESIANOS dif = MALO.POSICION -BALA.POSICION;
 	float d = dif.Modulo();
-	float dentro = d - (float)(0.5 +2);
+	float dentro = d - (float)(0.5+MALO.radio);
 
 	if (dentro < 0.0 )
 	{
+		MALO.impactos++;
 		return true;
 	}
 	else

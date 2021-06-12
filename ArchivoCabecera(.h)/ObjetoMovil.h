@@ -6,6 +6,7 @@ class OBJETOMOVIL
 protected:
 	PUNTOSCARTESIANOS POSICION;
 	PUNTOSCARTESIANOS VELOCIDAD;
+	float ANGULO;
 	float velocidad; //Atributo encargado de saber en cuantas unidades se incrementa la posicion del objeto cada ciclo de 25ms.
 public:
 	OBJETOMOVIL() { velocidad = 0.0f; }

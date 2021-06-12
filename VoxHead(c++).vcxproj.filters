@@ -57,10 +57,13 @@
     <ClInclude Include="ArchivoCabecera(.h)\ObjetoMovil.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ArchivoCabecera(.h)\escopeta.h">
+    <ClInclude Include="ArchivoCabecera%28.h%29\Escopeta.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ArchivoCabecera(.h)\SuperZombie.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchivoCabecera(.h)\Bonus.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -104,10 +107,13 @@
     <ClCompile Include="ArchivoFuente(.cpp)\PuntosCartesianos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ArchivoFuente(.cpp)\escopeta.cpp">
+    <ClCompile Include="ArchivoFuente%28.cpp%29\Escopeta.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ArchivoFuente(.cpp)\SuperZombie.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivoFuente(.cpp)\Bonus.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

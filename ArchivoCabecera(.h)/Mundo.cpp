@@ -1,4 +1,5 @@
 #include <Mundo.h>
+#include "stdlib.h"
 
 MUNDO::MUNDO()
 {
@@ -40,6 +41,9 @@ void MUNDO::DIBUJA(void)
 	HEROE.DIBUJA();
 	SUELO.DIBUJA();
 	BALAS.DIBUJA();
+	_BONUS.DIBUJA();
+	/*PUNTOSCARTESIANOS VEL = ZOMBIES[2]->getVel();
+	_BONUS.SetVel(VEL.X, VEL.Z);*/
 }
 
 void MUNDO::TECLADO(unsigned char TECLA)
@@ -50,7 +54,6 @@ void MUNDO::TECLADO(unsigned char TECLA)
 		HEROE.setvel(0.0, -5.0);
 		HEROE.WSAD = 'w';
 		direccion_bala = 'w';
-
 	}
 
 	else if (TECLA == 's')
@@ -144,6 +147,7 @@ void MUNDO::TECLADO(unsigned char TECLA)
 
 void MUNDO::MUEVE(float t)
 {
+	//_BONUS.MUEVE(t);
 	ZOMBIES.MUEVE();
 	ZOMBIES.SIGUE_A_JUGADOR(HEROE);
 	ZOMBIES.CHOQUE_ENTRE_ZOMBIES();
@@ -163,7 +167,6 @@ void MUNDO::MUEVE(float t)
 
 	//Interacción zombies con el jugador
 	ZOMBIE* AUXZ = ZOMBIES.COLISION(HEROE);
-	//SUPERZOMBIE* AUXSZ = ZOMBIES.COLISION(HEROE);
 	if (AUXZ != 0) {
 		IMPACTO = true;
 		ETSIDI::play("sonidos/impacto.wav");
@@ -181,7 +184,11 @@ void MUNDO::MUEVE(float t)
 		{
 			if (INTERACCIONES::INTERACCION_BALA_ZOMBIE(*BALAS[i], *ZOMBIES[u]))
 			{
-				ZOMBIES.ELIMINAR(ZOMBIES[u]);
+
+				if (ZOMBIES[u]->getImpacto() == 5)
+				{
+					ZOMBIES.ELIMINAR(ZOMBIES[u]);	
+				}
 				BALAS.ELIMINAR(BALAS[i]);
 				ETSIDI::play("sonidos/impacto.wav");
 				break;
@@ -264,13 +271,16 @@ void MUNDO::MAPAFACIL(void)
 	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
 	SUELO.XMAX = 60.0;
 	SUELO.ZMAX = 60.0;
+	_BONUS.SetPos(20.0, 25.0);
 
 	for (int i = 0; i < 5; i++)
 	{
-		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01);
+		ZOMBIE* AUX = new ZOMBIE(2.0, 15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01, 4);
 		ZOMBIES.AGREGAR(AUX);
 	}
-	SUPERZOMBIE* sz = new SUPERZOMBIE(40.0f, 40.0f, 0.05f, 1.0f, 2.5f);
+	
+	
+	SUPERZOMBIE* sz = new SUPERZOMBIE(2.5f, 40.0f, 40.0f, 0.05f, 1.0f, 0);
 	ZOMBIES.AGREGAR(sz);
 
 
@@ -302,9 +312,12 @@ void MUNDO::MAPAMEDIO(void)
 	SUELO.XMAX = 60.0;
 	SUELO.ZMAX = 60.0;
 
+	
+
+
 	for (int i = 0; i < 5; i++)
 	{
-		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 2, 15.0f + i * 3, 0.05f); //Construye e inicializa los objetos zombies
+		ZOMBIE* AUX = new ZOMBIE(2.0, 15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01, 4); //Construye e inicializa los objetos zombies
 
 		ZOMBIES.AGREGAR(AUX); // agregar a la lista
 	}
@@ -327,9 +340,11 @@ void MUNDO::MAPADIFICIL(void)
 	SUELO.XMAX = 60.0;
 	SUELO.ZMAX = 60.0;
 
+	
+
 	for (int i = 0; i < 5; i++)
 	{
-		ZOMBIE* AUX = new ZOMBIE(15.0f + i * 2, 15.0f + i * 3, 0.05f); //Construye e inicializa los objetos zombies
+		ZOMBIE* AUX = new ZOMBIE(2.0, 15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01, 4); //Construye e inicializa los objetos zombies
 
 		ZOMBIES.AGREGAR(AUX); // agregar a la lista
 	}

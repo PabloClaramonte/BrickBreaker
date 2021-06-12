@@ -7,6 +7,7 @@
 #include <Tablero.h>
 #include <escopeta.h>
 #include <SuperZombie.h>
+#include <Bonus.h>
 
 class MUNDO
 {
@@ -17,6 +18,7 @@ private:
 	bool IMPACTO;
 	int NIVEL;
 	char direccion_bala;
+	int probabilidad;
 
 
 	JUGADOR HEROE; 
@@ -24,6 +26,7 @@ private:
 	LISTAZOMBIES ZOMBIES;
 	LISTACOLUMNAS COLUMNAS;
 	LISTADISPAROS BALAS;
+	BONUS _BONUS;
 
 public:
 	MUNDO();
