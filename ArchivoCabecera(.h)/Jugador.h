@@ -6,13 +6,18 @@
 #include "ETSIDI.h"
 //Fin zona #includes.
 
+using ETSIDI::SpriteSequence;
+
 class JUGADOR : public OBJETOMOVIL
 {
 private:
 	char WSAD;//Atributo encargado de conocer la direccion en la cual se mueve el JUGADOR o si comienza a disparar.
 	char PREWSAD;//Atributo encargado de conocer la ultima direccion del JUGADOR, antes de pararse para disparar.
-	//PUNTOSCARTESIANOS POSICION;//Atributo encargado de conocer la posicion del jugador en el mapa.
-	//PUNTOSCARTESIANOS VELOCIDAD;
+	//SpriteSequence sprite_lados;
+	//SpriteSequence sprite_abajo;
+	//SpriteSequence sprite_arriba;
+	//SpriteSequence sprite;
+	float radio;
 public:
 	
 
@@ -28,7 +33,7 @@ public:
 	void DIBUJA(void);
 
 	void MUEVE(float t);
-	PUNTOSCARTESIANOS getPos();
+	
 
 	void setvel(float vx, float vz);
 

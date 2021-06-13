@@ -106,7 +106,7 @@ void MUNDO::TECLADO(unsigned char TECLA)
 	if (TECLA == 'b' && modo_escopeta==true)
 	{
 		ETSIDI::play("sonidos/escopeta.wav");
-		num_disp_escp++;
+		num_disp_escp--;
 		if (direccion_bala == 'w')
 		{
 			for (int i = -1; i <= 1; i++)
@@ -140,7 +140,7 @@ void MUNDO::TECLADO(unsigned char TECLA)
 			}
 		}
 		HEROE.setvel(0.0, 0.0);
-		if (num_disp_escp==5)
+		if (num_disp_escp==0)
 		{
 			modo_escopeta = false;
 		}
@@ -236,7 +236,7 @@ void MUNDO::MUEVE(float t)
 	if (AUX != 0) 
 	{
 		modo_escopeta = true;
-		num_disp_escp = 0;
+		num_disp_escp+=5;
 		_BONUS.ELIMINAR(AUX);
 		ETSIDI::play("sonidos/impacto.wav");
 	}
@@ -252,8 +252,6 @@ bool MUNDO::CARGARNIVEL()
 	COLUMNAS.DESTRUYECONTENIDO();
 	BALAS.DESTRUIRDISPAROS();
 	//_BONUS.DESTRUIRBONUS();
-	modo_escopeta = false;
-	num_disp_escp = 0;
 
 	if (NIVEL == 1)
 	{
@@ -290,22 +288,23 @@ bool MUNDO::GETIMPACTO()
 void MUNDO::MAPAFACIL(void)
 {
 	//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
-	HEROE.POSICION.X = 10.0;
-	HEROE.POSICION.Z = 10.0;
+	HEROE.POSICION.X = 20.0;
+	HEROE.POSICION.Z = 20.0;
 
 	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
 	SUELO.XMAX = 60.0;
 	SUELO.ZMAX = 60.0;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 1; i++)
 	{
-		ZOMBIE* AUX = new ZOMBIE(2.0, 15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01, 4);
+		ZOMBIE* AUX = new ZOMBIE(2.0,0.0f + i * 10, 70.0f, (float)((rand() % 3) + 1) * 0.01, 4);
 		ZOMBIES.AGREGAR(AUX);
 	}
 	
-	
-	SUPERZOMBIE* sz = new SUPERZOMBIE(2.5f, 40.0f, 40.0f, 0.05f, 1.0f, 0);
+
+	SUPERZOMBIE* sz = new SUPERZOMBIE(2.5f, 40.0f, 40.0f, 0.015f, 0);
 	ZOMBIES.AGREGAR(sz);
+
 
 
 		COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna

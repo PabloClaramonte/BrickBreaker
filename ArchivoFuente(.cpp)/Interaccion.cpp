@@ -180,7 +180,7 @@ bool INTERACCIONES::INTERACCION_JUGADOR_ZOMBIE(JUGADOR& HEROE, ZOMBIE& MALO)
 {
 	PUNTOSCARTESIANOS dif = HEROE.POSICION - MALO.POSICION;
 	float d = dif.Modulo();
-	float dentro = d - (float)(2 + MALO.radio);
+	float dentro = d - (float)(HEROE.radio + MALO.radio);
 
 	if (dentro < 0.0)
 	{
