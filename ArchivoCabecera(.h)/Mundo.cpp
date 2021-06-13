@@ -79,6 +79,7 @@ void MUNDO::TECLADO(unsigned char TECLA)
 	}
 	if( TECLA == ' ')
 	{
+		ETSIDI::play("sonidos/disparo.wav");
 		if (direccion_bala == 'w')
 		{
 			DISPARO* d = new DISPARO(HEROE.POSICION.X, HEROE.POSICION.Z, 0.0, -40.0f);
@@ -104,6 +105,7 @@ void MUNDO::TECLADO(unsigned char TECLA)
 	//DISPARO CON ESCOPETA//
 	if (TECLA == 'b' && modo_escopeta==true)
 	{
+		ETSIDI::play("sonidos/escopeta.wav");
 		num_disp_escp++;
 		if (direccion_bala == 'w')
 		{
@@ -174,7 +176,7 @@ void MUNDO::MUEVE(float t)
 	ZOMBIE* AUXZ = ZOMBIES.COLISION(HEROE);
 	if (AUXZ != 0) {
 		IMPACTO = true;
-		ETSIDI::play("sonidos/impacto.wav");
+		ETSIDI::play("sonidos/GameOver.wav");
 	}
 	
 	//Interaccción de las balas con el final del mapa
@@ -201,7 +203,7 @@ void MUNDO::MUEVE(float t)
 					ZOMBIES.ELIMINAR(ZOMBIES[u]);	
 				}
 				BALAS.ELIMINAR(BALAS[i]);
-				ETSIDI::play("sonidos/impacto.wav");
+				ETSIDI::play("sonidos/zombieMuerte.wav");
 				break;
 			}
 		}
@@ -215,7 +217,7 @@ void MUNDO::MUEVE(float t)
 			if (INTERACCIONES::INTERACCION_BALA_COLUMNA(*BALAS[i], *COLUMNAS[u]))
 			{
 				BALAS.ELIMINAR(BALAS[i]);
-				//SIDI::play("sonidos/impacto.wav");
+				ETSIDI::play("sonidos/impacto.wav");
 				break;
 			}
 		}
@@ -333,9 +335,6 @@ void MUNDO::MAPAMEDIO(void)
 	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
 	SUELO.XMAX = 60.0;
 	SUELO.ZMAX = 60.0;
-
-	
-
 
 	for (int i = 0; i < 5; i++)
 	{
