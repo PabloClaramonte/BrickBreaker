@@ -43,6 +43,7 @@ void JUGADOR::MUEVE(float t)
     POSICION.Z = POSICION.Z + VELOCIDAD.Z * t;
 }
 
+
 void JUGADOR::setvel(float vx, float vz)
 {
     VELOCIDAD.X = vx;

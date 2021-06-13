@@ -19,8 +19,8 @@ public:
 	// Funcion principal del dibujo del bonus
 	void DIBUJA();
 	BONUS(float ix = 0.0f, float iz = 0.0f);
+	PUNTOSCARTESIANOS getPos();
 
-	//void SetPos(float ix, float iz);
-
+	friend class INTERACCIONES;
 };
 

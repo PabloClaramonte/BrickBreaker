@@ -25,16 +25,19 @@ void BONUS::DIBUJA()
     glutSolidCube(1.5);
     glPopMatrix();
 }
-/*void BONUS::SetPos(float ix, float iz)
-{
-    POSICION.X = ix;
-    POSICION.Z = iz;
-}*/
 BONUS::BONUS(float ix, float iz)
 {
     POSICION.X = ix;
     POSICION.Z = iz;
 }
+PUNTOSCARTESIANOS BONUS::getPos()
+{
+    PUNTOSCARTESIANOS POS;
+    POS.X = POSICION.X;
+    POS.Z = POSICION.Z;
+    return POS;
+}
+
 
 
 

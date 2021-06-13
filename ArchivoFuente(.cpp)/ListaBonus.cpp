@@ -65,3 +65,18 @@ BONUS* LISTABONUS::operator [](int i)
         i = 0;
     return LISTA[i];
 }
+
+int LISTABONUS::getNumero()
+{
+    return NUMERO;
+}
+
+BONUS* LISTABONUS::COLISION(JUGADOR HEROE)
+{
+    for (int i = 0; i < NUMERO; i++)
+    {
+        if (INTERACCIONES::INTERACCION_JUGADOR_BONUS(HEROE, *LISTA[i]))
+            return LISTA[i];
+    }
+    return 0;
+}

@@ -39,16 +39,6 @@ void LISTADISPAROS::DIBUJA()
 		LISTA[i]->DIBUJA();
 }
 
-/*DISPARO* LISTADISPAROS::COLISION_ZOMBIE(ZOMBIE z)
-{
-	for (int i = 0; i < NUM; i++)
-	{
-		if (INTERACCIONES::INTERACCION_BALA_ZOMBIE(*(LISTA[i]), z))
-			return LISTA[i];
-	}
-	return 0;
-}*/
-
 DISPARO* LISTADISPAROS::COLISION_MAPA(TABLERO t)//(variable de la pared del tablero*) Hay que implementar una interaccion entre Disparo y mapa
 {
 	for (int i = 0; i < NUM; i++)

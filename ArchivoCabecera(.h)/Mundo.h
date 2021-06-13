@@ -19,6 +19,8 @@ private:
 	int NIVEL;
 	char direccion_bala;
 	int probabilidad;
+	bool modo_escopeta;//coge el bonus y activa la escopeta
+	int num_disp_escp;//el numero de veces que puede disparar con la escopeta
 
 
 	JUGADOR HEROE; 

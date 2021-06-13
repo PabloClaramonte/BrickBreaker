@@ -21,6 +21,9 @@ public:
     void ELIMINAR(int index);
 
     BONUS* operator[](int i);
+    int getNumero();
+
+    BONUS* COLISION(JUGADOR HEROE);
 
     friend class INTERACCIONES;
 };

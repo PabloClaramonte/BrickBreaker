@@ -7,6 +7,8 @@ MUNDO::MUNDO()
 	NIVEL = 0;
 	NUMERODECOLUMNAS = 0;
 	direccion_bala = 0;
+	modo_escopeta = false;
+	num_disp_escp = 0;
 }
 
 MUNDO::~MUNDO()
@@ -100,8 +102,9 @@ void MUNDO::TECLADO(unsigned char TECLA)
 		HEROE.setvel(0.0, 0.0);
 	}
 	//DISPARO CON ESCOPETA//
-	if (TECLA == 'b')
+	if (TECLA == 'b' && modo_escopeta==true)
 	{
+		num_disp_escp++;
 		if (direccion_bala == 'w')
 		{
 			for (int i = -1; i <= 1; i++)
@@ -135,6 +138,10 @@ void MUNDO::TECLADO(unsigned char TECLA)
 			}
 		}
 		HEROE.setvel(0.0, 0.0);
+		if (num_disp_escp==5)
+		{
+			modo_escopeta = false;
+		}
 
 	}
 	else
@@ -222,6 +229,15 @@ void MUNDO::MUEVE(float t)
 			INTERACCIONES::INTERACCION_ZOMBIE_COLUMNA(*ZOMBIES[i], *COLUMNAS[u]);
 		}
 	}
+
+	BONUS* AUX = _BONUS.COLISION(HEROE);
+	if (AUX != 0) 
+	{
+		modo_escopeta = true;
+		num_disp_escp = 0;
+		_BONUS.ELIMINAR(AUX);
+		ETSIDI::play("sonidos/impacto.wav");
+	}
 }
 
 
@@ -233,6 +249,9 @@ bool MUNDO::CARGARNIVEL()
 	ZOMBIES.DESTRUYECONTENIDO();
 	COLUMNAS.DESTRUYECONTENIDO();
 	BALAS.DESTRUIRDISPAROS();
+	//_BONUS.DESTRUIRBONUS();
+	modo_escopeta = false;
+	num_disp_escp = 0;
 
 	if (NIVEL == 1)
 	{
