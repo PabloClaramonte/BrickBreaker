@@ -7,7 +7,7 @@
 #include <Tablero.h>
 #include <escopeta.h>
 #include <SuperZombie.h>
-#include <Bonus.h>
+#include <ListaBonus.h>
 
 class MUNDO
 {
@@ -26,7 +26,7 @@ private:
 	LISTAZOMBIES ZOMBIES;
 	LISTACOLUMNAS COLUMNAS;
 	LISTADISPAROS BALAS;
-	BONUS _BONUS;
+	LISTABONUS _BONUS;
 
 public:
 	MUNDO();

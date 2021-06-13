@@ -19,7 +19,7 @@ public:
 
 	int getImpacto();
 
-	PUNTOSCARTESIANOS getVel();
+	PUNTOSCARTESIANOS getPos();
 
 
 	friend class INTERACCIONES;

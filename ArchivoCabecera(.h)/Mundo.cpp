@@ -14,6 +14,7 @@ MUNDO::~MUNDO()
 	ZOMBIES.DESTRUYECONTENIDO();
 	COLUMNAS.DESTRUYECONTENIDO();
 	BALAS.DESTRUIRDISPAROS();
+	_BONUS.DESTRUIRBONUS();
 }
 
 
@@ -42,8 +43,6 @@ void MUNDO::DIBUJA(void)
 	SUELO.DIBUJA();
 	BALAS.DIBUJA();
 	_BONUS.DIBUJA();
-	/*PUNTOSCARTESIANOS VEL = ZOMBIES[2]->getVel();
-	_BONUS.SetVel(VEL.X, VEL.Z);*/
 }
 
 void MUNDO::TECLADO(unsigned char TECLA)
@@ -147,7 +146,6 @@ void MUNDO::TECLADO(unsigned char TECLA)
 
 void MUNDO::MUEVE(float t)
 {
-	//_BONUS.MUEVE(t);
 	ZOMBIES.MUEVE();
 	ZOMBIES.SIGUE_A_JUGADOR(HEROE);
 	ZOMBIES.CHOQUE_ENTRE_ZOMBIES();
@@ -184,9 +182,15 @@ void MUNDO::MUEVE(float t)
 		{
 			if (INTERACCIONES::INTERACCION_BALA_ZOMBIE(*BALAS[i], *ZOMBIES[u]))
 			{
-
+				probabilidad = (rand() % 3);
 				if (ZOMBIES[u]->getImpacto() == 5)
 				{
+					if (probabilidad == 1)
+					{
+						PUNTOSCARTESIANOS pos = ZOMBIES[u]->getPos();
+						BONUS* bonus = new BONUS(pos.X, pos.Z);
+						_BONUS.AGREGAR(bonus);
+					}
 					ZOMBIES.ELIMINAR(ZOMBIES[u]);	
 				}
 				BALAS.ELIMINAR(BALAS[i]);
@@ -271,7 +275,6 @@ void MUNDO::MAPAFACIL(void)
 	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
 	SUELO.XMAX = 60.0;
 	SUELO.ZMAX = 60.0;
-	_BONUS.SetPos(20.0, 25.0);
 
 	for (int i = 0; i < 5; i++)
 	{

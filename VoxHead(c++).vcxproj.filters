@@ -66,6 +66,9 @@
     <ClInclude Include="ArchivoCabecera(.h)\Bonus.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="ArchivoCabecera(.h)\ListaBonus.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArchivoFuente(.cpp)\VoxHead(c++).cpp">
@@ -114,6 +117,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ArchivoFuente(.cpp)\Bonus.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivoFuente(.cpp)\ListaBonus.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

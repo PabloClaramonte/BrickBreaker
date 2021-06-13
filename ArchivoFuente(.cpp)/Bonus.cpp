@@ -25,22 +25,17 @@ void BONUS::DIBUJA()
     glutSolidCube(1.5);
     glPopMatrix();
 }
-void BONUS::MUEVE(float t)
+/*void BONUS::SetPos(float ix, float iz)
 {
-    POSICION.X = POSICION.X + VELOCIDAD.X * t;
-    POSICION.Z = POSICION.Z + VELOCIDAD.Z * t;
-}
-void BONUS::SetPos(float ix, float iz)
+    POSICION.X = ix;
+    POSICION.Z = iz;
+}*/
+BONUS::BONUS(float ix, float iz)
 {
     POSICION.X = ix;
     POSICION.Z = iz;
 }
 
-void BONUS::SetVel(float vx, float vz)
-{
-    VELOCIDAD.X = vx;
-    VELOCIDAD.Z = vz;
-}
 
 
 

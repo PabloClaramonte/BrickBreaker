@@ -46,11 +46,11 @@ int ZOMBIE::getImpacto()
     return impactos;
 }
 
-PUNTOSCARTESIANOS ZOMBIE::getVel()
+PUNTOSCARTESIANOS ZOMBIE::getPos()
 {
-    PUNTOSCARTESIANOS VEL;
-    VEL.X = velocidad * cosf(ANGULO);
-    VEL.Z = velocidad * sinf(ANGULO);
-    return VEL;
+    PUNTOSCARTESIANOS POS;
+    POS.X = POSICION.X;
+    POS.Z = POSICION.Z;
+    return POS;
 }
 
