@@ -4,11 +4,14 @@
 #include <freeglut.h>
 #include <ObjetoMovil.h>
 
+using ETSIDI::SpriteSequence;
+
 class DISPARO : public OBJETOMOVIL
 {
+	SpriteSequence sprite_horizontal, sprite_vertical;
 public:
 
-	DISPARO();
+	//DISPARO();
 	DISPARO(float x = 0.0f, float z = 0.0f, float vx = 0.0f, float vz = 0.0f);
 	virtual ~DISPARO();
 

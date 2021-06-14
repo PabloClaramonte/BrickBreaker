@@ -50,28 +50,28 @@ void MUNDO::DIBUJA(void)
 void MUNDO::TECLADO(unsigned char TECLA)
 {
 	
-	if (TECLA == 'w')
+	if (TECLA == 'w' || TECLA == 'W')
 	{
 		HEROE.setvel(0.0, -5.0);
 		HEROE.WSAD = 'w';
 		direccion_bala = 'w';
 	}
 
-	else if (TECLA == 's')
+	else if (TECLA == 's' || TECLA == 'S')
 	{
 		HEROE.setvel(0.0, 5.0);
 		HEROE.WSAD = 's';
 		direccion_bala = 's';
 	}
 
-	else if (TECLA== 'a')
+	else if (TECLA== 'a' || TECLA == 'A')
 	{
 		HEROE.setvel(-5.0, 0.0);
 		HEROE.WSAD = 'a';
 		direccion_bala = 'a';
 	}
 
-	else if (TECLA == 'd')
+	else if (TECLA == 'd' || TECLA == 'D')
 	{
 		HEROE.setvel(5.0, 0.0);
 		HEROE.WSAD = 'd';
@@ -103,7 +103,7 @@ void MUNDO::TECLADO(unsigned char TECLA)
 		HEROE.setvel(0.0, 0.0);
 	}
 	//DISPARO CON ESCOPETA//
-	if (TECLA == 'b' && modo_escopeta==true)
+	if (TECLA == 'b' || TECLA == 'B' && modo_escopeta==true)
 	{
 		ETSIDI::play("sonidos/escopeta.wav");
 		num_disp_escp--;
@@ -238,7 +238,7 @@ void MUNDO::MUEVE(float t)
 		modo_escopeta = true;
 		num_disp_escp+=5;
 		_BONUS.ELIMINAR(AUX);
-		ETSIDI::play("sonidos/impacto.wav");
+		ETSIDI::play("sonidos/recarga.wav");
 	}
 }
 
@@ -290,6 +290,8 @@ void MUNDO::MAPAFACIL(void)
 
 	SUELO.XMAX = 60.0;
 	SUELO.ZMAX = 60.0;
+
+	_BONUS.DESTRUIRBONUS();
 
 	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
 
