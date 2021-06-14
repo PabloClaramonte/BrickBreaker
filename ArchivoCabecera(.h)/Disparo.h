@@ -8,7 +8,7 @@ using ETSIDI::SpriteSequence;
 
 class DISPARO : public OBJETOMOVIL
 {
-	SpriteSequence sprite_horizontal, sprite_vertical;
+	SpriteSequence sprite;
 public:
 
 	//DISPARO();

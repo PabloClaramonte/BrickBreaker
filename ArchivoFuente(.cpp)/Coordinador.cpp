@@ -18,7 +18,7 @@ void COORDINADOR::TECLA(unsigned char key)
         {
             _MUNDO.INICIALIZA();
             _ESTADO = JUEGO;
-            //ETSIDI::playMusica("sonidos/juego.wav", true);
+            ETSIDI::playMusica("sonidos/juego.wav", true);
         }
         if (key == 's' || key == 'S')
             exit(0);
@@ -27,7 +27,7 @@ void COORDINADOR::TECLA(unsigned char key)
         _MUNDO.TECLADO(key); //Función de las teclas del mundo
         if (key == 'p' || key == 'P') {
             _ESTADO = PAUSA;
-            ETSIDI::playMusica("sonidos/menu.wav", false);
+            ETSIDI::playMusica("sonidos/juego.wav", false);
         }
     }
     else if (_ESTADO == GAMEOVER)
@@ -41,7 +41,7 @@ void COORDINADOR::TECLA(unsigned char key)
     {
         if (key == 'c' || key == 'C') {
             _ESTADO = INICIO;
-            ETSIDI::playMusica("sonidos/menu.wav", false);
+            //ETSIDI::playMusica("sonidos/YouWin.wav", false);
         }
         if (key == 's' || key == 'S')
             exit(0);
@@ -67,8 +67,10 @@ void COORDINADOR::MUEVE()
         _MUNDO.MUEVE((float)0.025);
 
         if (_MUNDO.GETZOMBIES() == 0) {
-            if (!_MUNDO.CARGARNIVEL())
+            if (!_MUNDO.CARGARNIVEL()) {
+                ETSIDI::playMusica("sonidos/YouWin.wav", false);
                 _ESTADO = FIN;
+            }
         }
 
         if (_MUNDO.GETIMPACTO()) {

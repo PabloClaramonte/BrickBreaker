@@ -12,7 +12,7 @@ private:
 	float radio;
 public:
 	
-	ESCOPETA(float x, float z, float vx, float vz, float c, float r) :DISPARO(x, z, vx, vz), sprite("imagenes/escopeta.png", 1)
+	ESCOPETA(float x, float z, float vx, float vz, float c, float r) :DISPARO(x, z, vx, vz), sprite("imagenes/bala.png", 1)
 	{ 
 		color = c;
 		radio = r;
