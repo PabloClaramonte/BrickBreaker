@@ -217,7 +217,6 @@ void MUNDO::MUEVE(float t)
 			if (INTERACCIONES::INTERACCION_BALA_COLUMNA(*BALAS[i], *COLUMNAS[u]))
 			{
 				BALAS.ELIMINAR(BALAS[i]);
-				ETSIDI::play("sonidos/impacto.wav");
 				break;
 			}
 		}
