@@ -246,8 +246,6 @@ void MUNDO::MUEVE(float t)
 bool MUNDO::CARGARNIVEL()
 {
 	NIVEL++;
-	HEROE.POSICION.X = 0.0f;
-	HEROE.POSICION.Z = 0.0f;
 	ZOMBIES.DESTRUYECONTENIDO();
 	COLUMNAS.DESTRUYECONTENIDO();
 	BALAS.DESTRUIRDISPAROS();
@@ -287,92 +285,169 @@ bool MUNDO::GETIMPACTO()
 
 void MUNDO::MAPAFACIL(void)
 {
-	//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
-	HEROE.POSICION.X = 20.0;
-	HEROE.POSICION.Z = 20.0;
+	HEROE.POSICION.X = 30.0;
+	HEROE.POSICION.Z = 30.0;
 
-	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
 	SUELO.XMAX = 60.0;
 	SUELO.ZMAX = 60.0;
 
-	for (int i = 0; i < 1; i++)
+	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX1); // agregar a la lista
+
+	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX2); // agregar a la lista
+
+	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX3); // agregar a la lista
+
+	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX4); // agregar a la lista
+
+
+	for (int i = 0; i < 2; i++)
 	{
-		ZOMBIE* AUX = new ZOMBIE(2.0,0.0f + i * 10, 70.0f, (float)((rand() % 3) + 1) * 0.01, 4);
+		ZOMBIE* AUX = new ZOMBIE(2.0, 0.0f + (i * 30), 0.0f, (float)((rand() % 4) + 1) * 0.01, 4);
 		ZOMBIES.AGREGAR(AUX);
 	}
-	
 
-	SUPERZOMBIE* sz = new SUPERZOMBIE(2.5f, 40.0f, 40.0f, 0.015f, 0);
-	ZOMBIES.AGREGAR(sz);
+	for (int i = 0; i < 2; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(2.0, 30.0f + (i * 30), 60.0f, (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(2.0, 0.0f, 30.0f + (i * 30), (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
+	}
+	for (int i = 0; i < 2; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(2.0, 60.0f, 0.0f + (i * 30), (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
+	}
 
 
 
-		COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
-
-		COLUMNAS.AGREGAR(AUX1); // agregar a la lista
-
-		COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
-
-		COLUMNAS.AGREGAR(AUX2); // agregar a la lista
-
-		COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
-
-		COLUMNAS.AGREGAR(AUX3); // agregar a la lista
-
-		COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
-
-		COLUMNAS.AGREGAR(AUX4); // agregar a la lista
 
 }
 
 void MUNDO::MAPAMEDIO(void)
 {
-	//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
-	HEROE.POSICION.X = 10.0;
-	HEROE.POSICION.Z = 10.0;
+	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
 
-	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
-	SUELO.XMAX = 60.0;
-	SUELO.ZMAX = 60.0;
+	COLUMNAS.AGREGAR(AUX1); // agregar a la lista
 
-	for (int i = 0; i < 5; i++)
+	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX2); // agregar a la lista
+
+	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX3); // agregar a la lista
+
+	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX4); // agregar a la lista
+
+
+
+	for (int i = 0; i < 4; i++)
 	{
-		ZOMBIE* AUX = new ZOMBIE(2.0, 15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01, 4); //Construye e inicializa los objetos zombies
-
-		ZOMBIES.AGREGAR(AUX); // agregar a la lista
+		ZOMBIE* AUX = new ZOMBIE(2.0, 0.0f + (i * 15), 0.0f, (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
 	}
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 2; i++)
 	{
-		COLUMNA* AUX = new COLUMNA(15.0f + i * 7, 5.0f + i * 7, 4); //COnstruye e inicializa los objetos columna
-
-		COLUMNAS.AGREGAR(AUX); // agregar a la lista
+		ZOMBIE* AUX = new ZOMBIE(2.0, 30.0f + (i * 30), 60.0f, (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
 	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(2.0, 0.0f, 30.0f + (i * 30), (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(2.0, 60.0f, 0.0f + (i * 15), (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
+	}
+
+
+	SUPERZOMBIE* sz1 = new SUPERZOMBIE(2.5f, 0.0f, 0.0f, 0.05f, 0);
+	ZOMBIES.AGREGAR(sz1);
+
+	SUPERZOMBIE* sz2 = new SUPERZOMBIE(2.5f, 60.0f, 0.0f, 0.05f, 0);
+	ZOMBIES.AGREGAR(sz2);
+
+
+
+
 }
 
 void MUNDO::MAPADIFICIL(void)
 {
-	//JUGADOR* HEROE = new JUGADOR(10.0f, 0.0f, 10.0f, 0.25f); //NO FUNCIONA (?)
-	HEROE.POSICION.X = 10.0;
-	HEROE.POSICION.Z = 10.0;
 
-	//TABLERO* SUELO = new TABLERO(60.0f, 60.0f); //NO FUNCIONA (?)
-	SUELO.XMAX = 60.0;
-	SUELO.ZMAX = 60.0;
+	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
 
-	
+	COLUMNAS.AGREGAR(AUX1); // agregar a la lista
 
-	for (int i = 0; i < 5; i++)
+	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX2); // agregar a la lista
+
+	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+
+	COLUMNAS.AGREGAR(AUX3); // agregar a la lista
+
+	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+
+
+
+	COLUMNAS.AGREGAR(AUX4); // agregar a la lista
+	for (int i = 0; i < 3; i++)
 	{
-		ZOMBIE* AUX = new ZOMBIE(2.0, 15.0f + i * 5, 20.0f + i * 5, (float)((rand() % 3) + 1) * 0.01, 4); //Construye e inicializa los objetos zombies
-
-		ZOMBIES.AGREGAR(AUX); // agregar a la lista
+		ZOMBIE* AUX = new ZOMBIE(2.0, 12.0f + (i * 12), 0.0f, (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
 	}
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		COLUMNA* AUX = new COLUMNA(15.0f + i * 7, 5.0f + i * 7, 4); //COnstruye e inicializa los objetos columna
-
-		COLUMNAS.AGREGAR(AUX); // agregar a la lista
+		ZOMBIE* AUX = new ZOMBIE(2.0, 0.0f, 12.0f + (i * 12), (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
 	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(2.0, 60.0f, 12.0f + (i * 12), (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		ZOMBIE* AUX = new ZOMBIE(2.0, 12.0f + (i * 12), 60.0f, (float)((rand() % 4) + 1) * 0.01, 4);
+		ZOMBIES.AGREGAR(AUX);
+	}
+
+
+	SUPERZOMBIE* sz1 = new SUPERZOMBIE (2.5f, 0.0f, 0.0f, 0.05f, 0);
+	ZOMBIES.AGREGAR(sz1);
+
+	SUPERZOMBIE* sz2 = new SUPERZOMBIE(2.5f, 60.0f, 0.0f, 0.05f, 0);
+	ZOMBIES.AGREGAR(sz2);
+
+	SUPERZOMBIE* sz3 = new SUPERZOMBIE(2.5f, 60.0f, 60.0f, 0.05f, 0);
+	ZOMBIES.AGREGAR(sz3);
+
+	SUPERZOMBIE* sz4 = new SUPERZOMBIE(2.5f, 0.0f, 60.0f, 0.05f,0);
+	ZOMBIES.AGREGAR(sz4);
+
+
+
 }

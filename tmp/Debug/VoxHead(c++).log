@@ -1,1 +1,18 @@
-﻿
+﻿  Mundo.cpp
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(114,74): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(122,74): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(130,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(138,81): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(313,82): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(319,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(325,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(330,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(361,82): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(367,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(373,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(378,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(416,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(422,83): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(428,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Desktop\VOXHEAD\ArchivoCabecera(.h)\Mundo.cpp(434,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  VoxHead(c++).vcxproj -> C:\Users\guill\Desktop\VOXHEAD\bin\VoxHead(c++).exe
