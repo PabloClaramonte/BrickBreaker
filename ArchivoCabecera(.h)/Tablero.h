@@ -11,13 +11,13 @@ private:
 	  y sus correspondientes coordenadas maximas.
 	*/
 
-	float XMAX;//Este atributo hace referencia a la corrdenada X maxima que tendra el mapa.
-	float ZMAX;//Este atributo hace referencia a la coordenada Z maxima que tendra el mapa. 
+	float XMAX; //Este atributo hace referencia a la corrdenada X maxima que tendra el mapa.
+	float ZMAX; //Este atributo hace referencia a la coordenada Z maxima que tendra el mapa. 
 
 
 public:
 
-	//Constructores
+	//Constructor
 	TABLERO(float x = 0.0f, float z = 0.0f);
 
 	//Destructor.

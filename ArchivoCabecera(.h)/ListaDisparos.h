@@ -11,7 +11,6 @@ class LISTADISPAROS
 private:
     DISPARO* LISTA[MAX_DISPAROS];
     int NUM;
-
 public:
     LISTADISPAROS();
     virtual ~LISTADISPAROS();

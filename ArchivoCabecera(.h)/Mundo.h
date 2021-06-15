@@ -9,11 +9,8 @@
 #include <SuperZombie.h>
 #include <ListaBonus.h>
 
-class MUNDO
-{
-
+class MUNDO{
 private:
-
 	int NUMERODECOLUMNAS;
 	bool IMPACTO;
 	int NIVEL;
@@ -21,7 +18,6 @@ private:
 	int probabilidad;
 	bool modo_escopeta;//coge el bonus y activa la escopeta
 	int num_disp_escp;//el numero de veces que puede disparar con la escopeta
-
 
 	JUGADOR HEROE; 
 	TABLERO SUELO;

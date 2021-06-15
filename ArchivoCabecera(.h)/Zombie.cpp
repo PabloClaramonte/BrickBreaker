@@ -3,14 +3,6 @@
 #include <freeglut.h>
 #include <ETSIDI.h>
 
-/*ZOMBIE::ZOMBIE() 
-{
-    
-    POSICION.Y = 0.0f;
-    ANGULO = 0.0f;
-    VELOCIDAD = 0.0f;
-}*/
-
 ZOMBIE::ZOMBIE(float r, float x, float z , float v , int im): sprite_zombie("imagenes/zombie.png", 4, 2, 100)
 {
     sprite_zombie.setCenter(3.5, 0);
@@ -32,9 +24,7 @@ void ZOMBIE::DIBUJA(void)
 {
     glPushMatrix();
     glTranslatef(POSICION.X, POSICION.Y, POSICION.Z);
-   // glColor3f(0.0f, 1.0f, 0.0f);
-   // glutSolidSphere(radio, 20, 20);
-   // glTranslatef(0, 0, 0);
+  
     if (velocidad * cosf(ANGULO) > 0.01)sprite_zombie.flip(false, false);
     if (velocidad * cosf(ANGULO) < -0.01)sprite_zombie.flip(true, false);
     if ((velocidad * cosf(ANGULO) > 0.01) && (velocidad * cosf(ANGULO) < -0.01))

@@ -18,12 +18,14 @@ public:
 	{
 		sprite_superzombie.setCenter(3.5, 0);
 		sprite_superzombie.setSize(10, 10);
+
 		impactos = 0;
-		//POSICION.X = x;
-		//POSICION.Z = z;
-		//impactos = im;
-		//velocidad = v;
-		//radio = r;
+		POSICION.X = x;
+		POSICION.Y = 0;
+		POSICION.Z = z;
+		impactos = im;
+		velocidad = v;
+		radio = r;
 	}
 	~SUPERZOMBIE() {};
 	void DIBUJA();

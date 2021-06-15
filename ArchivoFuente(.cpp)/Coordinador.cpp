@@ -54,7 +54,7 @@ void COORDINADOR::TECLA(unsigned char key)
             _MUNDO.MUEVE((float)0.025);
             //ETSIDI::playMusica("sonidos/juego.wav", true);
         }
-        if (key == 's')
+        if (key == 's' || key == 'S')
         {
             _ESTADO = INICIO;
         }

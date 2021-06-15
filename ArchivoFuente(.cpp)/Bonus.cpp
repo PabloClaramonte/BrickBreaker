@@ -2,17 +2,18 @@
 #include "stdlib.h"
 #include <math.h>
 
+BONUS::BONUS(float ix, float iz)
+{
+    POSICION.X = ix;
+    POSICION.Z = iz;
 
+    rojo = verde = azul = 255;
+}
 
 BONUS::~BONUS()
 {
 
 }
-BONUS::BONUS()
-{
-    rojo = verde = azul = 255;
-}
-
 
 // Funcion principal del dibujo del bonus
 void BONUS::DIBUJA()
@@ -25,11 +26,7 @@ void BONUS::DIBUJA()
     glutSolidCube(1.5);
     glPopMatrix();
 }
-BONUS::BONUS(float ix, float iz)
-{
-    POSICION.X = ix;
-    POSICION.Z = iz;
-}
+
 PUNTOSCARTESIANOS BONUS::getPos()
 {
     PUNTOSCARTESIANOS POS;

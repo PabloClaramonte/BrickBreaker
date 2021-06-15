@@ -7,13 +7,9 @@
 class LISTAZOMBIES
 {
 private:
-
 	ZOMBIE* LISTA[MAX_ZOMBIES]; //Para almacenar objetos de tipo zombie
 	int NUMERO; //para llevar la cuenta de los zombies que hay 
-
-	
 public:
-
 	LISTAZOMBIES();
 	virtual ~LISTAZOMBIES();
 
@@ -40,6 +36,5 @@ public:
 	ZOMBIE* operator[](int i);
 
 	friend class INTERACCIONES;
-
 };
 

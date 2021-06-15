@@ -16,18 +16,17 @@ private:
 	SpriteSequence sprite;
 	float radio;
 public:
-	//Constructor con argumentos (sustituye al costructor sin argumentos para poder inicializar en menos líneas):
+	//Constructor por defecto
 	JUGADOR();
 
 	//Destrcutor por defecto.
 	~JUGADOR();
 
-	//Metodo encargado del dibujado del personaje.
+	//Metodo encargado de dibujar el personaje.
 	void DIBUJA(void);
-
+	//Movimiento del personaje.
 	void MUEVE(float t);
-
-
+	//Asignción de velocidad del personaje.
 	void setvel(float vx, float vz);
 
 	friend class INTERACCIONES;

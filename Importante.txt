@@ -15,4 +15,4 @@ Comandos para (GITHUB):
 -git push origin master //Sube los cambios que efectuemos. 
 
 ÚLTIMA MODIFICACIÓN:
-Pablo, 11 Junio - Niveles y cambio de estados
+Pablo, 15 Junio - JUEGO TERMINADO

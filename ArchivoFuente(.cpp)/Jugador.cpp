@@ -1,8 +1,8 @@
-//Zona de #includes.
-#include "Jugador.h"
-//Fin zona de #includes.
 
-JUGADOR::JUGADOR() : sprite("imagenes/HEROE.png", 4, 4)//sprite_lados("imagenes/zombie.png", 4, 2, 100)//, sprite_arriba("imagenes/HEROE_ARRIBA.png", 3), sprite_abajo("imagenes/HEROE_ABAJO.png", 3)
+#include "Jugador.h"
+
+
+JUGADOR::JUGADOR() : sprite("imagenes/HEROE.png", 4, 4)
 {
     sprite.setCenter(1.5, 1.5);
     sprite.setSize(7, 7);

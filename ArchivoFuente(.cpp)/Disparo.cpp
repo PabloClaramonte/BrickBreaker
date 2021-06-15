@@ -41,7 +41,6 @@ void DISPARO::MUEVE(float t)
 	POSICION.Z = POSICION.Z + VELOCIDAD.Z * t;
 }
 
-
 void DISPARO::setPos(float x, float z)
 {
 	POSICION.X = x;

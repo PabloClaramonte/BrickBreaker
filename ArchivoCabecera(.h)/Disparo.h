@@ -11,7 +11,6 @@ class DISPARO : public OBJETOMOVIL
 	SpriteSequence sprite;
 public:
 
-	//DISPARO();
 	DISPARO(float x = 0.0f, float z = 0.0f, float vx = 0.0f, float vz = 0.0f);
 	virtual ~DISPARO();
 
@@ -19,7 +18,6 @@ public:
 	void MUEVE(float t);
 	void SetVel(float vx, float vz);
 	void setPos(float x, float z);
-	
 
 	friend class MUNDO;
 	friend class INTERACCIONES;

@@ -29,7 +29,7 @@ void LISTADISPAROS::DESTRUIRDISPAROS()
 }
 void LISTADISPAROS::MUEVE(float t)
 {
-	for (int i = 0; i < NUM; i++)  //Hace falta implementar la posocion en tiempo real para poder mover
+	for (int i = 0; i < NUM; i++) 
 		LISTA[i]->MUEVE(t);
 }
 
@@ -39,11 +39,11 @@ void LISTADISPAROS::DIBUJA()
 		LISTA[i]->DIBUJA();
 }
 
-DISPARO* LISTADISPAROS::COLISION_MAPA(TABLERO t)//(variable de la pared del tablero*) Hay que implementar una interaccion entre Disparo y mapa
+DISPARO* LISTADISPAROS::COLISION_MAPA(TABLERO t)//(variable de la pared del tablero*) 
 {
 	for (int i = 0; i < NUM; i++)
 	{
-		if (INTERACCIONES::INTERACCION_BALA_TABLERO(*(LISTA[i]), t))
+		if (INTERACCIONES::COLISION(*(LISTA[i]), t))
 			return LISTA[i];
 	}
 	return 0;

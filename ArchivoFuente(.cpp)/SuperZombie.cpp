@@ -4,12 +4,8 @@ void SUPERZOMBIE::DIBUJA()
 {
     glPushMatrix();
     glTranslatef(POSICION.X, POSICION.Y, POSICION.Z);
-   // glColor3f(color, 0.0f, color);
-  //  glutSolidSphere(radio, 20, 20);
-   // glTranslatef(0, 0, 0);
-   // 
 
-    if (velocidad * cosf(ANGULO) > 0.01)sprite_superzombie.flip(false, false);
+    if (velocidad * cosf(ANGULO) > 0.01) sprite_superzombie.flip(false, false);
     if (velocidad * cosf(ANGULO) < -0.01)sprite_superzombie.flip(true, false);
     if ((velocidad * cosf(ANGULO) > 0.01) && (velocidad * cosf(ANGULO) < -0.01))
         sprite_superzombie.setState(0);

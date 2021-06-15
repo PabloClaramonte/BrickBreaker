@@ -3,7 +3,6 @@
 class PUNTOSCARTESIANOS
 {
 public:
-
 	//Son las tres variables sobre las cuales dependera todo el resto de los elementos, para poderlos situar en el mundo.
 	float X, Y, Z;
 

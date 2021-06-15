@@ -3,12 +3,7 @@
 
 MUNDO::MUNDO()
 {
-	IMPACTO = 0;
-	NIVEL = 0;
-	NUMERODECOLUMNAS = 0;
-	direccion_bala = 0;
-	modo_escopeta = false;
-	num_disp_escp = 0;
+	INICIALIZA();
 }
 
 MUNDO::~MUNDO()
@@ -29,8 +24,13 @@ void MUNDO::CAMARA(void)
 
 void MUNDO::INICIALIZA()
 {
-	IMPACTO = false;
+	IMPACTO = 0;
 	NIVEL = 0;
+	NUMERODECOLUMNAS = 0;
+	probabilidad = 0;
+	direccion_bala = 0;
+	modo_escopeta = false;
+	num_disp_escp = 0;
 
 	CARGARNIVEL();
 }
@@ -102,8 +102,9 @@ void MUNDO::TECLADO(unsigned char TECLA)
 		}	
 		HEROE.setvel(0.0, 0.0);
 	}
-	//DISPARO CON ESCOPETA//
-	if (TECLA == 'b' || TECLA == 'B' && modo_escopeta==true)
+
+	//DISPARO CON ESCOPETA
+	if ((TECLA == 'b' || TECLA == 'B') && modo_escopeta==true)
 	{
 		ETSIDI::play("sonidos/escopeta.wav");
 		num_disp_escp--;
@@ -159,7 +160,7 @@ void MUNDO::MUEVE(float t)
 	ZOMBIES.SIGUE_A_JUGADOR(HEROE);
 	ZOMBIES.CHOQUE_ENTRE_ZOMBIES();
 	BALAS.MUEVE(t);
-	INTERACCIONES::INTERACCION_JUGADOR_TABLERO(HEROE, SUELO);
+	INTERACCIONES::COLISION(HEROE, SUELO);
 
 	//Interacción columnas con personaje:
 	COLUMNAS.CHOQUE_JUGADOR(HEROE);
@@ -184,12 +185,11 @@ void MUNDO::MUEVE(float t)
 	if (auxp != 0)
 		BALAS.ELIMINAR(auxp);
 
-
 	for (int i = 0; i < BALAS.getNumero(); i++)
 	{
 		for (int u = 0; u < ZOMBIES.getNumero(); u++)
 		{
-			if (INTERACCIONES::INTERACCION_BALA_ZOMBIE(*BALAS[i], *ZOMBIES[u]))
+			if (INTERACCIONES::COLISION(*BALAS[i], *ZOMBIES[u]))
 			{
 				probabilidad = (rand() % 3);
 				if (ZOMBIES[u]->getImpacto() == 5)
@@ -214,7 +214,7 @@ void MUNDO::MUEVE(float t)
 	{
 		for (int u = 0; u < COLUMNAS.getNumero(); u++)
 		{
-			if (INTERACCIONES::INTERACCION_BALA_COLUMNA(*BALAS[i], *COLUMNAS[u]))
+			if (INTERACCIONES::COLISION(*BALAS[i], *COLUMNAS[u]))
 			{
 				BALAS.ELIMINAR(BALAS[i]);
 				break;
@@ -227,7 +227,7 @@ void MUNDO::MUEVE(float t)
 	{
 		for (int u = 0; u < COLUMNAS.getNumero(); u++)
 		{
-			INTERACCIONES::INTERACCION_ZOMBIE_COLUMNA(*ZOMBIES[i], *COLUMNAS[u]);
+			INTERACCIONES::COLISION(*ZOMBIES[i], *COLUMNAS[u]);
 		}
 	}
 
@@ -248,7 +248,6 @@ bool MUNDO::CARGARNIVEL()
 	ZOMBIES.DESTRUYECONTENIDO();
 	COLUMNAS.DESTRUYECONTENIDO();
 	BALAS.DESTRUIRDISPAROS();
-	//_BONUS.DESTRUIRBONUS();
 
 	if (NIVEL == 1)
 	{
@@ -292,21 +291,21 @@ void MUNDO::MAPAFACIL(void)
 
 	_BONUS.DESTRUIRBONUS();
 
-	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //Construye e inicializa los objetos columna
 
 	COLUMNAS.AGREGAR(AUX1); // agregar a la lista
 
-	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); 
 
-	COLUMNAS.AGREGAR(AUX2); // agregar a la lista
+	COLUMNAS.AGREGAR(AUX2); 
 
-	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); 
 
-	COLUMNAS.AGREGAR(AUX3); // agregar a la lista
+	COLUMNAS.AGREGAR(AUX3);
 
-	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); 
 
-	COLUMNAS.AGREGAR(AUX4); // agregar a la lista
+	COLUMNAS.AGREGAR(AUX4);
 
 
 	for (int i = 0; i < 2; i++)
@@ -339,21 +338,21 @@ void MUNDO::MAPAFACIL(void)
 
 void MUNDO::MAPAMEDIO(void)
 {
-	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //Construye e inicializa los objetos columna
 
 	COLUMNAS.AGREGAR(AUX1); // agregar a la lista
 
-	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4);
 
-	COLUMNAS.AGREGAR(AUX2); // agregar a la lista
+	COLUMNAS.AGREGAR(AUX2);
 
-	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4);
 
-	COLUMNAS.AGREGAR(AUX3); // agregar a la lista
+	COLUMNAS.AGREGAR(AUX3);
 
-	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4);
 
-	COLUMNAS.AGREGAR(AUX4); // agregar a la lista
+	COLUMNAS.AGREGAR(AUX4);
 
 
 
@@ -394,24 +393,23 @@ void MUNDO::MAPAMEDIO(void)
 
 void MUNDO::MAPADIFICIL(void)
 {
-
-	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX1 = new COLUMNA(15.0f, 15.0f, 4); //Construye e inicializa los objetos columna
 
 	COLUMNAS.AGREGAR(AUX1); // agregar a la lista
 
-	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX2 = new COLUMNA(45.0f, 15.0f, 4);
 
-	COLUMNAS.AGREGAR(AUX2); // agregar a la lista
+	COLUMNAS.AGREGAR(AUX2);
 
-	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX3 = new COLUMNA(15.0f, 45.0f, 4);
 
-	COLUMNAS.AGREGAR(AUX3); // agregar a la lista
+	COLUMNAS.AGREGAR(AUX3);
 
-	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4); //COnstruye e inicializa los objetos columna
+	COLUMNA* AUX4 = new COLUMNA(45.0f, 45.0f, 4);
+
+	COLUMNAS.AGREGAR(AUX4);
 
 
-
-	COLUMNAS.AGREGAR(AUX4); // agregar a la lista
 	for (int i = 0; i < 3; i++)
 	{
 		ZOMBIE* AUX = new ZOMBIE(2.0, 12.0f + (i * 12), 0.0f, (float)((rand() % 4) + 1) * 0.01, 4);
@@ -448,7 +446,4 @@ void MUNDO::MAPADIFICIL(void)
 
 	SUPERZOMBIE* sz4 = new SUPERZOMBIE(2.5f, 0.0f, 60.0f, 0.05f,0);
 	ZOMBIES.AGREGAR(sz4);
-
-
-
 }

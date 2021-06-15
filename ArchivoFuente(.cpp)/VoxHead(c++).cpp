@@ -44,12 +44,7 @@ void OnDraw(void)
 
 	//Define el punto de vista.
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	
-	//CAMARA ESTÁTICA POR DEFECTO:
-	//gluLookAt(20,40,60, // Posicion de la camara.
-	//	20, 0, 20, // Punto hacia el que mira la camara.
-	//	0, 1, 0); // Vector de autogiro de la camara (No Tocar). 	
+	glLoadIdentity();	
 
 	//Inicio código dibujo y cámara.
 	VOXHEAD.CAMARA();

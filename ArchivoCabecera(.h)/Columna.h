@@ -8,8 +8,7 @@ class COLUMNA
 private:
 	int TAMANOCOLUMNA;
 	PUNTOSCARTESIANOS POSICION;
-public:
-	COLUMNA(); 
+public: 
 	COLUMNA(float x = 0.0f, float z = 0.0f, int t = 0);
 	~COLUMNA();
 

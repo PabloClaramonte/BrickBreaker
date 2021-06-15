@@ -11,7 +11,7 @@ protected:
 	float velocidad; //Atributo encargado de saber en cuantas unidades se incrementa la posicion del objeto cada ciclo de 25ms.
 public:
 	OBJETOMOVIL() { velocidad = 0.0f; }
-	virtual ~OBJETOMOVIL() {}; //Importante que el destructor sea virtual
+	virtual ~OBJETOMOVIL() {}; //Importante que el destructor sea virtual para enlace dinámico.
 
 	//Funciones virtuales puras:
 	virtual void MUEVE(float t) = 0;

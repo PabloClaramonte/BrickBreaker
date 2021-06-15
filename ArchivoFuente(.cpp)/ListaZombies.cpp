@@ -1,5 +1,4 @@
 #include "ListaZombies.h"
-//#include "..\ArchivoCabecera(.h)\ListaZombies.h"
 
 LISTAZOMBIES::LISTAZOMBIES()
 {
@@ -73,7 +72,7 @@ void LISTAZOMBIES::CHOQUE_ENTRE_ZOMBIES()
 {
     for (int i = 0; i < NUMERO - 1; i++)
         for (int j = i + 1; j < NUMERO; j++)
-            INTERACCIONES::CHOQUE_ENTRE_ZOMBIES(*(LISTA[i]), *(LISTA[j]),HEROE);
+            INTERACCIONES::COLISION(*(LISTA[i]), *(LISTA[j]),HEROE);
 }
 
 
@@ -82,7 +81,7 @@ ZOMBIE* LISTAZOMBIES::COLISION(JUGADOR HEROE)
 {
     for (int i = 0; i < NUMERO; i++)
     {
-        if (INTERACCIONES::INTERACCION_JUGADOR_ZOMBIE(HEROE, *(LISTA[i])))
+        if (INTERACCIONES::COLISION(HEROE, *(LISTA[i])))
             return LISTA[i];
     }
 

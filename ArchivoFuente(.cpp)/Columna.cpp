@@ -1,11 +1,5 @@
 #include <Columna.h>
 
-
-COLUMNA::COLUMNA()
-{
-	TAMANOCOLUMNA = 4;
-}
-
 COLUMNA::COLUMNA(float x, float z, int t)
 {
 	POSICION.X = x;

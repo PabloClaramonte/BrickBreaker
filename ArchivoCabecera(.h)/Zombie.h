@@ -12,11 +12,7 @@ private:
 	int impactos;
 	float radio;
 	SpriteSequence sprite_zombie;
-
 public:
-
-	//ZOMBIE(); 
-
 	ZOMBIE(float r=0.0f, float x = 0.0f, float z = 0.0f, float v = 0.0f, int im=0);
 	~ZOMBIE();
 
@@ -26,7 +22,6 @@ public:
 	int getImpacto();
 
 	PUNTOSCARTESIANOS getPos();
-
 
 	friend class INTERACCIONES;
 };
