@@ -18,16 +18,16 @@ void COORDINADOR::TECLA(unsigned char key)
         {
             _MUNDO.INICIALIZA();
             _ESTADO = JUEGO;
-            ETSIDI::playMusica("sonidos/juego.wav", true);
+            ETSIDI::playMusica("sonidos/juego.mp3", true);
         }
         if (key == 's' || key == 'S')
             exit(0);
     }
     else if (_ESTADO == JUEGO) {
-        _MUNDO.TECLADO(key); //Función de las teclas del mundo
+        _MUNDO.TECLADO(key); //FunciÃ³n de las teclas del mundo
         if (key == 'p' || key == 'P') {
             _ESTADO = PAUSA;
-            ETSIDI::playMusica("sonidos/juego.wav", false);
+            ETSIDI::playMusica("sonidos/juego.mp3", false);
         }
     }
     else if (_ESTADO == GAMEOVER)
